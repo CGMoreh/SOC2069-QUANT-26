@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>SOC2069 | 2026</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<link href="../../Materials/Info/info_w2.html" rel="next">
+<link href="../../Materials/Notes/notes_w1.html" rel="prev">
+<link href="../../site_pics/logo_name_white.jpg" rel="icon" type="image/jpeg">
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-f1e2abeed0a61b02a6ba2cd28422ece3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script src="../../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../labcss.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title"><strong>SOC2069</strong> <i class="fa-solid fa-chart-line" aria-label="chart-line"></i> Quantitative Methods</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../../Materials/index.html" aria-current="page"> 
+<span class="menu-text">Materials</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../Data/index.html"> 
+<span class="menu-text">Data</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://ncl.instructure.com/courses/68718" target="_blank"> 
+<span class="menu-text"><iconify-icon role="img" inline="" icon="arcticons:canvasstudent" style="font-size: l;" aria-label="Icon canvasstudent from arcticons Iconify.design set." title="Icon canvasstudent from arcticons Iconify.design set."></iconify-icon> Canvas</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Materials/Info/info_w1.html">Workshop 1</a></li><li class="breadcrumb-item"><a href="../../Materials/Worksheets/worksheet_w1.html">[W1] Worksheet</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../site_pics/logo_name.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../../site_pics/logo_name.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Materials/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Outline and materials</span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Software</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Materials/Info/jasp-software.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">JASP <img src="../../Materials/pics/JASP_logo.png" height="16" style="margin-top: -2px;"></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Introduction</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Materials/Info/introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Info and Readings</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Materials/Notes/notes_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Slides and Notes</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Workshop 1</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Materials/Info/info_w1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">[W1] Info and Readings</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Materials/Notes/notes_w1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">[W1] Slides and Notes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Materials/Worksheets/worksheet_w1.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">[W1] Worksheet</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Workshop 2</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Materials/Info/info_w2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">[W2] Info and Readings</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Materials/Notes/notes_w2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">[W2] Slides and Notes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Materials/Worksheets/worksheet_w2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">[W2] Worksheet</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Workshop 3</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Materials/Info/info_w3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">[W3] Info and Readings</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Materials/Notes/notes_w3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">[W3] Slides and Notes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Materials/Worksheets/worksheet_w3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">[W3] Worksheet</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">Workshop 4</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Materials/Info/info_w4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">[W4] Info and Readings</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Materials/Notes/notes_w4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">[W4] Slides and Notes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Materials/Worksheets/worksheet_w4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">[W4] Worksheet</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
+ <span class="menu-text">Workshop 5</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Materials/Info/info_w5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">[W5] Info and Readings</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Materials/Notes/notes_w5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">[W5] Slides and Notes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Materials/Worksheets/worksheet_w5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">[W5] Worksheet</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#workshop-1-worksheet" id="toc-workshop-1-worksheet" class="nav-link active" data-scroll-target="#workshop-1-worksheet">Workshop 1 Worksheet</a>
+  <ul class="collapse">
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link" data-scroll-target="#learning-outcomes">Learning outcomes</a></li>
+  <li><a href="#exercise-0-setup" id="toc-exercise-0-setup" class="nav-link" data-scroll-target="#exercise-0-setup">Exercise 0: Setup</a></li>
+  <li><a href="#exercise-1-univariate-descriptive-statistics-using-jasp" id="toc-exercise-1-univariate-descriptive-statistics-using-jasp" class="nav-link" data-scroll-target="#exercise-1-univariate-descriptive-statistics-using-jasp">Exercise 1: Univariate descriptive statistics using <strong>JASP</strong></a>
+  <ul class="collapse">
+  <li><a href="#task-1.-getting-the-data" id="toc-task-1.-getting-the-data" class="nav-link" data-scroll-target="#task-1.-getting-the-data">Task 1. Getting the data</a></li>
+  <li><a href="#task-2.-opening-the-data-in-jasp" id="toc-task-2.-opening-the-data-in-jasp" class="nav-link" data-scroll-target="#task-2.-opening-the-data-in-jasp">Task 2. Opening the data in JASP</a></li>
+  <li><a href="#task-3.-switch-between-the-analyses-view-and-the-data-editor-view" id="toc-task-3.-switch-between-the-analyses-view-and-the-data-editor-view" class="nav-link" data-scroll-target="#task-3.-switch-between-the-analyses-view-and-the-data-editor-view">Task 3. Switch between the Analyses view and the Data Editor view</a></li>
+  <li><a href="#task-4.-univariate-descriptive-statistics" id="toc-task-4.-univariate-descriptive-statistics" class="nav-link" data-scroll-target="#task-4.-univariate-descriptive-statistics">Task 4. Univariate descriptive statistics</a></li>
+  <li><a href="#task-5.-change-the-type-of-a-variable-for-a-single-analysis" id="toc-task-5.-change-the-type-of-a-variable-for-a-single-analysis" class="nav-link" data-scroll-target="#task-5.-change-the-type-of-a-variable-for-a-single-analysis">Task 5. Change the <em>type</em> of a variable for a single analysis</a></li>
+  <li><a href="#task-6.-select-additional-summary-statistics" id="toc-task-6.-select-additional-summary-statistics" class="nav-link" data-scroll-target="#task-6.-select-additional-summary-statistics">Task 6. Select additional summary statistics</a></li>
+  <li><a href="#task-7.-on-your-own-describe-other-variables-in-the-dataset" id="toc-task-7.-on-your-own-describe-other-variables-in-the-dataset" class="nav-link" data-scroll-target="#task-7.-on-your-own-describe-other-variables-in-the-dataset">Task 7. On your own: describe other variables in the dataset</a></li>
+  <li><a href="#task-8.-save-your-analysis" id="toc-task-8.-save-your-analysis" class="nav-link" data-scroll-target="#task-8.-save-your-analysis">Task 8. Save your analysis</a></li>
+  </ul></li>
+  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
+  <li><a href="#exercise-3-begin-your-analysis-for-assignment-2" id="toc-exercise-3-begin-your-analysis-for-assignment-2" class="nav-link" data-scroll-target="#exercise-3-begin-your-analysis-for-assignment-2">Exercise 3: Begin your analysis for Assignment 2</a></li>
+  <li><a href="#take-home-exercises" id="toc-take-home-exercises" class="nav-link" data-scroll-target="#take-home-exercises">Take-home exercises</a>
+  <ul class="collapse">
+  <li><a href="#exercise-h1-explore-the-world-values-survey-data-documentation" id="toc-exercise-h1-explore-the-world-values-survey-data-documentation" class="nav-link" data-scroll-target="#exercise-h1-explore-the-world-values-survey-data-documentation">Exercise H1: Explore the <em>World Values Survey</em> data documentation</a></li>
+  <li><a href="#exercise-h2-explore-the-european-social-survey-data-documentation" id="toc-exercise-h2-explore-the-european-social-survey-data-documentation" class="nav-link" data-scroll-target="#exercise-h2-explore-the-european-social-survey-data-documentation">Exercise H2: Explore the <em>European Social Survey</em> data documentation</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#jasp-solutions" id="toc-jasp-solutions" class="nav-link" data-scroll-target="#jasp-solutions">JASP solutions</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Materials/Info/info_w1.html">Workshop 1</a></li><li class="breadcrumb-item"><a href="../../Materials/Worksheets/worksheet_w1.html">[W1] Worksheet</a></li></ol></nav></header>
+
+
+
+
+<section id="workshop-1-worksheet" class="level1">
+<h1>Workshop 1 Worksheet</h1>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>The lecture has introduced the complexities of measuring sociological concepts. Throughout this short course, we will be using the measurement and estimation of <strong><em>social trust</em></strong> as a guiding example. However, the aim is to help you build up your skills and confidence in asking and addressing research questions of your own, and the assessment questions will ask you to analyse some other chosen research topic.</p>
+<p>In this first workshop, you will begin your data analysis journey by exploring some online sources of cross-national sociological data available for secondary analysis, and you will practice performing basic descriptive analyses of selected variables.</p>
+</section>
+<section id="learning-outcomes" class="level2">
+<h2 class="anchored" data-anchor-id="learning-outcomes">Learning outcomes</h2>
+<p>By the end of the session you will have gained familiarity with:</p>
+<ul>
+<li>some important UK-focused and international survey programmes and freely available data sources</li>
+<li>the challenges of measuring sociological concepts using surveys</li>
+<li>the basics of using a statistical data analysis software package: <a href="https://jasp-stats.org/">JASP</a></li>
+</ul>
+</section>
+<section id="exercise-0-setup" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-0-setup">Exercise 0: Setup</h2>
+<p>Create a folder to store your data for this module on your institutional <strong>OneDrive</strong> platform (e.g.&nbsp;C:\<strong>OneDrive - Newcastle University</strong>\SOC2069). Within that folder, create a sub-folder called “Data”. You will then be able to save data files and documentation as you progress.</p>
+</section>
+<section id="exercise-1-univariate-descriptive-statistics-using-jasp" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1-univariate-descriptive-statistics-using-jasp">Exercise 1: Univariate descriptive statistics using <strong>JASP</strong></h2>
+<p><code>About 30 minutes</code></p>
+<p>The lecture has introduced some elementary concepts of descriptive statistics. In this first exercise we will practice performing univariate descriptive statistics using a statistical software package called <strong>JASP</strong>.</p>
+<section id="task-1.-getting-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="task-1.-getting-the-data">Task 1. Getting the data</h3>
+<p>As a first step, we need to find some data to explore. We will be using a number of small datasets that can be downloaded from the <a href="../../Data/index.html">Data</a> page. On that page, you can roll down the first section called <strong><em>Questions of Trust</em></strong> and find the download button.</p>
+<p>Under the <strong><em>Questions of Trust</em></strong> section you will find a collection of six small datasets compiled from original sources to exemplify several different ways in which the <strong>“social trust”</strong> / <strong>“generalised trust”</strong> question has been asked in social surveys. The datasets are helpful for thinking through questions about concept measurement similar to those asked by <span class="citation" data-cites="BekkersSandberg2019GradingGeneralizedTrust">Bekkers and Sandberg (<a href="#ref-BekkersSandberg2019GradingGeneralizedTrust" role="doc-biblioref">2019</a>)</span>.</p>
+<p>The focus of the datasets is on a single country: Great Britain / United Kingdom. The original datasets have been reduced to a small number of variables: (1) respondent ID number; (2) questionnaire subsample (if relevant and available); (3) age (both <em>numeric</em> and <em>categorical (7 categories)</em> where available); (4) sex; (5) and <em>social trust</em>. The order of the variables in the dataset, variable names and labels, and value/category codes and labels - including missing values - were left as in the original surveys (the only exception is the <code>gb-cls23-trust_nm</code> dataset, where the missing values have been excluded due to the large size of the original file - over 100,000 rows - which cannot be opened by JASP). The datasets can be downloaded in <code>.sav</code> (SPSS) format and loaded directly in JASP or R.</p>
+<p>The available datasets and their original sources are:</p>
+<ul>
+<li>British Social Attitudes Survey 2024 (<code>gb-bsa24-trust.sav</code>)</li>
+<li>British Social Attitudes Survey 2023 (<code>gb-bsa23-trust.sav</code>)</li>
+<li>British Social Attitudes Survey 2010 (<code>gb-bsa10-trust.sav</code>)</li>
+<li>Community Life Survey 2023-24 (<code>gb-cls23-trust_nm.sav</code>)</li>
+<li>Citizenship Survey 2010-11 (<code>gb-cs10-trust.sav</code>)</li>
+<li>European Social Survey, Round 11, 2023-24 (UK sample) (<code>gb-ess11-trust.sav</code>)</li>
+</ul>
+<p>Download each dataset to the “Data” folder you created in <strong>Exercise 0</strong> earlier. As we will only be using these datasets in this workshop, it may be a clean approach to create another sub-folder for this week (e.g.&nbsp;“w1) and store the datasets there.</p>
+</section>
+<section id="task-2.-opening-the-data-in-jasp" class="level3">
+<h3 class="anchored" data-anchor-id="task-2.-opening-the-data-in-jasp">Task 2. Opening the data in JASP</h3>
+<p>Open the <strong>JASP</strong> software from the <strong><em>Start</em></strong> menu. If you are using your own laptop, you can install the latest version of JASP from <a href="https://jasp-stats.org/" class="uri">https://jasp-stats.org/</a>.</p>
+<p>The opening page should look something like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../pics/jasp-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="../pics/jasp-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></a></p>
+</figure>
+</div>
+<p>To open a dataset stored on your computer, you can navigate to the <strong><em>three horizontal bars (“hamburger”)</em></strong> menu icon &gt; <strong><em>Open</em></strong> &gt; <strong><em>Computer</em></strong> &gt; <strong><em>Browse</em></strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../pics/jasp-1-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="../pics/jasp-1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></a></p>
+</figure>
+</div>
+<p>In JASP you can work on one dataset at a time (or in one window), but you can open several datasets in separate JASP instances/windows. For now, work with one dataset. When you finish your analysis, you can save both the dataset and the outputs you generated as one <code>.jasp</code> file, which you can then open later and continue or alter your analyses.</p>
+<p>Open the <code>gb-ess11-trust.sav</code> dataset. You should now see something like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/paste-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="images/paste-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="649"></a></p>
+</figure>
+</div>
+<p>You can scroll up-down and left-right in the dataset to have a look at the spreadsheet and its contents. In this case, the dataset is very small, only contains four variables, so there is no need to scroll horizontally to inspect variables as it all fits on the screen.</p>
+</section>
+<section id="task-3.-switch-between-the-analyses-view-and-the-data-editor-view" class="level3">
+<h3 class="anchored" data-anchor-id="task-3.-switch-between-the-analyses-view-and-the-data-editor-view">Task 3. Switch between the Analyses view and the Data Editor view</h3>
+<p>What we see is the “analysis view”, the main window that we will be using to perform analyses. We can also manually edit our data if we ever need to by clicking on the “Edit Data” tab:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/paste-6.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="images/paste-6.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="461"></a></p>
+</figure>
+</div>
+<p>That will take us to the “data view”, which is a dangerous place to be because we can manually alter our data, maybe even involuntarily. We will often need to perform changes to our data, but for now we can return to the analysis view window by clicking on the “Analyses” tab:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/paste-9.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="images/paste-9.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="431"></a></p>
+</figure>
+</div>
+</section>
+<section id="task-4.-univariate-descriptive-statistics" class="level3">
+<h3 class="anchored" data-anchor-id="task-4.-univariate-descriptive-statistics">Task 4. Univariate descriptive statistics</h3>
+<p>We will explore some <em>descriptive statistics</em> using the <strong><em>Descriptives</em></strong> &gt; <strong><em>Descriptive Statistics</em></strong> menu option. If you click through, you should see something like this:</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 67.8%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/paste-66.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="images/paste-66.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="503"></a></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 32.2%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/paste-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="images/paste-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="239"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Step 1:</strong> Identify the variable referring to “social/generalised trust” and move that variable to the <strong><em>Variables</em></strong> field</p>
+<p><strong>Step 2:</strong> Under <strong><em>Tables</em>,</strong> select <strong><em>Frequency tables</em></strong> and set the <strong><em>Maximum distinct values</em></strong> to a much higher number (e.g.&nbsp;100 - this latter step is only needed because the <code>ppltrst</code> variable has 11 valid categories and the default maximum number of distinct values for Frequency tables to be produced is 10. This default setting is reasonable, given that it is difficult to read off too much useful information from a long frequency table, as we will see in the output):</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/paste-68.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="images/paste-68.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="242"></a></p>
+</figure>
+</div>
+<p><strong>Step 3:</strong> Under <strong><em>Basic plots</em></strong> select <strong><em>Distribution plots</em></strong> as well</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/paste-67.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="images/paste-67.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="180"></a></p>
+</figure>
+</div>
+<p>Now check the output that was automatically generated in the panel on the right and interpret the results; use the guiding questions below</p>
+<div class="questionblock">
+<p><strong>Questions</strong></p>
+<ul>
+<li>How many levels (categories) does the variable have in your dataset? Is it what you had expected based on the questionnaire information from the lecture slides?</li>
+<li>Does the variables have any missing values in your dataset?</li>
+<li>What is the “Mode” of the variable, and what does that mean?</li>
+<li>What percentage of the respondents in your dataset had answered that “Most people can be trusted”?</li>
+<li>What is the most common answer category, and what do these descriptive statistics tell you about social trust in this sample?</li>
+<li>Is this “social trust” variable a <em>categorical</em> variable, or should we treat it as a <em>scale</em> variable instead?</li>
+</ul>
+</div>
+</section>
+<section id="task-5.-change-the-type-of-a-variable-for-a-single-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="task-5.-change-the-type-of-a-variable-for-a-single-analysis">Task 5. Change the <em>type</em> of a variable for a single analysis</h3>
+<p>You may have answered to the last question point that our “social trust” variable (<code>ppltrst</code>) should instead be treated as a “Scale” variable, because it measures its concept on a relatively “long” discrete ordinal scale running from 0 to 10. If so, then can can change the <em>type</em> of the variable to “Scale” so that JASP recognises it as such in statistical analyses.</p>
+<p><strong>Step 1:</strong> Begin a new analysis in the same JASP workbook and it will be added to our current work; let’s click again on the <strong><em>Descriptives</em></strong> &gt; <strong><em>Descriptive Statistics</em></strong> menu option and start a new descriptive analysis;</p>
+<p><strong>Step 2:</strong> Let’s move the “social trust” variable again into the <strong><em>Variables</em></strong> field;</p>
+<p><strong>Step 3:</strong> But now let’s click on the measurement type icon, which will bring up the options we see in the image below:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/paste-3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="images/paste-3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="484"></a></p>
+</figure>
+</div>
+<p>Change the measurement type to “Scale” and check how the <strong><em>Descriptive Statistics</em></strong> output table on the right hand side has changed. Now that the variable is recognised as a numeric scale measure, we are shown the full set of relevant statistics: Minimum and Maximum values, the Mean, and the Standard Deviation.</p>
+</section>
+<section id="task-6.-select-additional-summary-statistics" class="level3">
+<h3 class="anchored" data-anchor-id="task-6.-select-additional-summary-statistics">Task 6. Select additional summary statistics</h3>
+<p>We can select many additional descriptive statistic if we want to by clicking on the <strong><em>Statistics</em></strong> option:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/paste-5.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="images/paste-5.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="464"></a></p>
+</figure>
+</div>
+<p>Check the <strong><em>Mode</em></strong> and the <strong><em>Median</em></strong> boxes too and look at how the output table has changed. Think about the questions below.</p>
+<div class="questionblock">
+<p><strong>Questions</strong></p>
+<ul>
+<li>What is the average level of social trust in this sample?</li>
+<li>What is median level of trust in this sample? Comapring the median to the mean, what can we say about the distribution of our social trust variable?</li>
+<li>What is the most common answer category?</li>
+<li>Is this “social trust” variable a <em>categorical</em> variable, or should we treat it as a <em>scale</em> variable instead?</li>
+</ul>
+</div>
+</section>
+<section id="task-7.-on-your-own-describe-other-variables-in-the-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="task-7.-on-your-own-describe-other-variables-in-the-dataset">Task 7. On your own: describe other variables in the dataset</h3>
+<p>Start a new descriptive analysis in this same JASP file and describe the <em>age</em> and the <em>sex</em> variable, just like we have done with “social trust”.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 36.2%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/paste-70.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="images/paste-70.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="131"></a></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 63.8%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/paste-69.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="images/paste-69.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="231"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="task-8.-save-your-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="task-8.-save-your-analysis">Task 8. Save your analysis</h3>
+<p>To save your analysis, click through <strong><em>Hamburger menu tab</em></strong> &gt; <strong><em>Save as</em></strong> &gt; <strong><em>Computer</em></strong> &gt; <strong><em>Browse</em></strong> and save the analysis in your data folder with the name “ess11-example.jasp” (or anything else that you find useful). Once it’s saved, you can close the analysis. You can now open the <code>.jasp</code> file you saved and continue or modify the analysis you have started.</p>
+<p>Once your analysis is saved, you can close this JASP session.</p>
+</section>
+</section>
+<section id="exercise-2" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
+<p>Now open a new JASP session and import another of the downloaded datasets. Perform a univariate descriptive analysis of the variables related to social trust and other variables in the dataset similar to what you have done above. When complete, save that analysis to a <code>.jasp</code> file too.</p>
+<p>To practice, explore a few of the downloaded datasets.</p>
+</section>
+<section id="exercise-3-begin-your-analysis-for-assignment-2" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3-begin-your-analysis-for-assignment-2">Exercise 3: Begin your analysis for Assignment 2</h2>
+<p>Below are some research questions that you can choose from to address in Assignment 2:</p>
+<ol type="A">
+<li>Are religious people more satisfied with life?</li>
+<li>Are older people more likely to see the death penalty as justifiable?</li>
+<li>What factors are associated with opinions about future European Union enlargement among Europeans?</li>
+<li>Is higher internet use associated with stronger anti-immigrant sentiments?</li>
+<li>How does victimisation relate to trust in the police?</li>
+<li>What factors are associated with belief in life after death?</li>
+<li>Are government/public sector employees more inclined to perceive higher levels of corruption than those working in the private sector?</li>
+</ol>
+<p>For now, choose one question that you find most sympathetic (you don’t need to stick with it for the assignment, but you could if you wanted to!). All of the questions can be answered with at least one of the survey datasets available on the <a href="../../Data/index.html">Data</a> page under the “Assessment Data” heading, and often more than one dataset contains potentially relevant variables.</p>
+<ol type="1">
+<li><p>Identify your “explanandum” - i.e.&nbsp;the core phenomenon/concept/behaviour/etc. that the research question aims to explain. The questions all postulate a relationship/association between two or more variables (the topic of the next workshop), but for now, think carefully about the question and how it is formulated, and identify which is the variable that will be the target of explanation, and which variable (if mentioned) will be used for explaining it. For example, in the research question “Does education increase social trust?”, the variable we are interested in explaining is “social trust”, while “education” is the variable that we will use to explain it. In later workshops we will develop better vocabulary to describe associations between variables.</p></li>
+<li><p>Once the core phenomenon to be explained is identified, look through the two survey questionnaires to identify any variables that might exist in the dataset that captures it. This may require some trial-and-error with testing out search words.</p></li>
+<li><p>Once you have found one (or several) candidate variable(s), navigate to the relevant survey website and select a single country for which to download data. You will be working with single-country datasets for your assignment. Download the dataset, import it into JASP, find the relevant variable and perform some descriptive analysis on the chosen variable as you have done in the previous exercise.</p></li>
+<li><p>Make sure to add your noted and interpretations on the analysis results and save your analysis for later. You could create a new sub-folder for your “Assignment 2” work and save your analysis there for future use. If you end up liking your chosen question, you can continue this analysis in the next workshop.</p></li>
+</ol>
+</section>
+<section id="take-home-exercises" class="level2">
+<h2 class="anchored" data-anchor-id="take-home-exercises">Take-home exercises</h2>
+<section id="exercise-h1-explore-the-world-values-survey-data-documentation" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-h1-explore-the-world-values-survey-data-documentation">Exercise H1: Explore the <em>World Values Survey</em> data documentation</h3>
+<ol type="1">
+<li>Navigate to the <a href="https://www.worldvaluessurvey.org/WVSContents.jsp">The World Values Survey (WVS)</a> website and read about the World Values Survey.</li>
+</ol>
+<div class="questionblock">
+<p><strong>Don’t spend too much time browsing the website, but make sure you can answer the following questions:</strong></p>
+<ul>
+<li>When was the WVS started, and how many waves of data collection have there been so far?</li>
+<li>In which year(s) did the most recent wave of data collection take place?</li>
+<li>How many countries were covered by the most recent wave?</li>
+<li>Can you name some of the topics covered by the WVS?</li>
+<li>What population are the national samples representative of?</li>
+<li>What is the general minimum sample size per country?</li>
+<li>Is the WVS data freely available for academic research purposes?</li>
+<li>Do you need to cite/reference the WVS data if you use it in your research?</li>
+<li><strong>Bonus</strong>: what is the difference between a <em>time series</em> dataset and a <em>panel</em> dataset, and which of the two can the WVS provide? (tip: look under <em>Data and Documentation &gt; Data Download &gt; Timeseries (1981-2022)</em> for a concise discussion)</li>
+</ul>
+</div>
+<ol start="2" type="1">
+<li>Navigate to <strong><em>Data and Documentation</em></strong> &gt; <strong><em>Data Download</em></strong> &gt; <strong><em>Wave 7 (2017-2022)</em></strong> page and explore the <em>Questionnaire</em> and <em>Documentation</em>. Download the <strong>Master Questionnaire</strong> and the <strong>Codebook</strong> documents and using the search function identify all the survey questions and variables that relate to <strong>“trust”</strong>.</li>
+</ol>
+<div class="questionblock">
+<p><strong>Questions</strong></p>
+<ul>
+<li>How many questions relating to <strong><em>trust</em></strong> have you identified in the questionnaires?</li>
+<li>What is the difference between the <em>questionnaire</em> and the <em>codebook</em>?</li>
+<li>In how many different ways is <em>trust</em> measured in the WVS?</li>
+<li>What are, in your opinion, the advantages and disadvantages of the different measurements of <em>trust</em>?</li>
+</ul>
+</div>
+<ol start="3" type="1">
+<li><p>Within the “Data” sub-folder you created earlier, create another sub-folder called “WVS7”. You can now save the <strong>Master Questionnaire</strong> and the <strong>Codebook</strong> into that folder, and because it is stored on the institutional <strong>OneDrive</strong>, you will always have access to it on any computer, once you log in to your institutional Microsoft Windows account.</p></li>
+<li><p>In the <strong><em>Select a country</em></strong> panel on the right side of the <strong><em>Wave 7 (2017-2022)</em></strong> page select one country at random and under <strong><em>Data files</em></strong> download the country-specific dataset (for consistency, download the first data type option, <code>CSV</code> (i.e.&nbsp;<em>comma separated values</em>)) to the “WVS7” subfolder you created earlier.</p></li>
+</ol>
+</section>
+<section id="exercise-h2-explore-the-european-social-survey-data-documentation" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-h2-explore-the-european-social-survey-data-documentation">Exercise H2: Explore the <em>European Social Survey</em> data documentation</h3>
+<p><code>About 20 minutes</code></p>
+<p>Let’s now navigate to <a href="https://www.europeansocialsurvey.org/">The European Social Survey (ESS)</a> and read about the survey. Try to answer to yourself the same questions as in the previous exercise</p>
+<ol type="1">
+<li><p>Navigate to <strong><em>Data</em></strong> and then to the <strong><em>ESS Data Portal</em></strong> &gt; <strong><em>ESS Round 10 - 2020</em></strong> &gt; <strong><em>ESS10 - Study Documentation</em></strong>. Download the <em>ESS10 Source questionnaires</em> to a newly created sub-folder called “ESS10”, and as in the previous exercise, identify all the survey questions and variables that relate to <strong>“trust”</strong>.</p></li>
+<li><p>Navigate to <strong><em>ESS Data Portal</em></strong> &gt; <strong><em>Datafile Builder (Wizard)</em></strong> and select one country at random at Round 10 (or 10SC). Keep all the variables (do not select any subsets in the “Select Variables” tab) and download the country-specific dataset in <code>CSV</code> format to your “ESS10” folder.</p></li>
+</ol>
+<p>To be able to download data, you will need to register for free with the European Social Survey. Once registered, you have access to a large amount of sociological data at your fingertips.</p>
+</section>
+</section>
+</section>
+<section id="jasp-solutions" class="level1">
+<h1>JASP solutions</h1>
+<p>Below you can download JASP files with solutions to some of the exercises in this worksheet:</p>
+<p><img src="../..\Materials/pics/JASP_logo.png" height="17"> <a href="../..\Materials/Worksheets/w1_gb-ess11-trust.jasp">Exercise 1</a></p>
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-BekkersSandberg2019GradingGeneralizedTrust" class="csl-entry" role="listitem">
+Bekkers, René, and Bart Sandberg. 2019. <span>“<a href="https://osf.io/c9mq4/">Grading <span>Generalized</span> <span>Trust</span> <span>Across</span> <span>Europe</span></a>.”</span> Pp. 97–119 in <em>Samenhang in <span>Europa</span>: Eenheid in verscheidenheid. <span>Proceedings</span> zesde <span>Nederlandse</span> <span>Workshop</span> <span>European</span> <span>Social</span> <span>Survey</span></em>, edited by S. André, G. Kraaykamp, R. Meuleman, and M. Wittenberg. The Hague.
+</div>
+</div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation column-body">
+  <div class="nav-page nav-page-previous">
+      <a href="../../Materials/Notes/notes_w1.html" class="pagination-link" aria-label="[W1] Slides and Notes">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">[W1] Slides and Notes</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../Materials/Info/info_w2.html" class="pagination-link" aria-label="[W2] Info and Readings">
+        <span class="nav-page-text">[W2] Info and Readings</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

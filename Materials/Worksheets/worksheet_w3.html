@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>SOC2069 | 2026</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<link href="../../Materials/Info/info_w4.html" rel="next">
+<link href="../../Materials/Notes/notes_w3.html" rel="prev">
+<link href="../../site_pics/logo_name_white.jpg" rel="icon" type="image/jpeg">
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-f1e2abeed0a61b02a6ba2cd28422ece3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script src="../../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../labcss.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title"><strong>SOC2069</strong> <i class="fa-solid fa-chart-line" aria-label="chart-line"></i> Quantitative Methods</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../../Materials/index.html" aria-current="page"> 
+<span class="menu-text">Materials</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../Data/index.html"> 
+<span class="menu-text">Data</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://ncl.instructure.com/courses/68718" target="_blank"> 
+<span class="menu-text"><iconify-icon role="img" inline="" icon="arcticons:canvasstudent" style="font-size: l;" aria-label="Icon canvasstudent from arcticons Iconify.design set." title="Icon canvasstudent from arcticons Iconify.design set."></iconify-icon> Canvas</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Materials/Info/info_w3.html">Workshop 3</a></li><li class="breadcrumb-item"><a href="../../Materials/Worksheets/worksheet_w3.html">[W3] Worksheet</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../site_pics/logo_name.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../../site_pics/logo_name.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Materials/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Outline and materials</span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Software</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Materials/Info/jasp-software.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">JASP <img src="../../Materials/pics/JASP_logo.png" height="16" style="margin-top: -2px;"></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Introduction</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Materials/Info/introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Info and Readings</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Materials/Notes/notes_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Slides and Notes</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Workshop 1</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Materials/Info/info_w1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">[W1] Info and Readings</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Materials/Notes/notes_w1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">[W1] Slides and Notes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Materials/Worksheets/worksheet_w1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">[W1] Worksheet</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Workshop 2</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Materials/Info/info_w2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">[W2] Info and Readings</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Materials/Notes/notes_w2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">[W2] Slides and Notes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Materials/Worksheets/worksheet_w2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">[W2] Worksheet</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Workshop 3</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Materials/Info/info_w3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">[W3] Info and Readings</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Materials/Notes/notes_w3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">[W3] Slides and Notes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Materials/Worksheets/worksheet_w3.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">[W3] Worksheet</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">Workshop 4</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Materials/Info/info_w4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">[W4] Info and Readings</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Materials/Notes/notes_w4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">[W4] Slides and Notes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Materials/Worksheets/worksheet_w4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">[W4] Worksheet</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
+ <span class="menu-text">Workshop 5</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Materials/Info/info_w5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">[W5] Info and Readings</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Materials/Notes/notes_w5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">[W5] Slides and Notes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Materials/Worksheets/worksheet_w5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">[W5] Worksheet</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#workshop-3-worksheet" id="toc-workshop-3-worksheet" class="nav-link active" data-scroll-target="#workshop-3-worksheet">Workshop 3 Worksheet</a>
+  <ul class="collapse">
+  <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link" data-scroll-target="#learning-outcomes">Learning outcomes</a></li>
+  <li><a href="#intro" id="toc-intro" class="nav-link" data-scroll-target="#intro">Intro</a></li>
+  <li><a href="#exercise-3.1-how-is-income-inequality-associated-with-social-trust" id="toc-exercise-3.1-how-is-income-inequality-associated-with-social-trust" class="nav-link" data-scroll-target="#exercise-3.1-how-is-income-inequality-associated-with-social-trust">Exercise 3.1: How is <em>income inequality</em> associated with <em>social trust?</em></a>
+  <ul class="collapse">
+  <li><a href="#task-1-visualise-the-relationship-between-social-trust-and-income-inequality" id="toc-task-1-visualise-the-relationship-between-social-trust-and-income-inequality" class="nav-link" data-scroll-target="#task-1-visualise-the-relationship-between-social-trust-and-income-inequality">Task 1: Visualise the relationship between <em>social trust</em> and <em>income inequality</em></a></li>
+  <li><a href="#task-2-fit-a-simple-bi-variate-linear-regression-model" id="toc-task-2-fit-a-simple-bi-variate-linear-regression-model" class="nav-link" data-scroll-target="#task-2-fit-a-simple-bi-variate-linear-regression-model">Task 2: Fit a simple (bi-variate) linear regression model</a></li>
+  <li><a href="#task-3-find-the-correlation-coefficient-using-a-correlation-test-instead" id="toc-task-3-find-the-correlation-coefficient-using-a-correlation-test-instead" class="nav-link" data-scroll-target="#task-3-find-the-correlation-coefficient-using-a-correlation-test-instead">Task 3: Find the correlation coefficient using a “correlation” test instead</a></li>
+  </ul></li>
+  <li><a href="#exercise-3.2-how-is-income-inequality-associated-with-social-trust-when-we-also-adjust-for-the-potential-influence-of-homicide-rates-on-social-trust" id="toc-exercise-3.2-how-is-income-inequality-associated-with-social-trust-when-we-also-adjust-for-the-potential-influence-of-homicide-rates-on-social-trust" class="nav-link" data-scroll-target="#exercise-3.2-how-is-income-inequality-associated-with-social-trust-when-we-also-adjust-for-the-potential-influence-of-homicide-rates-on-social-trust">Exercise 3.2: How is <em>income inequality</em> associated with <em>social trust</em> when we also <strong>adjust for the potential influence of <em>homicide rates</em></strong> on <em>social trust</em>?</a>
+  <ul class="collapse">
+  <li><a href="#task-1-assess-the-association-between-homicides-and-trust" id="toc-task-1-assess-the-association-between-homicides-and-trust" class="nav-link" data-scroll-target="#task-1-assess-the-association-between-homicides-and-trust">Task 1: Assess the association between <code>Homicides</code> and <code>Trust</code></a></li>
+  <li><a href="#task-2-fit-a-multiple-linear-regression-model" id="toc-task-2-fit-a-multiple-linear-regression-model" class="nav-link" data-scroll-target="#task-2-fit-a-multiple-linear-regression-model">Task 2: Fit a multiple linear regression model</a></li>
+  </ul></li>
+  <li><a href="#exercise-3.3-multiple-linear-regression-with-categorical-predictors" id="toc-exercise-3.3-multiple-linear-regression-with-categorical-predictors" class="nav-link" data-scroll-target="#exercise-3.3-multiple-linear-regression-with-categorical-predictors">Exercise 3.3: Multiple linear regression with categorical predictors</a>
+  <ul class="collapse">
+  <li><a href="#task-1.-create-a-descriptive-statistics-table-to-summarise-the-distributions-of-all-the-variables-in-the-dataset" id="toc-task-1.-create-a-descriptive-statistics-table-to-summarise-the-distributions-of-all-the-variables-in-the-dataset" class="nav-link" data-scroll-target="#task-1.-create-a-descriptive-statistics-table-to-summarise-the-distributions-of-all-the-variables-in-the-dataset">Task 1. Create a Descriptive Statistics table to summarise the distributions of all the variables in the dataset</a></li>
+  <li><a href="#task-2-identify-any-potential-explanatory-variables-that-can-be-treat-as-categorical-variables-and-create-the-most-appropriate-univariate-descriptive-summaries" id="toc-task-2-identify-any-potential-explanatory-variables-that-can-be-treat-as-categorical-variables-and-create-the-most-appropriate-univariate-descriptive-summaries" class="nav-link" data-scroll-target="#task-2-identify-any-potential-explanatory-variables-that-can-be-treat-as-categorical-variables-and-create-the-most-appropriate-univariate-descriptive-summaries">Task 2: Identify any potential explanatory variables that can be treat as <em>categorical</em> variables and create the most appropriate univariate descriptive summaries</a></li>
+  <li><a href="#task-3-create-bivariate-visualisations-of-the-association-between-region-protestantism-and-social-trust" id="toc-task-3-create-bivariate-visualisations-of-the-association-between-region-protestantism-and-social-trust" class="nav-link" data-scroll-target="#task-3-create-bivariate-visualisations-of-the-association-between-region-protestantism-and-social-trust">Task 3: Create bivariate visualisations of the association between “Region”, “Protestantism” and “social trust”</a></li>
+  <li><a href="#task-4-fit-a-linear-regression-model-to-assess-the-relationship-between-social-trust-and-the-world-region-of-the-country" id="toc-task-4-fit-a-linear-regression-model-to-assess-the-relationship-between-social-trust-and-the-world-region-of-the-country" class="nav-link" data-scroll-target="#task-4-fit-a-linear-regression-model-to-assess-the-relationship-between-social-trust-and-the-world-region-of-the-country">Task 4: Fit a linear regression model to assess the relationship between “social trust” and the world “Region” of the country</a></li>
+  <li><a href="#task-5-fit-a-linear-regression-model-to-assess-the-relationship-between-social-trust-and-whether-a-country-has-a-dominant-protestant-population" id="toc-task-5-fit-a-linear-regression-model-to-assess-the-relationship-between-social-trust-and-whether-a-country-has-a-dominant-protestant-population" class="nav-link" data-scroll-target="#task-5-fit-a-linear-regression-model-to-assess-the-relationship-between-social-trust-and-whether-a-country-has-a-dominant-protestant-population">Task 5: Fit a linear regression model to assess the relationship between “social trust” and whether a country has a dominant “Protestant” population</a></li>
+  </ul></li>
+  <li><a href="#exercise-3.4-predicting-cross-national-levels-of-social-trust" id="toc-exercise-3.4-predicting-cross-national-levels-of-social-trust" class="nav-link" data-scroll-target="#exercise-3.4-predicting-cross-national-levels-of-social-trust">Exercise 3.4: “Predicting Cross-National Levels of Social Trust”</a></li>
+  <li><a href="#exercise-3.5-which-of-the-assignment-research-questions-could-be-addressed-using-a-linear-regression-model" id="toc-exercise-3.5-which-of-the-assignment-research-questions-could-be-addressed-using-a-linear-regression-model" class="nav-link" data-scroll-target="#exercise-3.5-which-of-the-assignment-research-questions-could-be-addressed-using-a-linear-regression-model">Exercise 3.5: Which of the assignment research questions could be addressed using a linear regression model?</a></li>
+  </ul></li>
+  <li><a href="#jasp-solutions" id="toc-jasp-solutions" class="nav-link" data-scroll-target="#jasp-solutions">JASP solutions</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Materials/Info/info_w3.html">Workshop 3</a></li><li class="breadcrumb-item"><a href="../../Materials/Worksheets/worksheet_w3.html">[W3] Worksheet</a></li></ol></nav></header>
+
+
+
+
+<section id="workshop-3-worksheet" class="level1">
+<h1>Workshop 3 Worksheet</h1>
+<section id="learning-outcomes" class="level2">
+<h2 class="anchored" data-anchor-id="learning-outcomes">Learning outcomes</h2>
+<p>By the end of the session, you should be familiar with:</p>
+<ul>
+<li>fitting and interpreting simple and multiple linear regression models in JASP</li>
+<li>the basic ideas behind variable standardisation</li>
+<li>the options and limitations of comparing the performance of linear regression models</li>
+<li>the differences in interpretation between numeric “Scale” and categorical “Nominal” predictor coefficients</li>
+</ul>
+</section>
+<section id="intro" class="level2">
+<h2 class="anchored" data-anchor-id="intro">Intro</h2>
+<p>The exercises in this worksheet will introduce linear regression, building up from simple bivariate (single-predictor) regression models to more complex ones that include a combination of numeric and categorical explanatory variables.</p>
+<!--
+In later exercises we apply the same techniques to replicate a small part of the regression model reported in @Osterman2021CanWeTrust (specifically, model **(1)** in the summary [*Table 3*](https://link.springer.com/article/10.1007/s11205-020-02529-y/tables/3), which is presented in more detail in *Table A.3* in the *[Online Supplementary Material](https://static-content.springer.com/esm/art%3A10.1007%2Fs11205-020-02529-y/MediaObjects/11205_2020_2529_MOESM1_ESM.pdf)* accompanying the article)
+
+Finally - probably outside class - you should practice the same linear regression modelling techniques on one of the assignment datasets and research questions.
+
+-->
+</section>
+<section id="exercise-3.1-how-is-income-inequality-associated-with-social-trust" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3.1-how-is-income-inequality-associated-with-social-trust">Exercise 3.1: How is <em>income inequality</em> associated with <em>social trust?</em></h2>
+<p>We continue where we left off in the last Workshop, taking further <a href="../../Materials/Worksheets/worksheet_w2.html" target="_blank"><em>Workshop 2 Worksheet - Exercise 3</em></a> in which we explored the relationship between <em>income inequality</em> by <em>social trust</em> visually through a scatter plot using data related to the analyses presented in <span class="citation" data-cites="WilkinsonPickett2010SpiritLevelWhy">Wilkinson and Pickett (<a href="#ref-WilkinsonPickett2010SpiritLevelWhy" role="doc-biblioref">2009</a>)</span> (Figure 4.1) and <span class="citation" data-cites="PickettEtAl2024SpiritLevel15">Pickett, Gauhar, and Wilkinson (<a href="#ref-PickettEtAl2024SpiritLevel15" role="doc-biblioref">2024</a>)</span> (Figure 7). For this, we used the <code>pickett2009.csv</code> and <code>pickett&amp;al2024.sav</code> datasets, respectively, which are available for download from the <a href="../../Data/index.html" target="_blank">Data page</a> of this website.</p>
+<p>In <em>that</em> exercise we focused mainly on the <em>scatterplot</em> in order to practice creating visual representations of bivariate associations. In <em>this</em> exercise, our focus will instead shift to understanding what the <strong><em>“regression line”</em></strong> is actually telling us, before we move on to expanding our analysis with additional explanatory variables.</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span><i class="fa-solid fa-database" aria-label="database"></i> Exercise 3.1 Dataset
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Download the <a href="../..\Data/workshop_data/w2/pickett2009.csv"><code>pickett2009.csv</code></a> dataset <span class="citation" data-cites="WilkinsonPickett2010SpiritLevelWhy">(cf. <a href="#ref-WilkinsonPickett2010SpiritLevelWhy" role="doc-biblioref">Wilkinson and Pickett 2009</a>)</span> and open it in JASP. The dataset is also available on the <a href="../../Data/index.html" target="_blank">Data page</a>, where you can also access a <a href="../../Data/workshop_data/w2/codebook_pickett.html">Codebook</a> that describes the variables and provides further detail on the measurement of <em>income inequality</em> and the sources of such macro-economic variables.</p>
+</div>
+</div>
+<section id="task-1-visualise-the-relationship-between-social-trust-and-income-inequality" class="level3">
+<h3 class="anchored" data-anchor-id="task-1-visualise-the-relationship-between-social-trust-and-income-inequality">Task 1: Visualise the relationship between <em>social trust</em> and <em>income inequality</em></h3>
+<p>As a first step, create a scatter plot visualising the “relationship” between <em>social trust</em> (<code>Trust</code>) and <em>income inequality</em> (<code>Income inequality</code>) (read more about the measurement of <em>income inequality</em> <a href="../../Data/workshop_data/w2/codebook_pickett.html#income-inequality">here</a> to better understand the meaning of this variable). This is Exercise 3 from Workshop 2.</p>
+<p>A quick way to visualise the bivariate relationship between your chosen variables is by using the <strong><em>Descriptives &gt; Descriptive Statistics [Customizable Plots]</em></strong> option set. There, depending on the combination of the types of variables you have, you can choose the most appropriate plot type. In this case, because we have two <em>Scale</em> type variables, the most appropriate plot type is a <strong><em>Scatter plot</em></strong>. You can use the various available settings to simplify your plot or make it more complex, as desired. For example, it is sometimes useful to simplify the scatter plot produced by default by removing the univariate density plots from the margins of the scatter plot and removing the grey shading of the confidence interval. All of these provide important additional information about the two variables and their relationship, but it can also make the plot too complex for a quick visualisation.</p>
+<p>When done, you should be seeing something like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/paste-14.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="images/paste-14.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="474"></a></p>
+</figure>
+</div>
+<p>If you need a reminder of how to do it, check <a href="../../Materials/Worksheets/worksheet_w2.html">Workshop 2 Worksheet</a>.</p>
+</section>
+<section id="task-2-fit-a-simple-bi-variate-linear-regression-model" class="level3">
+<h3 class="anchored" data-anchor-id="task-2-fit-a-simple-bi-variate-linear-regression-model">Task 2: Fit a simple (bi-variate) linear regression model</h3>
+<p>The scatter plot includes the <strong>[Add regression line]</strong> option by default because it represents a very useful visual summary of the relationship between two <em>Scale</em> type variables. However, it doesn’t provide any precise statistical description of the relationship: we can see that it is a “negative” association (i.e.&nbsp;the higher the level of <em>income inequality</em> the lower the level of <em>Trust</em>, but we cannot see precisely how strong that association is.</p>
+<p>To dig deeper into the meaning of the regression line, we can fit a <strong>simple (bivariate) linear regression</strong> model <em>of social trust as <strong>a function of</strong> societal inequality</em> (i.e.&nbsp;a model aiming to <strong><em>explain/predict</em></strong> values of <em>social trust</em> in various countries <strong><em>depending on</em></strong> the value of <em>income inequality</em> in those countries).</p>
+<p>To build a linear regression model in JASP, click through the <strong>Menu tabs</strong>:</p>
+<p><span class="math display">\[ \text{Regression} \longrightarrow \text{[Classical] Linear regression} \]</span> In the <strong><em>Linear regression</em></strong> panel, move the <code>Trust</code> variable to the <span class="math inline">\(\text{Dependent Variable}\)</span> box and the <code>Income inequality</code> variable to the <span class="math inline">\(\text{Covariates}\)</span> box. By doing this, we are essentially saying that we want to use the <code>Income inequality</code> variable to help <em>predict</em> the mean of the <code>Trust</code> variable (i.e.&nbsp;we treat <code>Trust</code> as the dependent variable, the one we wish to “explain”/“predict”/“model” as a linear function of our independent variable(s).</p>
+<p>The results from the linear regression model will appear in the outputs window on the right. You should be seeing something like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/paste-15.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="images/paste-15.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="557"></a></p>
+</figure>
+</div>
+<section id="interpret-the-regression-model-output" class="level4">
+<h4 class="anchored" data-anchor-id="interpret-the-regression-model-output">Interpret the regression model output</h4>
+<p>In general terms, the coefficient of interest (the one associated with the independent variable) tells us: that <strong><em>a one-unit difference/change on the independent variable scale is associated with a difference/change in the dependent variable of the size shown by the value of the coefficient</em></strong>.</p>
+<p>But what does this mean substantively in the context of our two variables?</p>
+<div class="questionblock">
+<p><strong>Questions</strong></p>
+<ul>
+<li>Using the lecture slides and the <a href="../../Materials/Info/info_w3.html"><strong>essential readings for this week</strong></a>, interpret the meaning of the regression coefficient on <code>Income inequality</code>. In the output, we are looking at the third table (<strong>Coefficients</strong>) under the <strong>Unstandardized</strong> column;</li>
+<li>Add a <strong><em>note</em></strong> on the JASP output under the <span class="math inline">\(\text{Coefficients}\)</span> output and write down your interpretation there. [<strong>Tip</strong>: You can add notes on your JASP outputs by hovering over the name of the output (e.g.&nbsp;the “Coefficients” table title and clicking on the small black down-arrow that appears next to the text, then clicking “Add Note” in the drop-down list) ]</li>
+<li>Where can you find the <strong>coefficient of correlation</strong> (<span class="math inline">\(R\)</span>) in the outputs? What about the <strong>coefficient of determination</strong> (<span class="math inline">\(R^2\)</span>)? What do these tell you - how do you interpret them?</li>
+</ul>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Interpretation
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>The <strong>Model Summary</strong> and the <strong>ANOVA</strong> tables describe a few overall model statistics. For our immediate purposes, however, these two tables are less useful. We can turn out attention more closely to the <strong>Coefficients</strong> output table, and within that we should first focus on the <strong>Unstandardized</strong> column, which lists the regression coefficients associated with our predictor variables.</p>
+<p><strong>What is the meaning of the regression coefficient on the <code>(Intercept)</code>?</strong></p>
+<p>The <strong>Coefficients</strong> table presents results from two “models”. One is a model without any explanatory (independent/predictor) variables (M<sub>0</sub>), in which case the <code>(Intercept)</code> is the only relevant value and is nothing more than the average (mean) value of the outcome (dependent/explained) variable calculated on the sample of cases/observations (i.e.&nbsp;<em>countries</em> here) that were included in the analysis (i.e.&nbsp;only those who had a valid measurement on both of the variables <code>Trust</code> and <code>Income inequality</code>). We are told that this average value is <strong>38.8</strong>, and knowing that the <strong><code>Trust</code></strong> scale measures the percentage of people who are more trusting than not in each country, we can interpret this as 38.8%. This “null model” (M<sub>0</sub>) is given to us by default in JASP, without us asking for it.</p>
+<p>The model we actually fit is presented as M<sub>1</sub>, and this is what we are interested in. As we see in the <strong><em>Coefficients</em></strong> table, the coefficient associated with the <code>(Intercept)</code> value in M<sub>1</sub> is no longer the mean/average level of <code>Trust</code> on its own (<strong>38.8</strong>), but instead <strong>77.06</strong>. This value represents <strong>the expected score on the dependent variable</strong> (<strong><code>Trust</code></strong>) <strong>when the value of the independent variable (<code>Income inequality</code>) equals 0</strong>. As it will become apparent from the discussion below, a value of 0 for the <code>Income inequality</code> variable is highly unrealistic, and it is often the case that the <code>Intercept</code> does not tell us a meaningful value. However, that’s not a problem, because the <code>(Intercept)</code> value is meant to provide a mathematical baseline for the model and <strong>we generally are <u>not</u> interested in interpreting it</strong>. It’s enough to know what it means in principle. When we expand the analysis to a multiple regression, the meaning of the intercept will be even more complex and its interpretation is near impossible. If we want to get a meaningful value for the <code>Intercept</code>, we could <strong>centre</strong> or <strong>standardise</strong> our modelled variables.</p>
+<p>A simple “centring” would involve shifting the scale such that the mean of the scale falls on the value 0, and any values below the mean become negative values. For example, if we were to “centre” the scale of numbers between 0 and 10, we would transform the following “scale”:</p>
+<p>0 1 2 3 4 5 6 7 8 9 10</p>
+<p>… into this one:</p>
+<p>-5 -4 -3 -2 -1 0 1 2 3 4 5</p>
+<p>The length of the scale is still the same (10 units), as is the difference between the units (<code>4</code>-<code>3</code> = (<code>-1</code>) - (<code>-2</code>) = 1); but now the <em>mean</em> value is 0 instead of 5.</p>
+<p>Then, the <code>Intercept</code> could be interpreted as the expected value of the <em>dependent</em> variable when the value of the <em>independent</em> variable is at its <em>mean</em>. However, this then makes it less straightforward to interpret the regression coefficient associated with out predictor variable on the original scales on which the variables were measured. And what we really <u><em>are</em></u> interested in is the coefficient on our independent (explanatory/predictor) variable.</p>
+<p><strong>What is the meaning of the regression coefficient on <code>Income inequality</code>?</strong></p>
+<p>In general terms, the coefficient of interest (the one associated with the independent variable) tells us that <strong>a one-unit difference/change on the independent variable scale is associated with a difference/change in the dependent variable of the size shown by the value of the coefficient</strong>.</p>
+<p><em>But what does this mean substantively in the context of our two variables?</em></p>
+<p>We see that the regression coefficient associated with our predictor/independent variable is <strong>-6.535</strong>. This tells us that a one-unit increase on the <code>Income inequality</code> scale is associated with a -6.535-units change on the <code>Trust</code> scale. To give this a more meaningful interpretation, we need to know what exactly a “unit” and a “one-unit change” means on each scale, and for that we need to remind ourselves what our variables actually measure.</p>
+<p><em>What is a “unit”?</em></p>
+<p>Understanding the measurement scale of the <code>Trust</code> variable is straightforward. We know that it measures the <em>percentage</em> of respondents in each country who answered that “in general, most people can be trusted” to the standard social trust survey question in the World Values Survey. That means that the theoretical scale runs from <strong>0</strong>(%) to <strong>100</strong>(%). A <em>unit</em> on this scale is therefore <strong>one percentage point</strong>. The coefficient of <strong>-6.535</strong>, then, means a reduction of 6.5% (rounded to one decimal point) in the national aggregate level of <em>social trust</em>.</p>
+<p>Understanding the <code>Income inequality</code> scale is trickier. It denotes the so-called “income quintile share ratio”, a commonly employed measurement of inequality in a country’s income distribution. It is calculated as the <strong>ratio</strong> of total income received by the <strong>20% of the population with the <em>highest</em> income (the top quintile)</strong> to that received by the <strong>20% of the population with the <em>lowest</em> income (the bottom quintile).</strong><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> For example, if in Portugal earners in the bottom quintile of the income distribution held 5% of the total income distributed in that country, while those in the top quintile of the distribution received 40% of that total. If we divide the two (<span class="math inline">\(\frac{40}{5}\)</span>) we obtain 8, which is the <code>Income inequality</code> value we find for Portugal in the dataset.</p>
+<p>This means that the <strong>minimum</strong> value that the scale can take is 1 (because <span class="math inline">\(\frac{10}{10}\)</span> = <span class="math inline">\(\frac{40}{40}\)</span> = <span class="math inline">\(\frac{50}{50}\)</span> = <span class="math inline">\(1\)</span> ), which would describe a perfectly equal society where the richest 20% of the population receives the same amount of total income as the poorest 20%. The <strong>maximum value</strong>, however, is <em>theoretically</em> infinite (because the measurement is a ratio, and e.g.&nbsp;<span class="math inline">\(\frac{90}{1}\)</span> = 90, but <span class="math inline">\(\frac{99.9}{0.03}\)</span> = 3330 and <span class="math inline">\(\frac{99.999}{0.00005}\)</span> =1.99998^{6}), and the higher the value the more unequal a society is, with the total income of the poorest 20% of the population tending to 0. In reality, however, no society has ever achieved either of these extremes. The ratio is used to measure and compare real-world income inequality, where values typically fall on a much narrower <em>empirical</em> scale somewhere between these two theoretical limits. In our dataset, we know from the Descriptive statistics that the actual measured minimum value is 3.4 and the maximum is 9.7, so nowhere near the theoretical limits of the scale. You can <a href="../../Data/workshop_data/w2/codebook_pickett.html"><strong>read more about the measurement of income inequality in the dataset’s Codebook.</strong></a></p>
+<p><em>So, then, what does a <strong>one-unit difference/change</strong> mean?</em></p>
+<p>It means, for example, the difference between an inequality score of 8 (e.g.&nbsp;Portugal) and one of 7 (e.g.&nbsp;Australia), or between a 5.59 (e.g France) and a 4.59 (e.g.&nbsp;Belgium). Therefore, our simple linear regression model <em>predicts</em> that a country whose <code>Income inequality</code> score is 7 (e.g.&nbsp;Australia) should have an associated <code>Trust</code> score that is 6.5 percentage points higher than that of another country whose <code>Income inequality</code> is 8 (e.g.&nbsp;Portugal). Given that we already know the <code>Intercept</code> (i.e.&nbsp;the predicted value of <code>Trust</code> when <code>Income inequality</code> is 0), we can get even more specific: the predicted <code>Trust</code> score of a country whose <code>Income inequality</code> is 8 (e.g.&nbsp;Portugal) would be: <span class="math inline">\(77.06 \text{ (Intercept)} + 8 \text{ (number of one-unit differences/changes from 0)} \times -6.5 \text{ (rate of change/slope/regression coefficient)}\)</span> = 24.782; then, the predicted <code>Trust</code> score for a country whose <code>Income inequality</code> is one unit lower (i.e.&nbsp;7), would be 24.782 - (-6.5) = 31.317.</p>
+<p>More generally, however, we can say that our simple linear regression model predicts that a country with an inequality score 1 points <em>higher</em> than that of another country will have, on average, a trust score that is 6.5 units <em>lower</em> than that of the other country’s.</p>
+<p>This prediction is far from perfect, as we can see from comparing these predicted values to the actual values observed in our data set (for example, Portugal’s measured <code>Trust</code> is not 24.7% but 10%, while Australia’s aggregate <code>Trust</code> level is 39.9%, not 31.3% as predicted). However, overall it is still a better prediction than we could have made had we not had any information about <code>Income inequality</code>. In that case, our best prediction could have only been the mean value of <code>Trust</code> on its own, which we know from the <code>(Intercept)</code> of the “null model” (M<sub>0</sub>) to be 38.8. This may be a somewhat more accurate prediction in the case of Australia, but it’s a much worse one for Portugal and most of the other countries in the dataset. Ultimately, even this simple linear regression model helps us make a better informed assessment of the variability in social trust across countries, even if it will either overestimate or underestimate any given individual value.</p>
+<p>Furthermore, as we will discuss later (see Workshop 5 on <em>Uncertainty and Inference</em>), our real aim when conducting such an analysis is to generalise beyond our empirical sample (our dataset) to the more abstract theoretical “population” that our sample is meant to represent. The information provided in the columns <strong><em>Standard Error</em></strong>, <strong><em>t</em></strong> and <strong><em>p</em></strong> will be useful in this respect, as they allow us to assess the <em>confidence</em> we can have in the generalisability of our model given the level of <em>uncertainty</em> inherent in our data.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>There are further complications with the substantive interpretation of a “one-unit change” on the <code>Income inequality</code> scale, which we will not be considering here, but they are worth noting.</p>
+<p>We interpret a value of 8 (e.g.&nbsp;Portugal) to mean that the top quintile in that country earns <strong>eight times more</strong> than the bottom quintile, and a value of 5.59 (e.g France) to mean that the top earns <strong>~five and a half times more</strong> than the bottom.</p>
+<p>However, given that its unit of measurement is a “ratio”, the “income quintile share ratio” is fundamentally a measure of <em>multiplicative</em> difference, and so it is <strong>non-linear</strong>: the <strong><em>relative impact</em></strong> (or <strong><em>percentage increase in inequality</em></strong>) associated with a one-unit change in the ratio is <strong>not consistent across the entire scale</strong>, but it decreases as the ratio gets larger. For example:</p>
+<ul>
+<li>a ratio change of 1 to 2 represents a relative increase in inequality of 100% (doubles), which is a massive relative change;</li>
+<li>a ratio change of 4 to 5 represents a relative increase in inequality of 25% (a quarter), which is still a significant relative change;</li>
+<li>a ratio change of 20 to 21 represents a relative increase in inequality of 5%, which is a much smaller relative change.</li>
+</ul>
+<p>This means that moving from a ratio of 7 (e.g.&nbsp;Australia) to an 8 (e.g.&nbsp;Portugal) represents a different <em>relative</em> increase in the income gap compared to moving from a ratio of 4.59 (e.g.&nbsp;Belgium) to 5.59 (e.g France), namely a difference of 14.3% and 21.8%, respectively.</p>
+<p>For mathematical and statistical purposes, particularly when researchers need to compare changes in inequality across different populations or over time, a non-linear scale like the S80/S20 can be problematic. To handle this non-linearity, researchers often use a <strong><em>logarithmic transformation</em></strong> of the ratio in their models, which effectively linearises the scale and makes the interpretation of coefficients consistent across the entire range of values. <code>Income inequality</code> measured as the “income quintile share ratio” is not the only variable that is non-linear and would benefit from a statistical transformation. In fact, if we look at our dataset (<code>pickett2009</code>) we find a variable called <code>Imprisonment (log)</code>, which - as it’s name suggests - has already been “log-transformed”.</p>
+<p>As noted, this is not something that we will be worrying or thinking about in this module.</p>
+</div>
+</div>
+<p><strong>What is the meaning of the “Standardized” regression coefficient on <code>Income inequality</code>?</strong></p>
+<p>First of all, we should notice that apart from its sign (<span class="math inline">\(-\)</span>), the number is the same as that shown in the <strong>R</strong> column in the <strong><em>Model Summary</em></strong> table. That’s no coincidence, because the “Standardized” coefficient for <code>Income inequality</code> is nothing else than the <strong><em>coefficient of correlation</em></strong> <strong>(</strong><span class="math inline">\(R\)</span><strong>)</strong>.</p>
+<p>*<strong>What is the “coefficient of correlation*****” (</strong><span class="math inline">\(R\)</span>)?</p>
+<p>The <strong>coefficient of correlation</strong> (<span class="math inline">\(R\)</span>) is calculated by <strong>standardising</strong> the scales of the two variables included in the regression model (<code>Trust</code> and <code>Income inequality</code>) and expressing the regression coefficient on that artificial standardised scale.</p>
+<p><strong><em>But what exactly does “</em>standardisation<em>” mean?</em></strong></p>
+<p>It simply means that we can mathematically alter the values of a scale so that the scale is redefined in some artificial unit of measurement which becomes directly comparable to other scales regardless of the differences in the units of measurement of the original scales, while keeping the relationship between the values equal to that of the original scale. One form of standardisation, which is most useful when we have categorical “scales”, is expressing observations as <em>percentages</em> instead of <em>absolute values</em>. Another commonly employed form of standardisation, which is more useful for numeric scales, is the so-called <em>z-score</em>, which tells us how many “standard deviations” (SD) each score/value is from the mean/average score/value on a given measurement scale. In fact, when you hear or read about a “standardised” scale, it is almost always this <em>z-score</em> standardisation that the author is referring to.</p>
+<p>The <span class="math inline">\(z\)</span>-score for an observed value <span class="math inline">\(x\)</span> that is part of a scale of values <span class="math inline">\(X\)</span> is calculated as: <span class="math inline">\({(x-\overline{X})\over{s_X}}\)</span>, where <span class="math inline">\(x\)</span> is any single <strong>value</strong> on the <span class="math inline">\(X\)</span> scale, <span class="math inline">\(\overline{X}\)</span> is the <strong>mean</strong> of <span class="math inline">\(X\)</span> and <span class="math inline">\(s_X\)</span> is the sample (observed) <strong>standard deviation</strong> of <span class="math inline">\(X\)</span>. Expressed in words: <strong><em>we subtract the average of the</em></strong> <span class="math inline">\(X\)</span> <strong><em>scale from each individual value</em></strong> <span class="math inline">\(x\)</span> <strong><em>and then we divide that number by the sample standard deviation of the</em></strong> <span class="math inline">\(X\)</span> <strong><em>scale</em></strong>. You can <a href="calculator.net/standard-deviation-calculator.html">read more about how the <strong><em>sample standard deviation</em></strong> itself is calculated here</a></p>
+<p><strong><em>So, then, how do we interpret the “Standardized” regression coefficient?</em></strong></p>
+<p>On these newly standardised scales, a value of <strong>1</strong> should be interpreted as <strong>“one standard deviation above the mean”</strong>, a value of <strong>2</strong> means “<strong>two</strong> standard deviations above the mean”, a value of <strong>-1</strong> means “one standard deviation <strong>below</strong> the mean”, and so on. This means that the two standardised variables are measured on a similar scale and their values are therefore directly comparable, which was not the case for the original unstandardised values.</p>
+<p>In JASP, we can use the <strong>zScores()</strong> drag-and-drop function to calculate this. If we were to create two new variables that are the z-standardised versions of the <code>Trust</code> and <code>Income inequality</code> variables, respectively, and we ran the same regression as above on those variables, then the obtained regression coefficient on “standardised income inequality” would have coincided with the correlation coefficient and it would have been <strong>-0.664</strong>.</p>
+<p>A coefficient of <strong>-0.664</strong> associated with “standardised income inequality” would therefore be interpreted as: a one-standard-deviation positive change in “income inequality” is associated with a roughly two-thirds of a standard deviation (around 66.4%) negative change in “social trust”.</p>
+<!-- In other words, it takes a difference of over two standard deviations (2.33) in *inequality* to observe a one-standard-deviation reduction in the level of *trust.* -->
+<p>However, the purpose of the “correlation coefficient” is to provide a more general description of the association between two numeric variables. Its value ranges between -1 and 1, where 1 represents a perfect positive correlation between the two variables and -1 a perfect negative correlation, while 0 shows no correlation between the two at all. Visualising some of these extreme and intermediate correlations on scatter plots would look something like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/clipboard-1893247036.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="images/clipboard-1893247036.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="542"></a></p>
+</figure>
+</div>
+<p><strong>What about the <em>coefficient of determination</em> (</strong><span class="math inline">\(R^2\)</span>)?</p>
+<p>As its notation suggestes (<span class="math inline">\(R^2\)</span>), the <em>coefficient of determination</em> is simply the squared values of the <em>coefficient of correlation</em> (<span class="math inline">\(R\)</span>). We can find it in the <strong>Model Summary</strong> output table in the column labelled R<sup>2</sup>. We find that this value is <span class="math inline">\(0.441\)</span>, and if you want you can check manually whether this is really the square of the <span class="math inline">\(R\)</span> value, <span class="math inline">\((-0.664)^2\)</span>.</p>
+<p>The coefficient of determination can be a very useful summary statistic for the entire mode, especially if we have a more complex multiple regression model. It summarises how much of the variance in <code>Trust</code> can be explained overall by the explanatory variables included in the model, taken together. It is a very useful summary because it can be interpreted on a percentage scale, so we can say something like: <strong>our regression model - which only includes <code>Income inequality</code> - can help explain</strong> <span class="math inline">\(44.1\%\)</span> <strong>of the variability in <code>Trust</code>.</strong></p>
+</div>
+</div>
+</div>
+<!-- I demonstrate what "standardization" using z-scores means in the JASP file containing the solution analysis, [available here](/Materials/Worksheets/worksheet_w3_solutions.jasp). -->
+</section>
+</section>
+<section id="task-3-find-the-correlation-coefficient-using-a-correlation-test-instead" class="level3">
+<h3 class="anchored" data-anchor-id="task-3-find-the-correlation-coefficient-using-a-correlation-test-instead">Task 3: Find the correlation coefficient using a “correlation” test instead</h3>
+<p>To run a simple <strong>correlation</strong> analysis in JASP, go through the <strong>Menu tabs</strong>:</p>
+<p><strong>Regression</strong> &gt; <strong>{Classical} Correlation</strong></p>
+<p>Move both of the variables of interest to the <span class="math inline">\(\text{Variables}\)</span> box.</p>
+<p>In the settings, you can also choose to display a scatter plot by ticking the option <strong>[Plots &gt; Scatter plots]</strong> and you can also tick <strong>[Plots &gt; Statistics]</strong> to display the correlation coefficient to the right of the scatter plot. You should be seeing something like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/paste-18.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="images/paste-18.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="395"></a></p>
+</figure>
+</div>
+<p>Check if the results align with those obtained using linear regression in the previous task. The results should look something like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/paste-19.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="images/paste-19.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></a></p>
+</figure>
+</div>
+<p>As we can see, we can obtain the same statistics from the linear regression model, and regression modelling is a more versatile tool, so we can use it instead of the <strong>Correlation</strong> option.</p>
+<p>One thing that is particularly useful in using regression modelling is that we can extend the model to incorporate the effect of <strong>more than one independent/explanatory variable</strong>. We will look at this in the next exercise.</p>
+</section>
+</section>
+<section id="exercise-3.2-how-is-income-inequality-associated-with-social-trust-when-we-also-adjust-for-the-potential-influence-of-homicide-rates-on-social-trust" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3.2-how-is-income-inequality-associated-with-social-trust-when-we-also-adjust-for-the-potential-influence-of-homicide-rates-on-social-trust">Exercise 3.2: How is <em>income inequality</em> associated with <em>social trust</em> when we also <strong>adjust for the potential influence of <em>homicide rates</em></strong> on <em>social trust</em>?</h2>
+<p>As mentioned earlier, the coefficient estimates we obtained from the simple linear regression in Exercise 3.1 are probably not the “best”. We have attempted to explain the variation in <code>Trust</code> only as a function of <code>Income inequality</code>, whereas there may be other social factors that can influence the average levels of social trust in a society. In fact, it may even be the case that one of these other potential factors that we have not considered is itself associated with income inequality to a degree that makes <strong><em>it</em></strong> a much better predictor of social trust. If we can hypothesise - based on existing literature or common sense - that there are other factors at play and we can measure them, we could try to adjust for their potential influence on social trust and get a “better” - or “clearer” - estimate of the true association between income inequality and social trust. For example, <em>what if the difference in the rate of <strong>homicides</strong> in a country is what makes people trust each other less or more</em>? It could be a plausible assumption that people may have less trust in strangers if they hear about cases of homicide more often and perceive their environment as more dangerous. It may even turn out that countries with higher homicide rates happen to have higher levels of income inequality, but it is in fact the homicide rate that is the stronger predictor of social trust.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>What are homicide rates?</strong></p>
+<p>Homicide rates usually measure the&nbsp;<strong>number of homicides per 100,000 residents</strong>. It is calculated by dividing the number of homicides recorded in a country in a given year by the total population and multiplying the result by 100,000. E.g. if there were 600 homicides in a population of 1,000,000, you would divide 600 by 1,000,000, then multiply the result by 100,000: (600/1,000,000) x 100,000 = 60 per 100,000.</p>
+</div>
+</div>
+<p>In our dataset we do have a variable <code>Homicides</code> that measures national-level homicide rates, so we can use it to test the above assumptions. We can simply add that variable to our model as a second <em>explanatory</em> variable, turning our model into a <strong>multiple linear regression</strong> (i.e.&nbsp;a regression model with one outcome (dependent) variable and <em>more than one</em> explanatory (“independent”, “predictor”) variable).</p>
+<section id="task-1-assess-the-association-between-homicides-and-trust" class="level3">
+<h3 class="anchored" data-anchor-id="task-1-assess-the-association-between-homicides-and-trust">Task 1: Assess the association between <code>Homicides</code> and <code>Trust</code></h3>
+<p>Although for our research question we are primarily interested in understanding the association between <code>Income inequality</code> and <code>Trust</code>, to be able to compare different outputs and build up our understanding of how linear regression works in practice, we can start by fitting another simple linear regression, this time regressing <code>Trust</code> on <code>Homicides</code> to check the association between <em>them</em>. Performing this step no longer requires detailed guidance, but once done you should be seeing something like this output in the results panel:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/paste-24.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="images/paste-24.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="472"></a></p>
+</figure>
+</div>
+<div class="questionblock">
+<p><strong>Questions</strong></p>
+<ul>
+<li>Using the lecture slides and the <a href="../../Materials/Info/info_w3.html"><strong>essential readings for this week</strong></a>, interpret the meaning of the <strong><em>regression coefficients</em></strong> in this output. You can add a <strong><em>note</em></strong> on the JASP output under the <span class="math inline">\(\text{Coefficients}\)</span> output and write down your interpretation there.</li>
+<li>Can we directly compare the coefficient for <code>Homicides</code> to that we obtained for <code>Income inequality</code> in the earlier analysis? Can we say that one predictor is “stronger” or “more influential” than the other? <em>If yes</em>, which is the “stronger” predictor? <em>If no</em>, why not?</li>
+<li>What does the <strong>coefficient of determination</strong> (<span class="math inline">\(R^2\)</span>) tell us about this model? Can we say that one model is “stronger” or “better” than the other? <em>If yes</em>, which is the “stronger” model? <em>If no</em>, why not?</li>
+</ul>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Interpretation
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p><strong>What is the meaning of the regression coefficient on the <code>(Intercept)</code>?</strong></p>
+<p>Our dependent variable is the same as in the previous exercise, and we know that the <code>(Intercept)</code> value is nothing more than the average (mean) value of the outcome (dependent/explained) variable calculated on the sample of cases/observations (i.e.&nbsp;<em>countries</em> here) that were included in the analysis (i.e.&nbsp;only those who had a valid measurement on both of the variables <code>Trust</code> and <code>Homicides</code>). Because <code>Homicides</code> and <code>Income inequality</code> have the same number of observations (there aren’t any observations/countries with missing values on either), the sub-sample used in this regression is the same as the one in the previous analysis. Therefore, the value of the <code>(Intercept)</code> in model M<sub>0</sub> is also the same: <strong>38.8</strong>. However, when we take the <code>Intercept</code> to mean the expected value of <code>Trust</code> when <code>Homicides</code> is equal to 0 (M<sub>1</sub>), we find that the <code>(Intercept)</code> value is <strong>43.6</strong>, so for a country that has absolutely no homicides, we expect that 43.6% of the population would feel that “most people can be trusted”. Interesting…</p>
+<div class="questionblock">
+<p>Purely based on the <code>Intercept</code>, and compared to what the <code>Intercept</code> was in the previous regression analysis when we considered the influence of <code>Income inequlity</code> on <code>Trust</code>, would you say that the rate of <code>Homicides</code> is a strong(er) or weak(er) predictor of the level of <code>Trust</code> in a society?</p>
+</div>
+<p><strong>What is the meaning of the regression coefficient on <code>Homicides</code>?</strong></p>
+<p>We see that the regression coefficient associated with our predictor/independent variable (<code>Homicides</code>) is <span class="math inline">\(-0.268\)</span>. This tells us that a one-unit increase in <code>Homicides</code> is associated with a <span class="math inline">\(0.268\)</span>-unit decrease in <code>Trust</code>. For example, the <code>Homicides</code> value for Belgium is 13 and for the United Kingdom is 15 in the dataset, meaning that the difference between the two countries is <strong>two units</strong>. Based on our simple linear regression model, therefore, we would predict that the United Kingdom’s <code>Trust</code> value should be <span class="math inline">\(0.536\)</span> <code>Trust</code>-units (i.e.&nbsp;~<strong>0.5%</strong>) lower than that of Belgium (because <span class="math inline">\(2 \times -0.268 = -0.536\)</span>. However, to reiterate, the main aim of the model is not necessarily to give us very accurate predictions of individual values, but to give us the most reasonable estimate of what we could expect to see in the wider “population” given the empirical data we have in our dataset.</p>
+<p><strong>Can we directly compare the coefficient for <code>Homicides</code> to that we obtained for <code>Income inequality</code> in the earlier analysis?</strong></p>
+<p>We know that in the earlier analysis the regression coefficient for <code>Income inequality</code> was <span class="math inline">\(-6.535\)</span>. Obviously, <span class="math inline">\(6.535\)</span> is a larger number than <span class="math inline">\(0.268\)</span> - so, can we say that <code>Income inequality</code> is associated with a much, much larger negative difference in <code>Trust</code> than are <code>Homicides</code>? To answer this, we again have to think carefully about the scales of our variables and the meaning of a “one-unit” change in the context of each scale of measurement.</p>
+<p>We have already established that <code>Income inequality</code> refers to the “income quintile share ratio”, so its scale can run from a minimum of 1 (perfect equality) to <em>theoretical</em> infinity (extreme inequality), although the empirical scale that we actually observe in our dataset runs from 3.4 to 9.7. This means that the scale contains just over six units, each measuring one ratio. The <code>Homicides</code> scale, on the other hand, runs from 5.2 to 64 (check the Descriptive statistics!), so we have almost 60 units. That’s a much “longer” scale, on which a single unit means 1 homicide for 100,000 people in the country’s population. Can we say and expect that a difference between 7 and 8 homicides per 100,000 people should have a comparable effect on <code>Trust</code> to the difference between an income quintile share ratio of 7 and an 8? This is similar to expecting that a body weight unit of 1 (kg) should have the same influence in an adult’s Body Mass Index (BMI) calculation as that of 1 unit of height (cm), even though there are fewer units (kg.) of weight (85 for the male average) in a human body than there are units (cm) of height (176 for the male average).</p>
+<p>Due to such differences in the scales that are being compared, it is very common to “standardise” the variables used in a regression so that each unit involved is “equal”. On the other hand, the difficulty is then shifted onto interpreting those standardised coefficients on the original meaningful scale of the variables involved. In other words, it’s a challenge either way. In this exercise, we have left the two variables involved in the regression unstandardised, so a “unit” has a different meaning in the case of each variable, and we should keep this in mind when interpreting their effects. They are not directly comparable unless we choose to standardise their scales.</p>
+<p><strong>What does the coefficient of determination (</strong><span class="math inline">\(R^2\)</span><strong>) tell us about this model? Can we say that one model is “stronger” or “better” than the other?</strong></p>
+<p>We already know from before that the <span class="math inline">\(R^2\)</span> value is literally the square of the <span class="math inline">\(R\)</span> value, and we also know that the <span class="math inline">\(R\)</span> value is a <strong>standardised coefficient</strong>, so <span class="math inline">\(R^2\)</span> is also a standardised measure, meaning that it is directly comparable to other <span class="math inline">\(R^2\)</span> values, unlike the individual regression coefficients. This, then, means that we <strong><em>can</em></strong> compare the <span class="math inline">\(R^2\)</span> values of the different models to assess which one is “stronger” or “better” at explaining the unexplained variance in our dependant variable.</p>
+<p>In the <strong>Model Summary</strong> output table, in the column labelled R<sup>2</sup> , we find that this value is <span class="math inline">\(0.042\)</span>. In other words, <strong>our regression model - which only includes <code>Homicides</code> - can help explain only</strong> <span class="math inline">\(4.2\%\)</span> <strong>of the variability in <code>Trust</code>.</strong> Compare this to the<span class="math inline">\(44.1\%\)</span>explanatory value of our previous model - which only included <code>Income inequality</code> - and we can fairly state that the <code>Homicides</code> model is “weaker” or “worse” at explaining the variability observed in the <code>Trust</code> variable.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="task-2-fit-a-multiple-linear-regression-model" class="level3">
+<h3 class="anchored" data-anchor-id="task-2-fit-a-multiple-linear-regression-model">Task 2: Fit a multiple linear regression model</h3>
+<p>In JASP, if our independent variables are of <em>Scale</em> type, we add them into the <strong><em>Covariates</em></strong> box - just as we did with <code>Income inequality</code> - and if they are categorical (<em>Nominal</em> or short <em>Ordinal</em>) variables, then we add them to the <strong><em>Factors.</em></strong> In the latter case, JASP will automatically recode the categorical variables into a series of “dummy” (i.e.&nbsp;binary, dichotomous) variables, one for each category/level measuring whether the case/respondent is part of that category or not (i.e.&nbsp;yes/no; 1/0; true/false). In our current dataset (<code>pickett2009.csv</code>), all of the variables that can logically serve as predictor variables are measured on a <em>Scale</em> level, so we will move them to the <strong><em>Covariates</em></strong>. If you add the <code>Homicides</code> variable to the <strong><em>Covariates</em></strong>, the input panel (left) should look something like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/paste-20.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="images/paste-20.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="391"></a></p>
+</figure>
+</div>
+<p>The output in the results panel (right) should show something like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/paste-21.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="images/paste-21.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="483"></a></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We can simply continue the <strong><em>Linear regression</em></strong> analysis we started in <em>Exercise 3.1</em>, or we can start a new <strong><em>Linear Regression</em></strong> analysis in the same JASP workbook. If we start a new <strong><em>Linear Regression</em></strong>, we have the advantage of then being able to see both sets of outputs in the results panel.</p>
+<p>JASP also allows us to <strong>build up several different “nested” models as part of a single analysis</strong>, which then has several additional benefits: all the models will be summarised in the same output tables (e.g.&nbsp;as M<sub>0</sub>, M<sub>1</sub>, M<sub>2</sub>, M<sub>3</sub>, etc.), providing additional statistical comparisons across all the fitted models, ensuring that the same sub-sample is used across all models even if the dataset is “unbalanced” in the sense that some of the explanatory variables have more missing values than others.</p>
+<p>To achieve that, we first (1) need to move all the explanatory variables that we want to include in our most complex model into the <strong><em>Covariates</em></strong> or <strong><em>Factors</em></strong> boxes (in our case we move <code>Income inequality</code> and <code>Homicides</code>), then we can (2) roll down the <strong>Model</strong> drop-down tab and click on the green <span class="math inline">\(+\)</span> sign to add another model (e.g.&nbsp;<em>Model 2</em>). This new model will include all the variables included in the previous model (e.g.&nbsp;<em>Model 1</em>), allowing us to include some <em>further</em> variables. First, we should simplify the previous model (e.g.&nbsp;<em>Model 1</em>) by removing some explanatory variables (e.g.&nbsp;<code>Homicides</code>) from it (moving them into the box on the left); this frees the variable up so that it can be included in the next model (e.g.&nbsp;<em>Model 2</em>) instead. With our example analysis, the <strong>Model</strong> options tab in the input pane (left) should end up looking something like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/paste-22.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="images/paste-22.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="319"></a></p>
+</figure>
+</div>
+<p>And the output in the results panel (right) should show something like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/paste-23.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="images/paste-23.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="481"></a></p>
+</figure>
+</div>
+<p>We see that the output combines the results from our earlier <em>simple linear regression</em> model and from our new <em>multiple regression model</em>. In this case the values are exactly the same regardless of our approach, but if one of our explanatory variables would contain missing observations, then the sub-sample of the data used in each model would differ if they were fitted <em>independently</em> from one another (i.e.&nbsp;not “nested” as here), which would in turn affect the estimated coefficients.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Remember: we should make our choice of predictor variables based on theoretical and conceptual grounds, while also ensuring that the <strong>statistical criteria</strong> for the choices are also met. You know from the Essential Readings <span class="citation" data-cites="goss-sampson2025">(see. <a href="#ref-goss-sampson2025" role="doc-biblioref">Goss-Sampson 2025:75</a>)</span> that linear regression makes a number of “assumptions” about our data and variables:</p>
+<ul>
+<li>Outliers: there should be no significant outliers, high-leverage or highly influential data points;</li>
+<li>Linearity: there should be a linear relationship between (a) the dependent variable and each of your independent variables, and (b) the dependent variable and the independent variables collectively;</li>
+<li>Independence: the observations should be independent from one another (i.e., independence of residuals; e.g.&nbsp;no repeated observations from the same participants/cases, as in a longitudinal analysis that would ask the same question of the same person at different points in time);</li>
+<li>Normality: the model residuals (errors) are approximately normally distributed;</li>
+<li>Homoscedasticity: the variance of residuals (errors) are approximately equal;</li>
+<li>Low multicollinearity: avoid including two or more independent variables that are highly correlated with each other.</li>
+</ul>
+<p>Of these, the potential for high levels of “collinearity” or “multicollinearity” (i.e.&nbsp;when the predictors themselves show a high level of dependence on each other) may be something to consider in the case of our data, as the variables we have available in the dataset should - in theory at least - be correlated with each other to some significant degree. This can be an issue because it inflates the variance of the coefficients, making them less reliable.</p>
+<p>To get a sense of how much of an issue this is for our analyses, we can inspect the correlation between the predictor (“independent”, “explanatory”) variables themselves. It is worth noting that <em>multicollinearity</em> emerges as an issue when core explanatory variables of interest are highly correlated with each other <strong><em>after accounting for all the other variables included in the model</em></strong>. In other words, if we have <em>more than two</em> explanatory variables that may be collinear in a model, we must ensure that</p>
+<p>The coefficient of correlation between the predictors will tell us how strongly the predictors are correlated, and if we were to subtract that correlation coefficient from 1 and then divide 1 by the result of that subtraction <span class="math inline">\(\left(1 \over {1 - R^2}\right)\)</span>, we would get a commonly used statistic for assessing multicollinearity called the <strong>Variance Inflation Factor</strong> (<strong>VIF</strong>). In JASP, we can request this statistic directly under the <strong>Statistics</strong> drop-down tab by ticking the <strong>[Tolerance and VIF]</strong> option. <a href="https://statisticalhorizons.com/multicollinearity/">Read more about the VIF and when multicollinearity is (not) a problem in this short blog entry</a></p>
+</div>
+</div>
+<p>We now have a statistical model which explains variation in <code>Trust</code> as <u>not only</u> dependent on <code>Income inequality</code>, but also on the rate of <code>Homicides</code>. Put differently - if our main aim is to estimate how <code>Income inequality</code> is associated with <code>Trust</code> - we have obtained <strong>a more accurate estimate</strong> of the association between <code>Income inequality</code> and <code>Trust</code>, because we have additionally <em>also <strong>account for</strong> variation due to differences in the homicide rates</em> in each country, which in itself can have an impact on how much trust people have in strangers.</p>
+<p>Another way in which this “<strong><em>account for</em></strong>” is often expressed is that the stated coefficients are those obtained after we <strong><em>adjust for</em></strong> or <strong><em>keep constant</em></strong> or <strong><em>eliminate</em></strong> or <strong><em>control for</em></strong> <strong>the effect</strong> of the other variable(s) in the model - although often this terminology is highly confusing as it seems to imply causal relationships (“effect of…”) and experimental interventions (“keep constant…”, “control…”), which is not something that linear regression analysis can achieve <em>on its own</em> when using survey data. <span style="color: #0FFF50"><strong>So: beware of causal and experimental design language when you encountering it in your readings, and try to avoid it as much as possible in your own writing!</strong></span></p>
+<p>This procedure is expected to give us <em>more accurate</em> estimates because by including further (but carefully selected on conceptual grounds!) variables into the model, we have removed them from the pool of the “unknown” factors affecting/related to our outcome variable of interest.</p>
+<div class="questionblock">
+<p><strong>Questions</strong></p>
+<ul>
+<li>Using the lecture slides and the <a href="../../Materials/Info/info_w3.html"><strong>essential readings for this week</strong></a>, interpret the results.</li>
+<li>How has the association between <code>Income inequality</code> and <code>Trust</code> changed once we have adjusted for the potential influence of the <code>Homicides</code> rate in a country?</li>
+<li>Based on this model, what is the expected difference in the average level of measured <code>Trust</code> if we observe a one-unit higher level in the rate of homicides?</li>
+<li>What is the <strong>coefficient of determination</strong> (<span class="math inline">\(R^2\)</span>) telling us now? Is our multiple regression model “stronger” or “better” than our earlier simple regression models?</li>
+</ul>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Interpretation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The interpretation of the coefficients is similar to the one we gave in the simple linear regressions earlier, with <strong><em>one important adjustment</em></strong>: now each coefficient tells us the expected difference in the value of <code>Trust</code> associated with a one-unit change in the given predictor <strong><em>while the values of all the other predictors in the model are kept constant</em></strong> (i.e.&nbsp;their effect is nullified, taken out of the equation, etc.).</p>
+<p>This means that the coefficient of <span class="math inline">\(-7.147\)</span> for <code>Income inequality</code> is a more precise estimate of the impact of <code>Income inequality</code> on <code>Trust</code> than the coefficient obtained earlier from the simple regression model (<span class="math inline">\(-6.535\)</span>) , because this coefficient now also accounts for the expected effect of the rate of <code>Homicides</code> in each country.</p>
+<p>Vice-versa, we may actually be interested in the effect of <code>Homicides</code> itself on <code>Trust</code>, and the interpretation works in the same way: the model expects/predicts that each one-unit positive change in the rate of <code>Homicides</code> will be associated with a <strong>positive</strong> (the is no negative sign!) change of <span class="math inline">\(0.174\)</span> units on the <code>Trust</code> scale, whilst we also adjust for the variation in <code>Income inequality</code> across the countries.</p>
+<p>Now this should be somewhat surprising to us given the result we had from the earlier single-predictor model. When we <strong>did not</strong> adjust for the effect of <code>Income inequality</code>, a one-unit increase in <code>Homicides</code> was associated with a predicted <strong>negative</strong> change (reduction) in <code>Trust</code> of <span class="math inline">\(-0.268\)</span>. So, not only did the coefficient in the multiple regression model become smaller (<span class="math inline">\(0.17\)</span> vs.&nbsp;<span class="math inline">\(0.27\)</span>), but it actually changed its sign ( <span class="math inline">\(+\)</span> vs.&nbsp;<span class="math inline">\(-\)</span> )! This tells us that <code>Homicides</code> is an unreliable predictor in this model and we should think carefully about whether this multiple regression model is “better” or “worse” than our simple regression model.</p>
+<p>We have not yet considered closely the meaning of the other columns in the <strong><em>Coefficients</em></strong> table (we will in Workshop 5 on <em>Uncertainty and Inference</em>), but to make up our mind about what to do next we will also need to look at those columns. Without going into details about what it means, we see in the “<strong>Standard Error</strong>” column that the standard error associated with the coefficient on <code>Income inequality</code> is slightly larger (<span class="math inline">\(1.836\)</span>) than it was in the simple regression model (<span class="math inline">\(1.605\)</span>). This essentially means that the addition of <code>Homicides</code> has made the estimate of <code>Income inequality</code> more “error-prone”, decreasing the level of confidence we can have that it is generalisable to a wider population or phenomenon beyond our data.</p>
+<p><strong>What is the coefficient of determination (</strong><span class="math inline">\(R^2\)</span><strong>) telling us now?</strong></p>
+<p>The correlation coefficient loses its original meaning in the context of a multiple regression model in which we have more than one predictor/independent/explanatory variable. It’s meaning becomes “partial” to all the other variables in the model. In this case, its <strong>squared value</strong>, the <strong>R<sup>2</sup></strong> is more meaningful. Looking at the <strong>R<sup>2</sup></strong> value we also find that this has increased slightly to <strong>0.455</strong>, indicating that the <strong><em>combined</em></strong> knowledge of the <code>Homicides</code> rate <em>and</em> the <code>Income inequality</code> score of a country can help explain <span class="math inline">\(45.5\%\)</span> <strong>of the variation in <code>Trust</code></strong>. The remaining ~<span class="math inline">\(55\%\)</span> of the variation is associated with other factors that our model is not (yet) adjusting for. If we have variables measuring factors that can potentially have a good explanatory value, we could consider them as additional Covariates/Factors to include in our models.</p>
+<p><strong>Is our multiple regression model “stronger” or “better” than our earlier simple regression models?</strong></p>
+<p>What is - or should be - interesting is that the multiple regression model appears “stronger” or “better” at explaining the variation in trust compared to the simpler model in which we only had knowledge of <code>Income inequality</code> (<span class="math inline">\(R^2 = 44.1\%\)</span>) despite the fact that the additional <code>Homicides</code> variable itself turned out to be a very weak and unreliable predictor. This is often the case, because in principle <strong>any</strong> additional information that we can build into a statistical model should help reduce the amount of unexplained variance in the dependent variable. This is not always the case in more complex models, but in general it is a reasonable expectation. This is why it is useful to include a number of standard “control” variables - i.e.&nbsp;variables in whose coefficients we are <em>not</em> directly interested in, but we know from theory or previous experience that they can have an influence on sociological outcome/dependent variables. However, if we include many control variables that are weak and unreliable predictors without a good theoretical reason, we risk heightening the potential for multicollinearity in our models, potentially making the core explanatory variables of interest also less reliable.</p>
+<p>In the case of out current regression model, there is no good reason for keeping <code>Homicides</code> in as a control variable in future models, given that it contributes very little to the explanatory potential of the model</p>
+</div>
+</div>
+</section>
+</section>
+<section id="exercise-3.3-multiple-linear-regression-with-categorical-predictors" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3.3-multiple-linear-regression-with-categorical-predictors">Exercise 3.3: Multiple linear regression with categorical predictors</h2>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span><i class="fa-solid fa-database" aria-label="database"></i> Exercise 3.3 Dataset
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Download the <a href="../..\Data/workshop_data/w3/delhey&amp;newton2005.sav"><code>delhey&amp;newton2005.sav</code></a> dataset <span class="citation" data-cites="DelheyNewton2005PredictingCrossNationalLevels">(cf. <a href="#ref-DelheyNewton2005PredictingCrossNationalLevels" role="doc-biblioref">Delhey and Newton 2005</a>)</span> and open it in JASP. The dataset is also available on the <a href="../../Data/index.html" target="_blank">Data page</a>), where you can also access a <a href="../../Data/workshop_data/w3/codebook_delhey_newton_2005.html">Codebook</a>that describes the variables and their measurement.</p>
+</div>
+</div>
+<p>The purpose of this exercise is to demonstrate the interpretation of the effect of categorical explanatory (“independent”, “predictor”) variables included in regression models. In the <code>pickett2009</code> dataset we do not have usable variables that could be treated as categorical, so for this exercise we will make use of another dataset. The <code>delhey&amp;newton2005</code> dataset contains variables that allow us to replicate - as closely as possible - parts of the analysis undertaken by <span class="citation" data-cites="DelheyNewton2005PredictingCrossNationalLevels">Delhey and Newton (<a href="#ref-DelheyNewton2005PredictingCrossNationalLevels" role="doc-biblioref">2005</a>)</span>. The variables have been compiled from various sources based on the methodological details provided in <span class="citation" data-cites="DelheyNewton2005PredictingCrossNationalLevels">Delhey and Newton (<a href="#ref-DelheyNewton2005PredictingCrossNationalLevels" role="doc-biblioref">2005</a>)</span> and the slightly more detailed <a href="https://www.econstor.eu/bitstream/10419/44134/1/394929810.pdf">working paper version of the article</a>.</p>
+<p>The exercise consists of a number of tasks that allow you to practice the steps of quantitative analysis already learnt in previous workshops and exercises.</p>
+<section id="task-1.-create-a-descriptive-statistics-table-to-summarise-the-distributions-of-all-the-variables-in-the-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="task-1.-create-a-descriptive-statistics-table-to-summarise-the-distributions-of-all-the-variables-in-the-dataset">Task 1. Create a Descriptive Statistics table to summarise the distributions of all the variables in the dataset</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When there are many variables in a dataset, it is often a good idea to “transpose” the Descriptive Statistics table so that variables are listed in the rows and the summary statistics in the columns.</p>
+</div>
+</div>
+<p>When done, you should be seeing something like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/paste-25.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="images/paste-25.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="489"></a></p>
+</figure>
+</div>
+<div class="questionblock">
+<p><strong>Questions</strong></p>
+<ul>
+<li>How many cases (i.e.&nbsp;countries) are in the dataset?</li>
+<li>What is the average level of “social trust” in the dataset as a whole (i.e.&nbsp;what is known as the “grand mean”)?</li>
+<li>Can we tell how many world Regions there are in the dataset?</li>
+<li>What scale is “Protestantism” measured on? Can we tell how many categories the variable has?</li>
+</ul>
+</div>
+</section>
+<section id="task-2-identify-any-potential-explanatory-variables-that-can-be-treat-as-categorical-variables-and-create-the-most-appropriate-univariate-descriptive-summaries" class="level3">
+<h3 class="anchored" data-anchor-id="task-2-identify-any-potential-explanatory-variables-that-can-be-treat-as-categorical-variables-and-create-the-most-appropriate-univariate-descriptive-summaries">Task 2: Identify any potential explanatory variables that can be treat as <em>categorical</em> variables and create the most appropriate univariate descriptive summaries</h3>
+<p>When done, you should be seeing some of these outputs:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/paste-26.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="images/paste-26.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="426"></a></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/paste-27.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="images/paste-27.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="429"></a></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/paste-28.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="images/paste-28.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="429"></a></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/paste-30.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img src="images/paste-30.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="435"></a></p>
+</figure>
+</div>
+<div class="questionblock">
+<p><strong>Questions</strong></p>
+<ul>
+<li>How many world Regions there are in the dataset?</li>
+<li>How is “Protestantism” measured? Is it a “scale” variable - as coded in the dataset - or a “Nominal” categorical variable? Does it make a difference?</li>
+</ul>
+</div>
+</section>
+<section id="task-3-create-bivariate-visualisations-of-the-association-between-region-protestantism-and-social-trust" class="level3">
+<h3 class="anchored" data-anchor-id="task-3-create-bivariate-visualisations-of-the-association-between-region-protestantism-and-social-trust">Task 3: Create bivariate visualisations of the association between “Region”, “Protestantism” and “social trust”</h3>
+<p>When done, you should be seeing some of these outputs:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/paste-31.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img src="images/paste-31.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="491"></a></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/paste-32.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17"><img src="images/paste-32.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="329"></a></p>
+</figure>
+</div>
+<div class="questionblock">
+<p><strong>Questions</strong></p>
+<ul>
+<li>Which “Region” has the highest and the lowest average level of “social trust”?</li>
+<li>Which “Region” shows the most and least variation in “social trust”? What may be the reason behind this variation?</li>
+<li>Are the Eastern European or the Western European countries more diverse in their levels of “social trust”?</li>
+<li>Which categories of “Region” and “Protestantism” show any outliers?</li>
+<li>Do Protestant or non-Protestant countries have a higher level of “social trust”?</li>
+</ul>
+</div>
+</section>
+<section id="task-4-fit-a-linear-regression-model-to-assess-the-relationship-between-social-trust-and-the-world-region-of-the-country" class="level3">
+<h3 class="anchored" data-anchor-id="task-4-fit-a-linear-regression-model-to-assess-the-relationship-between-social-trust-and-the-world-region-of-the-country">Task 4: Fit a linear regression model to assess the relationship between “social trust” and the world “Region” of the country</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span><strong>Solution</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Click through the <strong>Menu tabs</strong>:</p>
+<p><span class="math display">\[ \text{Regression} \longrightarrow \text{[Classical] Linear regression} \]</span></p>
+<p>In the <strong><em>Linear regression</em></strong> panel, move the <code>Social_trust</code> variable to the <span class="math inline">\(\text{Dependent Variable}\)</span> box; but this time, we will move the <code>Region</code> variable to the <span class="math inline">\(\text{Factors}\)</span> box instead.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/paste-33.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18"><img src="images/paste-33.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="479"></a></p>
+</figure>
+</div>
+<p>This will tell JASP that the <code>Region</code> variable is categorical and it should model it as such, <em>treating each of its constituent categories as an individual factor/indicator variable.</em></p>
+<p>When done, the outputs from the linear regression model will appear in the results panel on the right, and you should see some of these outputs:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/paste-34.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19"><img src="images/paste-34.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="481"></a></p>
+</figure>
+</div>
+<p>If we look carefully to the list of Regions in the <strong>Coefficients</strong> table, we notice that only 5 categories are listed, whereas we know from the descriptive statistics the there are six Regions in our dataset. What happens here is that JASP <em><strong>automaticallyleaves out the first category</strong> (Task 2 above will tell you which one that is) of “Factors” from the model so that <strong>the left-out category becomes the baseline/reference</strong> to which the coefficients on all the other categories compare</em>. Essentially, the first category is given the value of 0 and each other category receives a value of 1 compared to the “reference category”; so, in the output the entry for “Region (Americas)” is essentially a dichotomous (binary, “dummy) variable in which”Americas” is coded as 1 and “Africa” (the left-out category) as 0; similarly, the entry for “Region (Asia)” compares “Asia” (1) to “Africa” (0) and “Region (Western Europe)” is a variable that compares “Western Europe” (1) to “Africa” (0).</p>
+<p>What happens here is that <strong>the left-out category (here “Africa”) is absorbed into the <code>Intercept</code></strong> (the unknown/unmeasured variation in the dependent variable), just like in the case of a numeric predictor the <code>Intercept</code> represents the predictor at value 0. Therefore, the regression coefficient for the <code>(Intercept)</code> represents the predicted <code>Social_trust</code> value for “Africa” (<strong>28.32%</strong> in M<sub>0</sub> and <strong>16.57%</strong> in M<sub>1</sub> where the influence of other Regions is also accounted for). The intercept for “Region (Americas)” then tells us that compared to a country in “Africa”, a country located in the “Americas” is expected show a <span class="math inline">\(4.9\)</span>-unit higher level of <code>Social_trust</code>. The biggest difference is that between “Oceania” and “Africa”, where countries in the former region are predicted to have a <span class="math inline">\(28\)</span>-point higher <code>Social_trust</code> on average than those in “Africa”. And so on.</p>
+<p>There are obvious problems emerging from the fact that some of the Regions have only few observations (countries), making the mean highly unreliable if not nearly meaningless. This is made even worse by the fact that the “reference” category to which all others compare is “Africa”, which has only 2 observations (countries) in the dataset despite being a continent consisting of 54 countries in reality (this makes it <em>substantively</em> different from “Oceania”, which is also only represented in the dataset with 2 countries - Australia and New Zealand - although these do cover a significant proportion of the population of Oceania in reality, which otherwise consists of 12 further countries that are mostly smaller island nations). A better option would be to choose a more stable/larger category to serve as the “reference”. This is not a difficult thing to achieve - we just need to manually change the order of category codings in JASP.</p>
+<p><strong><em>How to manually recode variables?</em></strong></p>
+<p>To recode variables, we first need to switch to the data editor window by clicking on “Edit Data”:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/paste-36.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20"><img src="images/paste-36.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></a></p>
+</figure>
+</div>
+<p>In the data editor window, we can <strong>double-click</strong> on the column name we want to recode - in this case “Region”. That will open up the “Label editor”:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/paste-38.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21"><img src="images/paste-38.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="310"></a></p>
+</figure>
+</div>
+<p>In the “Label editor”, we first deselect the “Automatically order labels by their value” (currently in blue) and with the up/down arrows we can move categories around. We can move “Western Europe” in the top position so that it will be the first category and as such set as the “reference” category in regression models:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/paste-40.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22"><img src="images/paste-40.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="314"></a></p>
+</figure>
+</div>
+<p>Once we perform this change and return to our regression in the <strong>Analyses</strong> window, we see that the output was already automatically updated:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/paste-44.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23"><img src="images/paste-44.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="500"></a></p>
+</figure>
+</div>
+<p>Now all the Regoins listed in the Coefficients list are compared to “Western Europe”. We find that countries in all regions except Oceania are predicted to have smaller levels of <code>Trust</code> compared to Western Europe.</p>
+</div>
+</div>
+</section>
+<section id="task-5-fit-a-linear-regression-model-to-assess-the-relationship-between-social-trust-and-whether-a-country-has-a-dominant-protestant-population" class="level3">
+<h3 class="anchored" data-anchor-id="task-5-fit-a-linear-regression-model-to-assess-the-relationship-between-social-trust-and-whether-a-country-has-a-dominant-protestant-population">Task 5: Fit a linear regression model to assess the relationship between “social trust” and whether a country has a dominant “Protestant” population</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Even through “Protestantism” appears in the dataset as a “Scale” type variable, we can move it to the “Factors” box and it will automatically be treated as a “Nomical” categorical variable; a small black star next to the variable type icon will signal that the variable was “forced” into behaving like a “Factor”:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/paste-45.png" class="lightbox" data-gallery="quarto-lightbox-gallery-24"><img src="images/paste-45.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="243"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p>When done, you should be seeing some of these outputs:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/paste-46.png" class="lightbox" data-gallery="quarto-lightbox-gallery-25"><img src="images/paste-46.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="559"></a></p>
+</figure>
+</div>
+<div class="questionblock">
+<p><strong>Questions</strong></p>
+<ul>
+<li>What is the expected <code>Social_trust</code> level of a country that does <u>not</u> have a dominant Protestant population?</li>
+<li>What is the expected <code>Social_trust</code> level of a country that has a dominant Protestant population?</li>
+<li>How much higher or lower is the expected <code>Social_trust</code> in a Protestant country compared to a non-protestant one?</li>
+</ul>
+</div>
+<p>The interpretation of the coefficients is exactly the same as in the previous case (Regions), with the exception that now we only have one category to compare against the “reference” because the <code>Protestantism</code> variable is naturally dichotomous/binary one, containing only two categories.</p>
+<p>Because of this, we could treat <code>Protestantism</code> as a “Scale” type variable and enter it into the “Covariates” box instead, and still get the same coefficients because it would be treated as a theoretically infinite scale on which we only observe two data points in practice (0 as non-Protestant and 1 as Protestant), and so we can imagine a <strong>one-unit change</strong> on this scale as being a movement from the first category to the second.</p>
+<p>The only differences in the output would be the naming of the variable and - more importantly - that Standardised coefficients would also be calculated and displayed. Because in this case we have not labelled the values themselves (the two categories of the <code>Protestantism</code> variable have not been given labels, just the values 0 and 1), the naming of the output is actually cleaner when treating <code>Protestantism</code> as a “scale” type variable. This is common practice for dichotomous/binary/“dummy”/indicator variables, where the variable name “indicates” the case coded as 1 (here “Protestantism”; in the case of a variable categorising biological sex, we could name the variable itself as <code>female</code> and code males as 0 and females as 1).</p>
+<p>The output from a regression in which we treat <code>Protestantism</code> as a “Scale” variable would look something like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/paste-47.png" class="lightbox" data-gallery="quarto-lightbox-gallery-26"><img src="images/paste-47.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="575"></a></p>
+</figure>
+</div>
+<p>It is often easier to treat dichotomous/“dummy”/indicator variables as “Scale” for modelling purposes. We can then calculate meaningful mean values for them and to standardise them to make them comparable with the scales of the other variables in the model. If we examine the regression results presented by <span class="citation" data-cites="DelheyNewton2005PredictingCrossNationalLevels">Delhey and Newton (<a href="#ref-DelheyNewton2005PredictingCrossNationalLevels" role="doc-biblioref">2005</a>)</span> in their Table 3, we realise that they actually report “Standardised” coefficients, meaning that all the predictor variables had been standardised before entered into the regression model.</p>
+</section>
+</section>
+<section id="exercise-3.4-predicting-cross-national-levels-of-social-trust" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3.4-predicting-cross-national-levels-of-social-trust">Exercise 3.4: “Predicting Cross-National Levels of Social Trust”</h2>
+<p>You should now be well-equipped to reproduce and interpret the main regression models reported on in Table 3 in <span class="citation" data-cites="DelheyNewton2005PredictingCrossNationalLevels">Delhey and Newton (<a href="#ref-DelheyNewton2005PredictingCrossNationalLevels" role="doc-biblioref">2005</a>)</span> . The authors were interested in identifying the strongest predictors of national-level social trust and tested the effect of several potential explanatory variable. They found five that proved statistically significant (more on this later in Workshop 5) and robust across different models, and our <code>delhey&amp;newton2005</code> dataset contains all the relevant variables to reproduce these results. We should note that the dataset was compiled from a variety of sources described by the original authors in their article, but it is not the original dataset used by the authors themselves, so we should expect some differences compared to the published results.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Nevertless, the results should be robust enough to withhold some variability in the data.</p>
+<p>In this exercise, you have free hand to reproduce the four highlighted models from the article’s Table 3:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/paste-48.png" class="lightbox" data-gallery="quarto-lightbox-gallery-27" title="Source: @DelheyNewton2005PredictingCrossNationalLevels, p.&nbsp;319"><img src="images/paste-48.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="549" alt="Source: Delhey and Newton (2005), p.&nbsp;319"></a></p>
+</figure>
+</div>
+<figcaption>Source: <span class="citation" data-cites="DelheyNewton2005PredictingCrossNationalLevels">Delhey and Newton (<a href="#ref-DelheyNewton2005PredictingCrossNationalLevels" role="doc-biblioref">2005</a>)</span>, p.&nbsp;319</figcaption>
+</figure>
+</div>
+<div class="questionblock">
+<p><strong>Questions</strong></p>
+<ul>
+<li>Which coefficients in the JASP output are the ones that match the coefficients reported in the article? Note that there are likely some differences in the actual numbers, but they should be still recognisably close to the published ones.</li>
+<li>How do you interpret the results from these models?</li>
+<li>What limitations in the analysis can you think of? What criticisms can you formulate?</li>
+</ul>
+</div>
+</section>
+<section id="exercise-3.5-which-of-the-assignment-research-questions-could-be-addressed-using-a-linear-regression-model" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3.5-which-of-the-assignment-research-questions-could-be-addressed-using-a-linear-regression-model">Exercise 3.5: Which of the assignment research questions could be addressed using a linear regression model?</h2>
+<p>Let’s look again at the assignment research questions. Some of these questions imply a <em>dependent</em> variable which is measured as a <em>numeric scale</em> or at least a long-ish (e.g.&nbsp;7-point +) <em>ordinal scale</em> in one of the surveys we will use for the assignment (ESS10, WVS7, EVS2017). Other questions imply <em>dependent</em> variables that are more strictly <em>categorical</em>, and as such, we cannot model them using linear regression. For those, we may be able to apply another model type that better fits that kind of outcome variable (e.g.&nbsp;logistic regression), one of which we will be covering in Week 5.</p>
+<p>In this exercise, explore the survey questionnaires (like we did in previous Workshops) to identify any available variables for answering one/some of the questions below, and check how the implied dependent variable was measured:</p>
+<ol type="A">
+<li>Are religious people more satisfied with life?</li>
+<li>Are older people more likely to see the death penalty as justifiable?</li>
+<li>What factors are associated with opinions about future European Union enlargement among Europeans?</li>
+<li>Is higher internet use associated with stronger anti-immigrant sentiments?</li>
+<li>How does victimisation relate to trust in the police?</li>
+<li>What factors are associated with belief in life after death?</li>
+<li>Are government/public sector employees more inclined to perceive higher levels of corruption than those working in the private sector?</li>
+</ol>
+<p>The best way to explore the available Assignment datasets and questionnaires is via the <a href="../../Data/index.html">Data</a> page of this site.</p>
+</section>
+</section>
+<section id="jasp-solutions" class="level1">
+<h1>JASP solutions</h1>
+<p>Below you can download JASP files with solutions to some of the exercises in this worksheet:</p>
+<p><img src="../..\Materials/pics/JASP_logo.png" height="17"> <a href="../..\Materials/Worksheets/w3_pickett2009.jasp">Exercise 3.1-3: pickett2009</a></p>
+<p><img src="../..\Materials/pics/JASP_logo.png" height="17"> <a href="../..\Materials/Worksheets/w3_delhey&amp;newton2005.jasp">Exercise 3.4: delhey&amp;newton2005.jasp</a></p>
+
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-DelheyNewton2005PredictingCrossNationalLevels" class="csl-entry" role="listitem">
+Delhey, Jan, and Kenneth Newton. 2005. <span>“<a href="https://www.jstor.org/stable/4621213">Predicting <span>Cross</span>-<span>National</span> <span>Levels</span> of <span>Social</span> <span>Trust</span>: <span>Global</span> <span>Pattern</span> or <span>Nordic</span> <span>Exceptionalism</span>?</a>”</span> <em>European Sociological Review</em> 21(4):311–27.
+</div>
+<div id="ref-goss-sampson2025" class="csl-entry" role="listitem">
+Goss-Sampson, Mark A. 2025. <em><a href="https://jasp-stats.org/wp-content/uploads/2024/03/Statistical-Analysis-in-JASP-2024.pdf">Statistical Analysis in JASP: A Guide for Students</a></em>. 6th Edition, JASP v0.19.3.
+</div>
+<div id="ref-PickettEtAl2024SpiritLevel15" class="csl-entry" role="listitem">
+Pickett, Kate, Aini Gauhar, and Richard Wilkinson. 2024. <em><a href="https://media.equality-trust.out.re/uploads/2024/07/The-Spirit-Level-at-15-2024-FINAL.pdf">The <span>Spirit Level</span> at 15: <span>The Enduring Impact</span> of <span>Inequality</span></a></em>. <em>Monograph</em>. London: The Equality Trust.
+</div>
+<div id="ref-WilkinsonPickett2010SpiritLevelWhy" class="csl-entry" role="listitem">
+Wilkinson, Richard G., and Kate Pickett. 2009. <em>The Spirit Level: Why Greater Equality Makes Societies Stronger</em>. <span>London</span>: <span>Allen Lane</span>.
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>By the way, a “quintile” (from the Latin word “quintus” for “five”) is simply a value that divides a scale into five equal parts - e.g.&nbsp;a scale of all the integers between 0 and 100 divided into five equal parts will contain 20 integers in each part, i.e.&nbsp;100÷5<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Some of the potentially most consequential sources of difference between the two datasets are the following: I could not find Ghana as a participating country in either the 1996 or 1990 World Values Survey; however, Malta was a participating country and also had useful measurements on all the other explanatory variables, so I have included it in the list of countries, making the dataset add up to 60, in line with the original sample size. Macro-economic data published by the World Bank or the OECD are often updated and corrected retrospectively, so if data for previous time periods are drawn form more recently published data releases, they may be slightly different than those available earlier. The categorisation of “Protestantism” is not described in too much detail by the authors, so it may be slightly different than the one done here (nonetheless, I have experimented with different possible options for coding it and the version included in the dataset was the most robust version). The finer details of the factor analysis used to compile the “Quality of government” scale were also not described by the authors, but the approach adopted here showed fit statistics that were close to those reported by the authors.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation column-body">
+  <div class="nav-page nav-page-previous">
+      <a href="../../Materials/Notes/notes_w3.html" class="pagination-link" aria-label="[W3] Slides and Notes">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">[W3] Slides and Notes</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../Materials/Info/info_w4.html" class="pagination-link" aria-label="[W4] Info and Readings">
+        <span class="nav-page-text">[W4] Info and Readings</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

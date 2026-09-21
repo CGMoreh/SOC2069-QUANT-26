@@ -1,0 +1,22 @@
+---
+page-layout: full
+toc: false
+---
+
+:::{style="color: #133163"}
+# **Codebook** 
+:::
+
+## Delhey & Newton 2005 
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, error = FALSE}
+
+source("Data/my_functions.R")
+
+datawizard::data_read("Data/workshop_data/w3/delhey&newton2005.rds") |> 
+  my_codebook() |> 
+    tinytable::tt(width = c(.2, .45, .075, .075, .2), height = 0.8) |> 
+    tinytable::style_tt(fontsize = 0.8) |> 
+    tinytable::style_tt(j = 1, bold = TRUE)
+
+```

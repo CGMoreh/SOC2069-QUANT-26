@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>SOC2069 | 2026</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<link href="../../site_pics/logo_name_white.jpg" rel="icon" type="image/jpeg">
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-f1e2abeed0a61b02a6ba2cd28422ece3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script src="../../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../labcss.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title"><strong>SOC2069</strong> <i class="fa-solid fa-chart-line" aria-label="chart-line"></i> Quantitative Methods</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../Materials/index.html"> 
+<span class="menu-text">Materials</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../Data/index.html"> 
+<span class="menu-text">Data</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://ncl.instructure.com/courses/68718" target="_blank"> 
+<span class="menu-text"><iconify-icon role="img" inline="" icon="arcticons:canvasstudent" style="font-size: l;" aria-label="Icon canvasstudent from arcticons Iconify.design set." title="Icon canvasstudent from arcticons Iconify.design set."></iconify-icon> Canvas</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#workshop-3-worksheet" id="toc-workshop-3-worksheet" class="nav-link active" data-scroll-target="#workshop-3-worksheet">Workshop 3 Worksheet</a>
+  <ul class="collapse">
+  <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link" data-scroll-target="#learning-outcomes">Learning outcomes</a></li>
+  <li><a href="#intro" id="toc-intro" class="nav-link" data-scroll-target="#intro">Intro</a></li>
+  <li><a href="#exercise-1-from-a-regression-line-to-regression-coefficients" id="toc-exercise-1-from-a-regression-line-to-regression-coefficients" class="nav-link" data-scroll-target="#exercise-1-from-a-regression-line-to-regression-coefficients">Exercise 1: From a <em>regression line</em> to <em>regression coefficients</em></a>
+  <ul class="collapse">
+  <li><a href="#task-1.1-visualise-the-relationship" id="toc-task-1.1-visualise-the-relationship" class="nav-link" data-scroll-target="#task-1.1-visualise-the-relationship">Task 1.1: Visualise the relationship</a></li>
+  <li><a href="#task-1.2-model-the-relationship" id="toc-task-1.2-model-the-relationship" class="nav-link" data-scroll-target="#task-1.2-model-the-relationship">Task 1.2: Model the relationship</a></li>
+  <li><a href="#task-1.3-interpret-the-regression-model-output" id="toc-task-1.3-interpret-the-regression-model-output" class="nav-link" data-scroll-target="#task-1.3-interpret-the-regression-model-output">Task 1.3: Interpret the regression model output</a></li>
+  <li><a href="#task-1.4-find-the-correlation-coefficient-using-a-correlation-test-instead" id="toc-task-1.4-find-the-correlation-coefficient-using-a-correlation-test-instead" class="nav-link" data-scroll-target="#task-1.4-find-the-correlation-coefficient-using-a-correlation-test-instead">Task 1.4: Find the correlation coefficient using a “correlation” test instead</a></li>
+  </ul></li>
+  <li><a href="#exercise-2-linear-regression-with-categorical-predictors" id="toc-exercise-2-linear-regression-with-categorical-predictors" class="nav-link" data-scroll-target="#exercise-2-linear-regression-with-categorical-predictors">Exercise 2: Linear regression with categorical predictors</a>
+  <ul class="collapse">
+  <li><a href="#task-2.1-describe-the-region-variable-using-a-frequency-table" id="toc-task-2.1-describe-the-region-variable-using-a-frequency-table" class="nav-link" data-scroll-target="#task-2.1-describe-the-region-variable-using-a-frequency-table">Task 2.1: Describe the <code>Region</code> variable using a Frequency table</a></li>
+  <li><a href="#task-2.2-build-a-simple-bivariate-regression-model" id="toc-task-2.2-build-a-simple-bivariate-regression-model" class="nav-link" data-scroll-target="#task-2.2-build-a-simple-bivariate-regression-model">Task 2.2: Build a simple bivariate regression model</a></li>
+  <li><a href="#task-2.3-interpret-the-regression-model" id="toc-task-2.3-interpret-the-regression-model" class="nav-link" data-scroll-target="#task-2.3-interpret-the-regression-model">Task 2.3: interpret the regression model</a></li>
+  </ul></li>
+  <li><a href="#exercise-3-build-a-multiple-regression-model" id="toc-exercise-3-build-a-multiple-regression-model" class="nav-link" data-scroll-target="#exercise-3-build-a-multiple-regression-model">Exercise 3: Build a multiple regression model</a></li>
+  <li><a href="#exercise-4-take-home-which-of-the-assignment-research-questions-could-be-addressed-using-a-linear-regression-model" id="toc-exercise-4-take-home-which-of-the-assignment-research-questions-could-be-addressed-using-a-linear-regression-model" class="nav-link" data-scroll-target="#exercise-4-take-home-which-of-the-assignment-research-questions-could-be-addressed-using-a-linear-regression-model">Exercise 4 (take-home): Which of the assignment research questions could be addressed using a linear regression model?</a></li>
+  <li><a href="#jasp-solution" id="toc-jasp-solution" class="nav-link" data-scroll-target="#jasp-solution">JASP solution</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content column-page-left" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="workshop-3-worksheet" class="level1">
+<h1>Workshop 3 Worksheet</h1>
+<section id="learning-outcomes" class="level2">
+<h2 class="anchored" data-anchor-id="learning-outcomes">Learning outcomes</h2>
+<p>By the end of the session, you should be familiar with:</p>
+<ul>
+<li>running simple and multiple linear regression in JASP</li>
+<li>performing a correlation analysis in JASP</li>
+<li>model building in JASP</li>
+<li>the interpretation of linear regression coefficients</li>
+</ul>
+</section>
+<section id="intro" class="level2">
+<h2 class="anchored" data-anchor-id="intro">Intro</h2>
+<p>We continue where we left off in the last Workshop, taking further <a href="../../Materials/Worksheets/worksheet_w2.html" target="_blank"><em>Workshop 2 Worksheet - Exercise 3</em></a> in which we explored the relationship between <em>income inequality</em> by <em>social trust</em> visually through a scatter plot using data related to the analyses presented in <span class="citation" data-cites="WilkinsonPickett2010SpiritLevelWhy">Wilkinson and Pickett (<a href="#ref-WilkinsonPickett2010SpiritLevelWhy" role="doc-biblioref">2009</a>)</span> (Figure 4.1) and <span class="citation" data-cites="PickettEtAl2024SpiritLevel15">Pickett, Gauhar, and Wilkinson (<a href="#ref-PickettEtAl2024SpiritLevel15" role="doc-biblioref">2024</a>)</span> (Figure 7). For this, we used the <code>pickett2009.csv</code> and <code>pickett&amp;al2024.sav</code> datasets, respectively, which are available for download from the <a href="../../Data/index.html" target="_blank">Data page</a> of this website.</p>
+<p>In that exercise we focused mainly on the <em>scatterplot</em> in order to practice creating viasual representations of bivariate associations. In this workshop, our focus will instead shift to understanding what the <strong><em>“regression line”</em></strong> is actually telling us, before we move on to expanding our analysis with additional explanatory variables.</p>
+<!--
+In later exercises we apply the same techniques to replicate a small part of the regression model reported in @Osterman2021CanWeTrust (specifically, model **(1)** in the summary [*Table 3*](https://link.springer.com/article/10.1007/s11205-020-02529-y/tables/3), which is presented in more detail in *Table A.3* in the *[Online Supplementary Material](https://static-content.springer.com/esm/art%3A10.1007%2Fs11205-020-02529-y/MediaObjects/11205_2020_2529_MOESM1_ESM.pdf)* accompanying the article)
+
+Finally - probably outside class - you should practice the same linear regression modelling techniques on one of the assignment datasets and research questions.
+
+-->
+</section>
+<section id="exercise-1-from-a-regression-line-to-regression-coefficients" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1-from-a-regression-line-to-regression-coefficients">Exercise 1: From a <em>regression line</em> to <em>regression coefficients</em></h2>
+<p>If you haven’t yet downloaded it in the last workshop, download the <code>pickett2009.csv</code> dataset <span class="citation" data-cites="WilkinsonPickett2010SpiritLevelWhy">(cf. <a href="#ref-WilkinsonPickett2010SpiritLevelWhy" role="doc-biblioref">Wilkinson and Pickett 2009</a>)</span> from the <a href="../../Data/index.html" target="_blank">Data page</a>.</p>
+<section id="task-1.1-visualise-the-relationship" class="level3">
+<h3 class="anchored" data-anchor-id="task-1.1-visualise-the-relationship">Task 1.1: Visualise the relationship</h3>
+<p>As a first step, create a scatter plot visualising the “relationship” (co-variation, joint distribution, …) between <em>social trust</em> (<code>Trust</code>) and <em>income inequality</em> (<code>S80S20</code>) (read more about the measurement of <em>income inequality</em> <a href="../../Data/workshop_data/w2/codebook_pickett.html#income-inequality">here</a> to better understand the meaning of this variable). This is Exercise 3 from Workshop 2 - if you need a reminder of how to do it, check <a href="../../Materials/Worksheets/worksheet_w2.html" target="_blank"><em>Workshop 2 Worksheet - Exercise 2</em></a> or your saved <code>.jasp</code> file containing your workshop analysis from Workshop 2.</p>
+</section>
+<section id="task-1.2-model-the-relationship" class="level3">
+<h3 class="anchored" data-anchor-id="task-1.2-model-the-relationship">Task 1.2: Model the relationship</h3>
+<p>Now let’s dig deeper into the meaning of the regression line by building a simple bivariate linear regression <em>model of social trust as <strong>a function of</strong> societal inequality</em> (i.e.&nbsp;a model aiming to <strong><em>explain/predict</em></strong> values of social trust in various countries <strong><em>depending on</em></strong> the value of societal inequality in those countries).</p>
+<p>To build a linear regression model in JASP, click through the <strong>Menu tabs</strong>:</p>
+<p><span class="math display">\[ \text{Regression} \longrightarrow \text{[Classical] Linear regression} \]</span> In the <strong><em>Linear regression</em></strong> panel, move the “social trust” variable to the <span class="math inline">\(\text{Dependent Variable}\)</span> box and the “inequality” variable to the <span class="math inline">\(\text{Covariates}\)</span> box.</p>
+<p>The results from the linear regression model will appear in the outputs window on the right.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The output should look something like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/clipboard-1193676324.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="images/clipboard-1193676324.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="task-1.3-interpret-the-regression-model-output" class="level3">
+<h3 class="anchored" data-anchor-id="task-1.3-interpret-the-regression-model-output">Task 1.3: Interpret the regression model output</h3>
+<p>In general terms, the coefficient of interest (the one associated with the independent variable) tells us: that <strong><em>a one-unit difference/change on the independent variable scale is associated with a difference/change in the dependent variable of the size shown by the value of the coefficient</em></strong>.</p>
+<p>But what does this mean substantively in the context of our two variables?</p>
+<div class="questionblock">
+<p><strong>Questions</strong></p>
+<ul>
+<li>Using the lecture slides and <a href="https://openintro-ims.netlify.app/model-slr">Chapter 7 (“Linear regression with a single predictor”)</a> from the <em>Introduction to Modern Statistics</em> (IMS), interpret the meaning of the regression coefficient on “inequality”.</li>
+<li>Add a <strong><em>note</em></strong> on the JASP output under the <span class="math inline">\(\text{Coefficients}\)</span> output and write down your interpretation there. [<strong>Tip</strong>: You’ve already practiced adding notes to the outputs in <a href="https://cgmoreh.github.io/SOC2069-QUANT/Materials/Worksheets/worksheet_w1.html#exercise-3-describing-trust-using-jasp">Workshop 1, Exercise 3, Point 7</a>]</li>
+<li>Where can you find the <strong>coefficient of correlation</strong> (<span class="math inline">\(R\)</span>) in the outputs? What about the <strong>coefficient of determination</strong> (<span class="math inline">\(R^2\)</span>)?</li>
+</ul>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The tables in the outputs list results from two “models”. One is a model without any explanatory (independent/predictor) variables (M<sub>0</sub>), in which case the <code>(Intercept)</code> value is nothing else then the average (mean) value of the outcome (dependent/explained) variable calculated on the sample of cases/observations (i.e.&nbsp;<em>countries</em> here) that were included in the model (i.e.&nbsp;only those who had a valid measurement on both of the variables, so a non-missing value for both the “trust” and the “inequity” variable). This “null model” is given to us by JASP by default, without us asking for it. The model we actually fit is presented as M<sub>1</sub>, and this is what we are interested in. As we see in the <strong><em>Coefficients</em></strong> table, the coefficient associated with the <code>(Intercept)</code> value in M<sub>1</sub> is no longer the mean/average level of <code>trust_pct</code>, but instead <strong>45.384</strong>. This value represents <strong>the expected score on the dependent variable (<code>trust_pct)</code></strong> <strong>when the value of the independent variable (<code>inequality_s80s20</code>) is 0</strong>. As it will become apparent from the discussion below, a value of 0 for the <code>inequality_s80s20</code> variable is highly unrealistic, and this is often the case. However, that’s not a problem, because the <code>(Intercept)</code> value is meant to provide a mathematical baseline to the model and <strong>we generally are <u>not</u> interested in interpreting it</strong>., so we won’t. What we <u><em>are</em></u> interested in is the coefficient on our independent (explanatory/predictor) variable.</p>
+<p><strong>What is the meaning of the regression coefficient on “inequality”?</strong></p>
+<p>In general terms, the coefficient of interest (the one associated with the independent variable) tells us: that a one-unit difference/change on the independent variable scale is associated with a difference/change in the dependent variable of the size shown by the value of the coefficient.</p>
+<p>But what does this mean substantively in the context of our two variables?</p>
+<p>From the Coefficients table we see that the regression coefficient associated with our predictor/independent variable is -3.114. This tells us that a one-unit increase on the “inequality” scale is associated with a -3.114-unit change on the “trust” scale. To give this a more meaningful interpretation, we need to know what exactly a unit change means on each scale, and for that we need to know what our variables measure.</p>
+<p>Understanding the “trust” measurement (the <code>trust_pct</code> variable) is more straightforward. We know that it measures the percentage of respondents in each country who answered that “in general, most people can be trusted” to the standard social trust survey question in the World Values Survey. A unit on that scale is therefore one percentage-point.</p>
+<p>Understanding the “inequality” scale is much trickier, because that scale measures a ratio. Specifically, it denotes the so-called income quintile share ratio, a commonly employed measurement of inequality in the income distribution in a country. It is calculated as the ratio of total income received by the 20% of the population with the highest income (the top quintile) to that received by the 20% of the population with the lowest income (the bottom quintile) [By the way, a “quintile” (from the Latin word “quintus” for “five”) is simply a value that divides a scale into five equal parts - e.g.&nbsp;a scale of all the integers between 0 and 100 divided into five equal parts will contain 20 integers in each part, i.e.&nbsp;100÷5]. In our dataset, the variable measuring it - <code>inequality_s80s20</code> - was calculated by taking the ratio of (i.e.&nbsp;dividing) the variables <code>income_top20</code> and <code>income_bottom20</code>. For example, looking at the first entry, for Albania, we see that <code>income_top20</code> = 39.6375 and <code>income_bottom20</code> = 7.9125, so <code>inequality_s80s20</code> will be 39.6÷7.9 = 5.009478673 (or 5.01 rounded up to two decimal points).</p>
+<p>That’s fairly easy to get our heads around, but because its unit of measurement is a ratio it also makes it more difficult to compare one value to another. The best way of approaching it is through some logical examples. Say, for instance, that we want to posit the existence of a perfectly equal society (in terms of income distribution, at least). What would that entail? It would entail that the top-20% earners and the bottom-20% earners own the same share of the total available income. For example, if the top-20% possess 20% of the income distribution and the bottom-20% also possess 20% of the income distribution (with the remaining 60% of income possessed by the middle-60% of earners), then the inequality ratio would be 20÷20=1. The ratio is the same if the “middle-class” is very thin and both the top- and the bottom-20% of earners possess, say, 42% of the income distribution (84% in total): 42÷42=1. To generalise, when two values are equal, their ratio is 1. But what happens if we hypothesise a very unequal society, say one in which the top-20% of the earners share 90% of all income distributed within an economy, while the bottom-20% share on only 0.5% of the income distribution? In such a scenario, the inequality ratio would be 90÷0.5=180; and, in theory, the value of this ratio can be limitlessly high (e.g.&nbsp;99.999÷0.00005=1,999,980; yes, that is indeed almost 2 million!). The larger the gap, the more extreme the ratio value, and the change between values is not “linear”.</p>
+<p>However, the above scenarios are empirically unrealistic. In fact, if we look at our actual data, the lowest share of the income scale possessed by the top-20% in any country is 34.56 (Slovakia), while the highest share is 57.3 (Brazil). For income possessed by the bottom-20%, the lowest percentage is 3.45 (Brazil) and the highest value is 10.08 (Ukraine). In terms of <code>inequality_s80s20</code>, we then see the lowest value at 3.52 (Ukraine) and the highest at 16.64 (Brazil). On this more restricted empirical scale (running from 3.52 to 16.64), the difference between the values is more equal, making the changes from one value to another approximately linear.</p>
+<p>So, then, what does a one-unit change on this “empirical” scale mean? It means, for example, the difference between an inequality score of 30÷10=3 and one of 24÷6=4; or, approximately, between 40÷7.9=5.06 (Lebanon) and 42.83÷7.08=6.05 (Nigeria). It is, in other words, a rather large unit; the entire scale (running from 3.52 to 16.64) contains just over 13 such units (16.64 - 3.52 = 13.12). By contrast, a percentage scale contains 100 units of 1%-point each. Due to such differences in the scales that are being compared, it is very common to “standardise” the variables used in a regression so that each unit involved is “equal”. On the other hand, the difficulty is then shifted onto interpreting those standardized coefficients on the original meaningful scale of the variables involved. In other words, it’s a challenge either way. In this exercise, we have left the two variables involved in the regression unstandardised, so a “unit” has a different meaning in the case of each variable.</p>
+<p>Now, having thought deeply about what the variables involved actually measure, we can interpret the regression coefficient, which is telling us that our simple model predicts that a country with an inequality score 1 points higher than that of another country will have, on average, a trust score 3.114% lower than that other country. If we look, for example, at the trust scores of Lebanon and Nigeria, we can get a sense of how well our model does at predicting this specific case: 12.68% - 9.92% = 2.76%. It’s not a perfect prediction, but it’s a much better one than we could have made had we not had any information on “inequality”. Ultimately, our model helps us make a better informed assessment of the variability in trust across countries, even if it will either overestimate or underestimate any given actual value.</p>
+<p><strong>Where can you find the <em>coefficient of correlation</em> (</strong><span class="math inline">\(R\)</span>) in the outputs?</p>
+<p>The idea behind the <strong>coefficient of correlation</strong> (<span class="math inline">\(R\)</span>) relates somewhat to the discussion above regarding “standardisation”. In fact, the correlation coefficient is calculated by standardising the scales of the two variables involved (<code>trust_pct</code> and <code>inequality_s80s20</code>) and expressing the coefficient on that standardised scale. In our JASP output, we can find this information under the <strong><em>Standardized</em></strong> column in the <strong><em>Coefficients</em></strong> table, and as an <strong>absolute value</strong> (i.e.&nbsp;non-negative) is shown under the <strong>R</strong> column in the <strong><em>Model Summary</em></strong> table.</p>
+<p>But what exactly does “standardisation” mean?</p>
+<p>One of the most commonly employed “standard scores” is the z-score, which tells us how many “standard deviations” (SD) each score/value is from the mean/average score/value on a given measurement scale. The ﻿<span class="math inline">\(z\)</span>-score for a value <span class="math inline">\(x\)</span>﻿ is calculated as <span class="math inline">\(z_x={(x-\mu_X)\over\sigma_X}\)</span> ﻿, where <span class="math inline">\(x\)</span>﻿ is any single value on a scale <span class="math inline">\(X\)</span>, <span class="math inline">\(\mu_X\)</span> is the mean/average of <span class="math inline">\(X\)</span> and <span class="math inline">\(\sigma_X\)</span> is the standard deviation of <span class="math inline">\(X\)</span>. In JASP, we can use the <strong>zScores()</strong> drag-and-drop function to calculate this. If we were to create two new variables that are the z-standardised versions of the <code>trust_pct</code> and <code>inequality_s80s20</code> variables, respectively, and we ran the same regression as above on those variables, then the obtained regression coefficient on “standardised inequality” would have coincided with the correlation coefficient and it would have been <strong>-0.430</strong>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> On these newly standardized scales, a value of <strong>1</strong> means <strong>“one standard deviation above the mean”</strong>, a value of <strong>2</strong> means “<strong>two</strong> standard deviations above the mean”, a value of <strong>-1</strong> means “one standard deviation <strong>below</strong> the mean”, and so on. This means that the two standardised variables are measured on a similar scale and their values are therefore directly comparable, which was not the case for the original unstandardised values.</p>
+<p>A coefficient of <strong>-0.43</strong> associated with “standardised inequality” would therefore be interpreted as: a one-standard-deviation positive change in “standardised inequality” is associated with a below-half (around 40.3%) of a standard deviation negative change in “standardised trust”. In other words, it takes a difference of over two standard deviations (2.33) in <em>inequality</em> to observe a one-standard-deviation reduction in the level of <em>trust.</em></p>
+<p>However, the purpose of the “correlation coefficient” is to provide a more general description of the association between two numeric variables. Its value ranges between -1 and 1, where 1 represents a perfect positive correlation between the two variables and -1 a perfect negative correlation, while 0 shows no correlation between the two at all. Visualising some of these extreme and intermediate correlations on scatter plots would look something like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/clipboard-1893247036.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="images/clipboard-1893247036.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="542"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="task-1.4-find-the-correlation-coefficient-using-a-correlation-test-instead" class="level3">
+<h3 class="anchored" data-anchor-id="task-1.4-find-the-correlation-coefficient-using-a-correlation-test-instead">Task 1.4: Find the correlation coefficient using a “correlation” test instead</h3>
+<p>To run a simple bivariate correlation analysis in JASP, go through the <strong>Menu tabs</strong>:</p>
+<p><span class="math display">\[ \text{Regression} \longrightarrow \text{[Classical] Correlation} \]</span> Move both of the variables of interest to the <span class="math inline">\(\text{Variables}\)</span> box.</p>
+<p>Check if the results are the same as those obtained using linear regression</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The correlation output should look something like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/clipboard-153036063.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="images/clipboard-153036063.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></a></p>
+</figure>
+</div>
+<p>This output was simplified by ticking the “Display pairwise” box in the Correlation options and un-ticking the “Report significance” option:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/clipboard-2178866284.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="images/clipboard-2178866284.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="412"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="exercise-2-linear-regression-with-categorical-predictors" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2-linear-regression-with-categorical-predictors">Exercise 2: Linear regression with categorical predictors</h2>
+<p>Now we will build another simple bivariate regression model, but this time we will use the variable <code>Region</code> to model/explain/predict levels of “social trust” in different countries. <code>Region</code> is the only <strong><em>Nominal categorical</em></strong> variable in this dataset, and categorical variables behave differently in regression models.</p>
+<section id="task-2.1-describe-the-region-variable-using-a-frequency-table" class="level3">
+<h3 class="anchored" data-anchor-id="task-2.1-describe-the-region-variable-using-a-frequency-table">Task 2.1: Describe the <code>Region</code> variable using a Frequency table</h3>
+<p><strong>Tip</strong>: You have done this a few times in previous workshops. Check back on previous exercises if you need to remind yourself of how to create a frequency table.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The frequency table is:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/clipboard-3007114448.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="images/clipboard-3007114448.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="task-2.2-build-a-simple-bivariate-regression-model" class="level3">
+<h3 class="anchored" data-anchor-id="task-2.2-build-a-simple-bivariate-regression-model">Task 2.2: Build a simple bivariate regression model</h3>
+<p>The steps for fitting the regression, however, are very similar to what we have done in the previous exercise:</p>
+<ul>
+<li>Click through the <strong>Menu tabs</strong>:</li>
+</ul>
+<p><span class="math display">\[ \text{Regression} \longrightarrow \text{[Classical] Linear regression} \]</span></p>
+<ul>
+<li>In the <strong><em>Linear regression</em></strong> panel, move the “social trust” variable to the <span class="math inline">\(\text{Dependent Variable}\)</span> box</li>
+<li>BUT THIS TIME, we will move the <code>Region</code> variable to the <span class="math inline">\(\text{Factors}\)</span> box instead.</li>
+</ul>
+<p>This will tell JASP that the <code>Region</code> variable is categorical and it should model it as such, <em>treating each of its constituent categories as an individual factor/indicator variable, automatically <strong>leaving out the first category</strong> (Task 2.1 above will tell you which one that is!) from the model so that <strong>the left out category becomes the baseline/reference</strong> to which the coefficients on all the other categories compare</em>. What happens here is that the left-out category is absorbed into the “Intercept” (the unknown/unmeasured variation in the dependent variable).</p>
+<p>The results from the linear regression model will appear in the outputs window on the right.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The modelling options chosen are:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/clipboard-3873434763.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="images/clipboard-3873434763.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="500"></a></p>
+</figure>
+</div>
+<p>And the outputs from the model are:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/clipboard-1518772251.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="images/clipboard-1518772251.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="681"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="task-2.3-interpret-the-regression-model" class="level3">
+<h3 class="anchored" data-anchor-id="task-2.3-interpret-the-regression-model">Task 2.3: interpret the regression model</h3>
+<p>In the case of <strong><em>numeric Scale</em></strong>-type predictor/independent variables the interpretation of the <strong><em>coefficient</em></strong> (“unstandardized”) was that <strong><em>a one-unit difference/change on the independent variable scale is associated with a difference/change in the dependent variable of the size shown by the value of the coefficient</em></strong>. When the predictor/independent variable is categorical, the interpretation changes somewhat. The coefficient associated with the listed <strong><em>category/level</em></strong> of the independent variable compares that category with the <em>reference/baseline</em> category. In other words, the <strong><em>unit of difference</em></strong> in this case is the difference between the stated and the reference category: <strong><em>being in the listed category as opposed to being in the reference category is associated with a difference/change in the dependent variable of the size shown by the value of the coefficient</em></strong>.</p>
+<p>But what does this mean substantively in the context of our two variables?</p>
+<div class="questionblock">
+<p><strong>Questions</strong></p>
+<ul>
+<li>Using the lecture slides and the assigned readings from <em>Introduction to Modern Statistics</em> (IMS), interpret the meaning of the regression coefficients on each reported level of the <code>Region</code> variable;</li>
+<li>Which one is the “reference”/“baseline” category?</li>
+<li>Add a <strong><em>note</em></strong> on the JASP output under the <span class="math inline">\(\text{Coefficients}\)</span> output and write down your interpretation there. [<strong>Tip</strong>: You’ve already practiced adding notes to the outputs in <a href="https://cgmoreh.github.io/SOC2069-QUANT/Materials/Worksheets/worksheet_w1.html#exercise-3-describing-trust-using-jasp">Workshop 1, Exercise 3, Point 7</a>]</li>
+<li>Where can you find the <strong>coefficient of correlation</strong> (<span class="math inline">\(R\)</span>) in the outputs? What about the <strong>coefficient of determination</strong> (<span class="math inline">\(R^2\)</span>)? Are they meaningful in this context? Why so, or why not?</li>
+</ul>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In order to interpret the regression results, we need to understand how our variables are measured and coded. We already know everything we have to about the <code>trust_pct</code> variable from Exercise 1. To understand the <code>Region</code> variable, we should inspect the frequency table produced in Task 2.1 above. We see there that the variable has 7 non-missing (valid) categories, and if we look at the regression output, we see that only 6 are listed in the <strong>Coefficients</strong> table: the first category (“Europe &amp; Central Asia”) is missing. Well, it’s not actually missing, but it was “absorbed” into the <code>(Intercept)</code>. What this means is that the meaning of the <code>(Intercept)</code> in this case is: <strong><em>the average value of <code>trust_pct</code> when the value of <code>Region</code> is “Europe &amp; Central Asia”</em></strong>; or, put differently, the <code>(Intercept)</code> denotes the average <code>trust_pct</code> in the European and Central Asian countries present in the dataset.</p>
+<p>What happens when we enter a categorical variable as a predictor (independent variable) into a linear regression model in JASP (and most other statistical computing packages) is that the regression function automatically breaks the categorical variable into several “dummy” or “indicator” variables, one for each constituent category, that <em>indicate</em> membership (or not) in that category, and the first category is left out of the model so that all other categories can compare to this left-out “reference” or “base-line” category. Put differently, we have <strong><em>not one</em></strong> but <strong><em>six</em></strong> different predictors/independent variables in this model, each taking the value of 1 if the observation falls into that category and the value of 0 if it does not. For example, the observation “Australia” has a value of 0 on the “Region (Latin America &amp; Caribbean)” variable, but a value of 1 on the “Region (East Asia &amp; Pacific)” variable, and 0 on all other listed variables. The United Kingdom has a value of 0 on all six variables listed in the <strong>Coefficients</strong> table, because it has a value of 1 on the “Region (Europe &amp; Central Asia)” variable, which was left out from among the predictors and to which all other variables compare.</p>
+<p>The regression coefficients are therefore interpreted as <em>comparisons</em> to “Europe &amp; Central Asia”. For example, the coefficient of <strong>-20.11</strong> on “Latin America &amp; Caribbean” means that the expected value of <code>trust_pct</code> of a country in Latin America or the Caribbean is <strong>20.11%</strong> <strong>lower</strong>, on average, than the expected <code>trust_pct</code> value of a country in Europe or Central Asia. The only regions where w<strong>e expect to see higher average social trust than in “Europe &amp; Central Asia”</strong> are “East Asia &amp; Pacific” (2.1% higher) and “North America” (13,6% higher). In other regions, the expected average level of social trust is lower than in Europe &amp; Central Asia by the displayed coefficient.</p>
+<p><strong>Where can you find the coefficient of correlation (</strong><span class="math inline">\(R\)</span><strong>)? What about the coefficient of determination (</strong><span class="math inline">\(R^2\)</span><strong>)? Are they meaningful in this context?</strong></p>
+<p>As we can see, the correlation coefficient no longer appears in the “Standardized” coefficients column in the <strong><em>Coefficients</em></strong> table. The reason is explained in the table. The correlation coefficient also loses its meaning in the context of a multiple regression model in which we have more than one predictor/independent/explanatory variable. It’s meaning becomes “partial” to all the other variables in the model. In this case, its <strong>squared value</strong>, the <strong>R<sup>2</sup></strong> is more meaningful: it captures, roughly, the amount (percentage) of the variance in the dependent variable that is explained by the whole <em>model,</em> with all the predictors included. Here, we could say that <code>Region</code> is able to explain 27.1% of the variation in the “social trust” across countries (R<sup>2</sup>=0.271; to express that as a percentage, we multiply it by 100; <em>i.e.</em> we move the decimal point two places to the right).</p>
+</div>
+</div>
+</section>
+</section>
+<section id="exercise-3-build-a-multiple-regression-model" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3-build-a-multiple-regression-model">Exercise 3: Build a multiple regression model</h2>
+<p>We can now combine the separate bivariate analyses in the previous two exercises into a more elaborate <strong><em>multiple regression model</em></strong>. The procedure to build a multiple regression model is the same as in the simple regression models before, but this time we add both of the independent variables into the model:</p>
+<p><span class="math display">\[ \text{MENU TABS: } \text{Regression} \longrightarrow \text{[Classical] Linear regression} \]</span></p>
+<ul>
+<li>In the <strong><em>Linear regression</em></strong> panel, move the “social trust” variable to the <span class="math inline">\(\text{Dependent Variable}\)</span> box</li>
+<li>Move the “inequality” variable to the <span class="math inline">\(\text{Covariates}\)</span> box</li>
+<li>Move the <code>Region</code> variable to the <span class="math inline">\(\text{Factors}\)</span> box</li>
+</ul>
+<p>The results will appear in the outputs window on the right. We now have a statistical model which explains variation in “social trust” not only dependent on “inequality”, but also on “Region”. Put differently - if our main aim is to estimate how “inequality” is associated with “social trust” - we have obtained a more accurate estimate of the association between “inequality” and “social trust”, <em>while also <strong>accounting for</strong> variation due to differences in the Region to which countries belong</em>.</p>
+<p>Another way in which this is often expressed is that the stated coefficients are those obtained after we <strong><em>keep constant</em></strong> or <strong><em>eliminate the effect</em></strong> of the other variables in the model. This procedure is expected to give us <em>more accurate</em> estimates because by including further variables into the model, we have removed them from the pool of the “unknown” factors affecting/related to out outcome measurement of interest.</p>
+<div class="questionblock">
+<p><strong>Questions</strong></p>
+<ul>
+<li>Using the lecture slides and the assigned readings from <em>Introduction to Modern Statistics</em> (IMS), interpret the meaning of each regression coefficient, comparing them with the ones obtained from the simpler models in the previous exercises;</li>
+<li>Add a <strong><em>note</em></strong> on the JASP output under the <span class="math inline">\(\text{Coefficients}\)</span> output and write down your interpretations there.</li>
+<li>Where can you find the <strong>coefficient of correlation</strong> (<span class="math inline">\(R\)</span>) in the outputs? What about the <strong>coefficient of determination</strong> (<span class="math inline">\(R^2\)</span>)? Are they meaningful in this context? Why so, or why not?</li>
+</ul>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The regression model options chosen are:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/clipboard-941574151.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="images/clipboard-941574151.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="544"></a></p>
+</figure>
+</div>
+<p>And the resulting output is:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/clipboard-1436659538.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="images/clipboard-1436659538.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="581"></a></p>
+</figure>
+</div>
+<p>The interpretation of the coefficients here is a combination of the interpretations given in Exercise 1 and Exercise 2. The only difference is that each coefficient tells us the expected difference in the value of <code>trust_pct</code> associated with the given predictor <strong><em>while the values of all the other predictors in the model are kept constant</em></strong> (i.e.&nbsp;their effect is nullified, taken out of the equation). This means that the coefficient of <strong>-3.63</strong> for <code>inequality_s80s20</code> is a more precise estimate of the impact of “inequality” on “social trust” that the coefficient of <strong>-3.11</strong> obtained in the simple regression model in Exercise 1, because this coefficient now also accounts for the expected effect of a country belonging to a given world <code>Region</code>. Vice-versa, compared to the coefficients we saw in Exercise 2, the coefficients for <code>Region</code> seen here are a more precise estimation of the expected effect of belonging to a <code>Region</code> because that effect now also accounts for variation in <code>inequality_s80s20</code> between the various regions. In fact, we do see some markedly different <code>Region</code> coefficients than in the simple model, now that we have “controlled” for the effect of “inequality” in the model as well.</p>
+<p>Looking at the <strong>R<sup>2</sup></strong> value we also find that this has increased to <strong>0.346</strong>, indicating that the <strong><em>combined</em></strong> knowledge of the <code>Region</code> as well as the <code>inequality_s80s20</code> score of a country can help explain 34.6% of the variation in <code>trust_pct</code>. The remaining 65%+ of the variation is associated with other factors that our model is not considering (maybe “crime rates”, or “recent history of civil war”, or “ethno-racial diversity/fragmentation”? If we have variables measuring these phenomena, then we could consider including them in our model).</p>
+</div>
+</div>
+</section>
+<section id="exercise-4-take-home-which-of-the-assignment-research-questions-could-be-addressed-using-a-linear-regression-model" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-4-take-home-which-of-the-assignment-research-questions-could-be-addressed-using-a-linear-regression-model">Exercise 4 (take-home): Which of the assignment research questions could be addressed using a linear regression model?</h2>
+<p>Let’s look again at the assignment research questions. Some of these questions imply a <em>dependent</em> variable which is measured as a <em>numeric scale</em> or at least a long-ish (e.g.&nbsp;7-point +) <em>ordinal scale</em> in one of the surveys we will use for the assignment (ESS10, WVS7, EVS2017). Other questions imply <em>dependent</em> variables that are more strictly <em>categorical</em>, and as such, we cannot model them using linear regression. For those, we may be able to apply another model type that better fits that kind of outcome variable (e.g.&nbsp;logistic regression), one of which we will be covering in Week 5.</p>
+<p>In this exercise, explore the survey questionnaires (like we did in previous Workshops) to identify any available variables for answering one/some of the questions below, and check how the implied dependent variable was measured:</p>
+<ol type="A">
+<li>Are religious people more satisfied with life?</li>
+<li>Are older people more likely to see the death penalty as justifiable?</li>
+<li>What factors are associated with opinions about future European Union enlargement among Europeans?</li>
+<li>Is higher internet use associated with stronger anti-immigrant sentiments?</li>
+<li>How does victimisation relate to trust in the police?</li>
+<li>What factors are associated with belief in life after death?</li>
+<li>Are government/public sector employees more inclined to perceive higher levels of corruption than those working in the private sector?</li>
+</ol>
+<p>The best way to explore the available Assignment datasets and questionnaires is via the <a href="../../Data/index.html">Data</a> page of this site.</p>
+</section>
+<section id="jasp-solution" class="level2">
+<h2 class="anchored" data-anchor-id="jasp-solution">JASP solution</h2>
+<p>A JASP file with the solutions to the exercises can be downloaded from <a href="../..\Materials/Worksheets/worksheet_w3_solutions.jasp">HERE</a>.</p>
+
+
+
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-PickettEtAl2024SpiritLevel15" class="csl-entry" role="listitem">
+Pickett, Kate, Aini Gauhar, and Richard Wilkinson. 2024. <em><a href="https://media.equality-trust.out.re/uploads/2024/07/The-Spirit-Level-at-15-2024-FINAL.pdf">The <span>Spirit Level</span> at 15: <span>The Enduring Impact</span> of <span>Inequality</span></a></em>. <em>Monograph</em>. London: The Equality Trust.
+</div>
+<div id="ref-WilkinsonPickett2010SpiritLevelWhy" class="csl-entry" role="listitem">
+Wilkinson, Richard G., and Kate Pickett. 2009. <em>The Spirit Level: Why Greater Equality Makes Societies Stronger</em>. <span>London</span>: <span>Allen Lane</span>.
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>I demonstrate what “standardization” using z-scores means in the JASP file containing the solution analysis, <a href="../..\Materials/Worksheets/worksheet_w3_solutions.jasp">available here</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

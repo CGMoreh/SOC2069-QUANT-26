@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>SOC2069 | 2026</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<link href="../../site_pics/logo_name_white.jpg" rel="icon" type="image/jpeg">
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-f1e2abeed0a61b02a6ba2cd28422ece3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script src="../../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../labcss.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title"><strong>SOC2069</strong> <i class="fa-solid fa-chart-line" aria-label="chart-line"></i> Quantitative Methods</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../Materials/index.html"> 
+<span class="menu-text">Materials</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../Data/index.html"> 
+<span class="menu-text">Data</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://ncl.instructure.com/courses/68718" target="_blank"> 
+<span class="menu-text"><iconify-icon role="img" inline="" icon="arcticons:canvasstudent" style="font-size: l;" aria-label="Icon canvasstudent from arcticons Iconify.design set." title="Icon canvasstudent from arcticons Iconify.design set."></iconify-icon> Canvas</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#workshop-4-worksheet" id="toc-workshop-4-worksheet" class="nav-link active" data-scroll-target="#workshop-4-worksheet">Workshop 4 Worksheet</a>
+  <ul class="collapse">
+  <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link" data-scroll-target="#learning-outcomes">Learning outcomes</a></li>
+  <li><a href="#intro" id="toc-intro" class="nav-link" data-scroll-target="#intro">Intro</a></li>
+  <li><a href="#exercise-4.1-predict-whether-social-trust-at-country-level-is-above-average" id="toc-exercise-4.1-predict-whether-social-trust-at-country-level-is-above-average" class="nav-link" data-scroll-target="#exercise-4.1-predict-whether-social-trust-at-country-level-is-above-average">Exercise 4.1: Predict whether social trust at country level is above average</a>
+  <ul class="collapse">
+  <li><a href="#task-5.1.1-dichotomise-the-trust_pct-variable" id="toc-task-5.1.1-dichotomise-the-trust_pct-variable" class="nav-link" data-scroll-target="#task-5.1.1-dichotomise-the-trust_pct-variable">Task 5.1.1: Dichotomise the <code>trust_pct</code> variable</a></li>
+  <li><a href="#task-5.1.2.-a-scatter-plot-of-trust_d-by-inequality_s80s20" id="toc-task-5.1.2.-a-scatter-plot-of-trust_d-by-inequality_s80s20" class="nav-link" data-scroll-target="#task-5.1.2.-a-scatter-plot-of-trust_d-by-inequality_s80s20">Task 5.1.2. A scatter plot of <code>trust_d</code> by <code>inequality_s80s20</code></a></li>
+  <li><a href="#task-5.1.3.-linear-regression-with-dichotomous-dependent-variable" id="toc-task-5.1.3.-linear-regression-with-dichotomous-dependent-variable" class="nav-link" data-scroll-target="#task-5.1.3.-linear-regression-with-dichotomous-dependent-variable">Task 5.1.3. Linear regression with dichotomous dependent variable</a></li>
+  <li><a href="#task-5.1.4.-binary-logistic-regression-in-jasp" id="toc-task-5.1.4.-binary-logistic-regression-in-jasp" class="nav-link" data-scroll-target="#task-5.1.4.-binary-logistic-regression-in-jasp">Task 5.1.4. Binary logistic regression in JASP</a></li>
+  </ul></li>
+  <li><a href="#exercise-5.2-take-home-which-of-the-assignment-research-questions-could-be-addressed-using-a-logistic-regression-model" id="toc-exercise-5.2-take-home-which-of-the-assignment-research-questions-could-be-addressed-using-a-logistic-regression-model" class="nav-link" data-scroll-target="#exercise-5.2-take-home-which-of-the-assignment-research-questions-could-be-addressed-using-a-logistic-regression-model">Exercise 5.2 (take-home): Which of the assignment research questions could be addressed using a logistic regression model?</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content column-page-left" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="workshop-4-worksheet" class="level1">
+<h1>Workshop 4 Worksheet</h1>
+<section id="learning-outcomes" class="level2">
+<h2 class="anchored" data-anchor-id="learning-outcomes">Learning outcomes</h2>
+<p>By the end of the session, you should be familiar with:</p>
+<ul>
+<li><p>running logistic regression in JASP</p></li>
+<li><p>the interpretation of logistic regression coefficients</p></li>
+<li><p>sub-setting/filtering data in JASP</p></li>
+<li><p>recoding/dichotomising a variable in JASP</p></li>
+</ul>
+</section>
+<section id="intro" class="level2">
+<h2 class="anchored" data-anchor-id="intro">Intro</h2>
+<p>This workshop introduces another type of regression analysis: <strong>binary/binomial</strong> “<strong>logistic”</strong> <strong>or</strong> <strong>”logit” regression</strong>. Binary logistic regression allows us to model dependent (”response”, “outcome”) <span class="math inline">\(y\)</span> variables that are <u>not</u> measured on a continuous numeric scale, but instead on a <em>simple dichotomous</em> scale that allows only two values (e.g.&nbsp;“<strong>1</strong>”/“0”; “<strong>Yes</strong>”/“No”; “<strong>True</strong>”/“False”; “<strong>Present</strong>”/“Abstent”; “<strong>Success</strong>”/“Failure”; “<strong>Agree</strong>”/“Disagree”; “<strong>Trusts</strong>”/“Doesn’t trust”; “<strong>Survived</strong>”/“Didn’t survive”, etc.). Such a variable is called <em>dichotomous</em> because its two value options present a “dichotomy”, but it is also often referred to by other names: <strong><em>binary</em></strong> or <strong><em>binomial</em></strong> (because it can take only <em>two</em> mutually exclusive values), <strong><em>indicator</em></strong> (because it “indicates” membership in a category - usually the category with the “positive” logical connotation (i.e.&nbsp;“yes”, “true”, “survived”, “trusts”, etc.), coded as <strong>1</strong>) or “<strong>dummy</strong>” (from the word’s meaning of a&nbsp;<strong>substitute</strong> or a <strong>proxy</strong> - as in “crash-test dummy” as a substitute for a human) - to signal the variable’s role as a placeholder that indicates the presence (typically coded as 1) or absence (coded as 0) of a specific qualitative characteristic.</p>
+<p>Modelling such a variable using the <em>linear regression</em> approach from Workshop 3 is likely to result in inaccurate coefficients, because linear regression assumes a theoretically unbounded continuous numeric scale of measurement; when it encounters a <strong><em>binary</em></strong> outcome variable, it assumes that we only observed two values (0 and 1) on this unbound scale, but that the scale nevertheless exists in theory and other values could have been observed if we collected more data. But, in fact, we know that no other values are theoretically possible.</p>
+<p>Nevertheless, we can <strong><em>generalise</em></strong> the logic of linear regression to make it applicable to <em>dichotomous</em> dependent variables. In fact, the method we learn about today - <strong><em>binary/binomial logistic regression</em></strong> - is an elementary case of a broader category of statistical models called <strong><em>generalised linear models (GLMs)</em></strong>. GLMs can be thought of as a two-stage modelling approach, in which we first model the response variable using a <em><strong>probability</strong> distribution</em> - such as the <em>binomial</em> distribution in our case -, and then we model the <em>parameter of the distribution</em> using a collection of predictors and a special form of multiple regression. This all sounds very technical and it does involve some complex mathematics, but <strong>applying</strong> <strong><em>logistic regression</em></strong> <strong>in practice</strong> will feel very similar to what we have done with <em>linear regression</em> before. The challenge will be in finding the simplest way to interpret the statistical results accurately and <em>meaningfully</em> given that the resulting regression coefficients refer to estimates on a mathematically <strong>transformed scale</strong> rather than the original scale of measurement of the variables as it was the case in linear regression. The <strong>Advanced topics</strong> readings assigned for this week outline these challenges for those who would like to gain a deeper understanding of the mathematics and mechanics of <em>logistic regression</em>; for the rest of us, <span class="citation" data-cites="ConnellyEtAl2016ModellingKeyVariables">Connelly, Gayle, and Lambert (<a href="#ref-ConnellyEtAl2016ModellingKeyVariables" role="doc-biblioref">2016</a>)</span> (on the reading list) provides a very approachable introduction to the major challenges, specifically for sociological analyses (see, specifically, <a href="#0">the sections between <em>Parameter estimates in logistic regression models</em> and <em>The presentation of logistic regression results</em></a>).</p>
+<p>In essence, with <em>binary logistic regression</em> we will attempt to <strong>predict the <em>probability</em> that an observation falls into one of the two categories of a dichotomous dependent (outcome) variable</strong> based on one or more independent (<em>predictor</em>, <em>explanatory</em>) variables. Observations are predicted to fall into whichever one of the two outcome categories is most probable for them <em>given the values</em> they have on the <em>independent</em> variable(s). Logistic modelling is thus often considered a <em>classification</em> method, especially in <em>machine learning</em> parlance.</p>
+</section>
+<section id="exercise-4.1-predict-whether-social-trust-at-country-level-is-above-average" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-4.1-predict-whether-social-trust-at-country-level-is-above-average">Exercise 4.1: Predict whether social trust at country level is above average</h2>
+<p>This exercise is primarily designed to introduce some new data management skills that may be useful in other contexts, and to connect with the data and analysis performed in Workshop 3. In <a href="../../Materials/Worksheets/worksheet_w3.html" target="_blank">Workshop 3 Worksheet - Exercise 3</a> we fit a <em>multiple</em> <em>linear regression</em> model of “social trust” measured as a percentage of a country’s population who answered that “people in general can be trusted” (as opposed to “one cannot be too careful”) on the standard binary “social trust” survey question as asked in the World Values Survey (<code>trust_pct</code>). We regressed that outcome on two variables: <code>inequality_s80s20</code> and <code>Region</code>.</p>
+<p>What if our research question would ask not about the distribution of trust on a percentage scale, but about <strong>the factors associated with whether the level of social trust in a country is <em>above average</em>?</strong>In this case, our “quantity of interest” is different and requires us to use a different dependent/outcome variable: one that <em>dichotomises</em> the proportion of <code>trust_pct</code> into two outcome categories: “below average” and “above average”. We can easily transform our existing measurement of social trust to map it onto such a <em>binary</em> dichotomy because the <code>trust_pct</code> measurement contains more detailed information. For this reason, in actual research it is not good practice to transform variables in such a way as to <em>lose</em> information; instead, we would strive to find a modelling method that applies to the format of the variable that encompasses the most available information. For our didactic purposes, however, we will <em>dichotomise</em> the <code>trust_pct</code> variable to practice this useful data-transformation technique.</p>
+<p>Let’s load the <strong>Trust &amp; Inequality</strong> (<code>trust_inequality.dta</code>) dataset into JASP (which can be downloaded from the <a href="../../Data/index.html" target="_blank">Data</a> page if not yet downloaded to a local/OneDrive folder).</p>
+<section id="task-5.1.1-dichotomise-the-trust_pct-variable" class="level3">
+<h3 class="anchored" data-anchor-id="task-5.1.1-dichotomise-the-trust_pct-variable">Task 5.1.1: Dichotomise the <code>trust_pct</code> variable</h3>
+<p>In JASP we can create new variables by switching to the <strong>Edit Data</strong> menu tab and clicking on the green plus sign above the first empty column at the end of our dataset (there are other ways too, but this is one):</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/clipboard-2278720191.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="images/clipboard-2278720191.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></a></p>
+</figure>
+</div>
+<p>When clicked, a set of fields pop up where we can write in the name we want to give to the new variable (this is necessary) as well as other details. We will create a variable called <code>trust_d</code> to refer to “dyihotomised trust scale”. Once we enter the desired variable name into the <strong>Name</strong> field, we click enter and an empty variable is created. We can also add a label (Long name) and description, and for this exercise, under <strong><em>Computed type</em></strong> we will select to <strong>compute</strong> the values of the new variable <strong>“with R code”.</strong> This option is more flexible and allows us here to “cut” the <code>trust_pct</code> scale into two around the mean/average value.</p>
+<p>For this, we need to know the mean value of <code>trust_pct</code> in the dataset. We can request a table of <strong>Descriptive Statistics</strong> for his, as we have done many times before, and find out that the mean value for <code>trust_pct</code> is <strong>25.731</strong>. Returning to the dataset window, we enter the following R code into the <strong><em>Compute column definition</em></strong> field:</p>
+<pre><code>cut(trust_pct, breaks = c(0, 25.731, 100))</code></pre>
+<p>Clicking the <strong><em>Compute column</em></strong> bar at the bottom of the field, the values are computed, and the window should look something like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/clipboard-2706951289.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="images/clipboard-2706951289.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="566"></a></p>
+</figure>
+</div>
+<p>The only thing we need to know about the R code we just entered is that “cut” the <code>trust_pct</code> variable into sections around three break-points: the value 0, the mean value (25.731) and the value 100. Because 0 and 100 represent the absolute theoretical extreme points of the <code>trust_pct</code> scale (because it’s a percentage scale), the only actual “cut” in the dataset is made around the mean value. In R, the <code>c(...)</code> function simply means that we are “<strong>c</strong>ombining” the values enumerated into a list of numbers; we need to use it if we want to specify more than one value. If we only specify a single “break” value in the <code>cut(...)</code> function, then the <code>trust_pct</code> scale will be cut into that many sections - and that’s not what we want here.</p>
+<p>We still need to do some changes to this newly minted variable. We can click on the <strong><em>Label editor</em></strong> tab, and there we will see the current values assigned automatically based on our “cutting” procedure: the first category are <code>trust_pct</code> values between <strong>0</strong> and <strong>25.7</strong> (inclusive), and the second category codes <code>trust_pct</code> values between <strong>25.7</strong> and <strong>100</strong>. We want some easier values and labels to use, so we’ll recode the first value as <strong>0</strong> and give it the label “Low trust”, and recode the second category as <strong>1</strong> and label it as “High trust”. Our window should now look something like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/clipboard-1922063628.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="images/clipboard-1922063628.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="574"></a></p>
+</figure>
+</div>
+<p>We can return to the <strong><em>Analyses</em></strong> menu tab now.</p>
+</section>
+<section id="task-5.1.2.-a-scatter-plot-of-trust_d-by-inequality_s80s20" class="level3">
+<h3 class="anchored" data-anchor-id="task-5.1.2.-a-scatter-plot-of-trust_d-by-inequality_s80s20">Task 5.1.2. A scatter plot of <code>trust_d</code> by <code>inequality_s80s20</code></h3>
+<p>We can check how the newly created variable is distributed by the values of our “inequality” measure by creating a scatter plot of their co-variation/co-relation. We have done scatter plots many times now. The result - simplified a bit - would look like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/clipboard-846815966.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="images/clipboard-846815966.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="403"></a></p>
+</figure>
+</div>
+<p>As expected, the <code>trust_d</code> variable only takes values of 0 and 1. This variable will be our new dependent variable that we want to model as a function of “inequality” and “Region”, as we have done in <a href="../../Materials/Worksheets/worksheet_w3.html" target="_blank">Workshop 3 Worksheet - Exercise 3</a> with the <code>trust_pct</code> variable.</p>
+</section>
+<section id="task-5.1.3.-linear-regression-with-dichotomous-dependent-variable" class="level3">
+<h3 class="anchored" data-anchor-id="task-5.1.3.-linear-regression-with-dichotomous-dependent-variable">Task 5.1.3. Linear regression with dichotomous dependent variable</h3>
+<p>As a quick comparison with <a href="../../Materials/Worksheets/worksheet_w3.html" target="_blank">Workshop 3 Worksheet - Exercise 3</a>, we can try to fit a linear regression using the new <code>trust_d</code> variable as dependent variable and <code>inequality_s80s20</code> and <code>Region</code> as the independent/predictor variables. Set it up in JASP, and the resulting output tables should look like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/clipboard-120880727.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="images/clipboard-120880727.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="834"></a></p>
+</figure>
+</div>
+<div class="questionblock">
+<p><strong>Questions</strong></p>
+<ul>
+<li>Using the Answers to the Workshop 3 exercise sheet (you can find the sheet updated with answers on the website!), interpret the coefficients in the <strong><em>Coefficients</em></strong> table. Remember that the interpretation is exactly the same as in that previous exercise, because we have used a <em>linear regression model</em>. However, the <strong>scale</strong> of the dependent variable has changed, so that will effect the meaning of a <strong>one-unit difference in the dependent variable</strong></li>
+</ul>
+</div>
+</section>
+<section id="task-5.1.4.-binary-logistic-regression-in-jasp" class="level3">
+<h3 class="anchored" data-anchor-id="task-5.1.4.-binary-logistic-regression-in-jasp">Task 5.1.4. Binary logistic regression in JASP</h3>
+<p>The main shortcoming of the linear model we fit in the previous task is, of course, that because our dependent variable only has two values, the <strong><em>linear</em></strong> model does not make very accurate predictions of the expected values of <code>trust_d</code>, which it assumes to be a continuous numeric variable. It makes predictions of values in between 0 and 1, and most unfortunately, of values below 0 and above 1, which cannot empirically exist. It is also likely to violate one of the core assumptions of <em>liner regression</em>, that the “errors” (i.e.&nbsp;the values of the dependent variables conditional on the predictor variables; e.g.&nbsp;the differences between the dots and the regression line on the scatter plot in the case of only one predictor) are “normally distributed”.</p>
+<p>To account for these issues, we should choose a modelling method that fits an s-shaped <strong><em>curve</em></strong> instead of a <strong><em>straight line</em></strong>. Doing so, we force the model to restrict its estimates to between 0 and 1. The logistic regression model is the tool for this, and fitting it in JASP is straightforward, even through the interpretation of the coefficients not so much.</p>
+<p>To run a binary logistic regression, navigate to through the following menu tab options:</p>
+<p><span class="math display">\[ \text{Regression} \longrightarrow \text{[Classical] Logistic regression} \]</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/clipboard-238949044.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="images/clipboard-238949044.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></a></p>
+</figure>
+</div>
+<p>Inside the <strong><em>Logistic regression</em></strong> settings, we select our <strong>dependent variable</strong> (which this time must have only two distinct values/categories!), our continuous numeric <strong><em>Covariate(s)</em></strong> and any categorically coded <strong><em>Factor(s</em></strong>). Once we do this, we get the results in the outputs window to the right. before we look at the results, let’s also tick the box for “Odds ratios” under <strong><em>Statistics</em></strong> &gt; <strong><em>Coefficients</em></strong> in the Logistic regression settings:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/clipboard-2774201247.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="images/clipboard-2774201247.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="604"></a></p>
+</figure>
+</div>
+<p>The resulting output should be:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/clipboard-1042275203.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="images/clipboard-1042275203.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></a></p>
+</figure>
+</div>
+<p>As with multiple linear regression, our main interest lies in understanding the <strong><em>Coefficients</em></strong> table. Here, the coefficients for all the <code>Region</code>s compared to “Europe and Central Asia” (see the worked solution on <a href="../../Materials/Worksheets/worksheet_w3.html" target="_blank">Workshop 3 Worksheet - Exercise 3</a> for how to interpret the coefficients on the categorical predictor) are rather extreme; but they also seem to be rather unreliable by looking at the <strong>p</strong> column (which we will look at more closely and interpret in Week 6, so we’ll leave it for now). So let’s focus the interpretation on the coefficient for <code>inequality_s80s20</code>.</p>
+<div class="questionblock">
+<p><strong>Questions</strong></p>
+<ul>
+<li>What is the effect of a one-unit positive change on the <code>inequality_s80s20</code> scale <strong>on the expected value</strong> of <code>trust_d</code> ?</li>
+<li>What is the effect of a one-unit positive change on the <code>inequality_s80s20</code> scale <strong>on the odds</strong> of being a “high trust” country?</li>
+</ul>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solutions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A JASP file with the solutions to the exercises can be downloaded from <a href="../..\Materials/Worksheets/worksheet_w4_solutions.jasp">HERE</a>.</p>
+</div>
+</div>
+<p>As we know from the lecture and the statistics readings for this week, interpreting these numerical outputs form logistic regression models is very difficult, because the scale of our dependent variable (<code>trust_d</code>) has been <strong>log-transformed</strong> in the process of modelling. That means that the coefficients in the <strong><em>Estimate</em></strong> column can be interpreted along the same logic as with linear regression, but the expected difference/change in the dependent/outcome variable is measured on the <strong>logit</strong> (or <strong>log-odds</strong>) scale: <strong><em>the natural logarithm of the odds</em></strong> of being in the outcome category coded as 1 (i.e.&nbsp;“high trust”). So a one-unit difference in <code>inequality_s80s20</code> is associated with a <strong>4.530</strong>-unit increase in these <strong>log-odds</strong> values. That’s not very intuitive, and to make it easier to interpret, researchers often transform this log-odds scale to an <strong>Odds Ratio</strong>, which is perhaps more readily interpretable as <strong>a percentage change <em>in the odds</em></strong> of being in the outcome category coded as 1 as opposed to being in the outcome category coded as 0.</p>
+<p>The <strong>Odds Ratio</strong> may sound more intuitive, but it’s equally difficult to grasp. A better solution would be to transform the dependent variable scale further to plain “probabilities”, which we are intuitively more familiar with because its values are at equal distances and run between 0 and 1 (just like a proportion, and similar to a percentage scale).</p>
+<p>In JASP we can request visual outputs for the effects of the independent variables on the <strong>probability</strong> of the outcome by ticking the <strong><em>Conditional estimates plots</em></strong> option under <strong>Inferential plots</strong> under <strong>Plots:</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/clipboard-3392659291.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="images/clipboard-3392659291.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="492"></a></p>
+</figure>
+</div>
+<p>The resulting plots are visually more telling than the numbers in the regression output tables:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/clipboard-2136091702.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="images/clipboard-2136091702.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></a></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/clipboard-3646180523.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="images/clipboard-3646180523.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></a></p>
+</figure>
+</div>
+<p>We find, for instance, that around the value of 7 on <code>inequality_s80s20</code>, the probability of being in the “High trust” category drops to under 0.25 (25%)</p>
+</section>
+</section>
+<section id="exercise-5.2-take-home-which-of-the-assignment-research-questions-could-be-addressed-using-a-logistic-regression-model" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-5.2-take-home-which-of-the-assignment-research-questions-could-be-addressed-using-a-logistic-regression-model">Exercise 5.2 (take-home): Which of the assignment research questions could be addressed using a logistic regression model?</h2>
+<p>Let’s look again at the assignment research questions. Some of these questions imply a <em>dependent</em> variable which is measured as a <em>numeric scale</em> or at least a long-ish (e.g.&nbsp;7-point +) <em>ordinal scale</em> in one of the surveys we will use for the assignment (ESS10, WVS7, EVS2017). Other questions imply <em>dependent</em> variables that are more strictly <em>categorical</em>, and as such, we cannot model them using linear regression. For those, we may be able to apply a logistic regression model.</p>
+<p>It may be the case that the categorical variable of choice has more than two categories. While there are specific modelling methods for those types of variables, we are not covering them on this module. Instead, in Week 6 we will practice some further data transformation techniques to easily dichotomise such multi-categorical/multinomial variables.</p>
+<p>In this exercise, explore the assignment dataset using the Variable search function on the website to identify any available variables for answering one/some of the questions below, and check how the implied dependent variable was measured:</p>
+<ol type="A">
+<li>Are religious people more satisfied with life?</li>
+<li>Are older people more likely to see the death penalty as justifiable?</li>
+<li>What factors are associated with opinions about future European Union enlargement among Europeans?</li>
+<li>Is higher internet use associated with stronger anti-immigrant sentiments?</li>
+<li>How does victimisation relate to trust in the police?</li>
+<li>What factors are associated with belief in life after death?</li>
+<li>Are government/public sector employees more inclined to perceive higher levels of corruption than those working in the private sector?</li>
+</ol>
+
+
+
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-ConnellyEtAl2016ModellingKeyVariables" class="csl-entry" role="listitem">
+Connelly, Roxanne, Vernon Gayle, and Paul S. Lambert. 2016. <span>“Modelling Key Variables in Social Science Research: Introduction to the Special Section.”</span> <em>Methodological Innovations</em> 9:2059799116637782. doi: <a href="https://doi.org/10.1177/2059799116637782">10.1177/2059799116637782</a>.
+</div>
+</div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>
