@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.36">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -54,10 +57,10 @@ div.csl-indent {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-f1e2abeed0a61b02a6ba2cd28422ece3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-1e062f3de27d5a13a642256a90a2a83c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script src="../../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
@@ -81,7 +84,7 @@ div.csl-indent {
 }</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -138,7 +141,7 @@ window.Quarto = {
 <span class="menu-text">Data</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://ncl.instructure.com/courses/68718" target="_blank"> 
+    <a class="nav-link" href="https://ncl.instructure.com/courses/73213" target="_blank"> 
 <span class="menu-text"><iconify-icon role="img" inline="" icon="arcticons:canvasstudent" style="font-size: l;" aria-label="Icon canvasstudent from arcticons Iconify.design set." title="Icon canvasstudent from arcticons Iconify.design set."></iconify-icon> Canvas</span></a>
   </li>  
 </ul>
@@ -295,7 +298,7 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>A JASP file with the solutions to the exercises can be downloaded from <a href="../..\Materials/Worksheets/worksheet_w4_solutions.jasp">HERE</a>.</p>
+<p>A JASP file with the solutions to the exercises can be downloaded from <a href="../../Materials/Worksheets/worksheet_w4_solutions.jasp">HERE</a>.</p>
 </div>
 </div>
 <p>As we know from the lecture and the statistics readings for this week, interpreting these numerical outputs form logistic regression models is very difficult, because the scale of our dependent variable (<code>trust_d</code>) has been <strong>log-transformed</strong> in the process of modelling. That means that the coefficients in the <strong><em>Estimate</em></strong> column can be interpreted along the same logic as with linear regression, but the expected difference/change in the dependent/outcome variable is measured on the <strong>logit</strong> (or <strong>log-odds</strong>) scale: <strong><em>the natural logarithm of the odds</em></strong> of being in the outcome category coded as 1 (i.e.&nbsp;“high trust”). So a one-unit difference in <code>inequality_s80s20</code> is associated with a <strong>4.530</strong>-unit increase in these <strong>log-odds</strong> values. That’s not very intuitive, and to make it easier to interpret, researchers often transform this log-odds scale to an <strong>Odds Ratio</strong>, which is perhaps more readily interpretable as <strong>a percentage change <em>in the odds</em></strong> of being in the outcome category coded as 1 as opposed to being in the outcome category coded as 0.</p>

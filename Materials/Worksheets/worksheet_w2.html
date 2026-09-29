@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.36">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -56,10 +59,10 @@ div.csl-indent {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-f1e2abeed0a61b02a6ba2cd28422ece3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-1e062f3de27d5a13a642256a90a2a83c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script src="../../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
@@ -83,7 +86,7 @@ div.csl-indent {
 }</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -140,7 +143,7 @@ window.Quarto = {
 <span class="menu-text">Data</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://ncl.instructure.com/courses/68718" target="_blank"> 
+    <a class="nav-link" href="https://ncl.instructure.com/courses/73213" target="_blank"> 
 <span class="menu-text"><iconify-icon role="img" inline="" icon="arcticons:canvasstudent" style="font-size: l;" aria-label="Icon canvasstudent from arcticons Iconify.design set." title="Icon canvasstudent from arcticons Iconify.design set."></iconify-icon> Canvas</span></a>
   </li>  
 </ul>
@@ -424,7 +427,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="exercise-1-does-trust-vary-by-sex">Exercise 1: Does <em>trust</em> vary by <em>sex</em>?</h2>
 <p>In <a href="../../Materials/Worksheets/worksheet_w1.html#exercise-1-univariate-descriptive-statistics-using-jasp" target="_blank"><em>Workshop 1 Worksheet - Exercise 1</em></a> we explored univariate distributions (i.e.&nbsp;single variables). In that exercise, we used data from the UK sample of the <em>European Social Survey</em>, Round 11 (<strong>UK-ESS11</strong>). You may have saved your work (and modified dataset) from Workshop 1 as a <code>.jasp</code> file (e.g.&nbsp;“ess11-example.jasp”) as instructed in <a href="../../Materials/Worksheets/worksheet_w1.html#save-your-analysis" target="_blank"><em>Workshop 1 Worksheet - Exercise 1.4</em></a>. If so, you can open that file for this exercise and continue where you left off. Otherwise, follow the instructions in <a href="../../Materials/Worksheets/worksheet_w1.html#exercise-1-univariate-descriptive-statistics-using-jasp" target="_blank"><em>Workshop 1 Worksheet - Exercise 1</em></a> to download the dataset (if needed) and load it into <strong>JASP</strong>.</p>
 <p>You can also download the <strong>JASP solution</strong> file for <em>Workshop 1 Worksheet - Exercise 1</em> below:</p>
-<p><img src="../..\Materials/pics/JASP_logo.png" height="17"> <a href="../..\Materials/Worksheets/w1_gb-ess11-trust.jasp">Exercise 1: Descriptive statistics</a></p>
+<p><img src="../../Materials/pics/JASP_logo.png" height="17"> <a href="../../Materials/Worksheets/w1_gb-ess11-trust.jasp">Exercise 1: Descriptive statistics</a></p>
 <p>In <em>Workshop 1 Worksheet - Exercise 1</em> we created <strong>descriptive statistics</strong> summaries, <strong>frequency tables</strong> and some basic <strong>distribution plots</strong> for the “social trust”, “sex” and “age” variables in the UK-ESS11. In this exercise, we will check how “social trust” relates to “sex” and “age” by exploring some <strong>bivariate descriptive statistics</strong>.</p>
 <p>As we know from the lecture, just as with univariate descriptions, the choice of tabulation and visualisation options depends on the types of variables we are exploring. We begin by describing the relationship between <strong>two categorical variables</strong> using <strong>contingency tables</strong> (also known as <strong>cross-tabulations</strong>). We call them “contingency tables” because they show us the values of one variable <em>contingent on the values of the other</em>, or “cross-tabulations” because we present the frequency distribution of one variable as distributed <em>across</em> the levels of another categorical variable.</p>
 <section id="contingency-tables" class="level3">
@@ -570,8 +573,8 @@ Tip
 <li><p>Visualise the relationship between “income inequality” and “social trust” using the steps practiced in the previous exercise.</p></li>
 <li><p>We can use these datasets to play around with some more advanced visualisation options to reproduce the published figures. It would require too much detail to give step-by-step instructions on how to do this, but you can download two worked-out JASP worksheets and check through all the options:</p></li>
 </ol>
-<p><img src="../..\Materials/pics/JASP_logo.png" height="17"> <a href="../..\Materials/Worksheets/w2_pickett2009.jasp">Exercise 3a: Reproducing Figure 4.1 in Wilkinson &amp; Pickett (2009)</a></p>
-<p><img src="../..\Materials/pics/JASP_logo.png" height="17"> <a href="../..\Materials/Worksheets/w2_pickett&amp;al2024.jasp">Exercise 3b: Reproducing Figure 7 in Pickett &amp; al.&nbsp;(2024)</a></p>
+<p><img src="../../Materials/pics/JASP_logo.png" height="17"> <a href="../../Materials/Worksheets/w2_pickett2009.jasp">Exercise 3a: Reproducing Figure 4.1 in Wilkinson &amp; Pickett (2009)</a></p>
+<p><img src="../../Materials/pics/JASP_logo.png" height="17"> <a href="../../Materials/Worksheets/w2_pickett&amp;al2024.jasp">Exercise 3b: Reproducing Figure 7 in Pickett &amp; al.&nbsp;(2024)</a></p>
 </section>
 <section id="exercise-4-continue-your-analysis-for-assignment-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-4-continue-your-analysis-for-assignment-1">Exercise 4: Continue your analysis for Assignment 1</h2>
@@ -596,7 +599,7 @@ Tip
 <section id="jasp-solutions" class="level1">
 <h1>JASP solutions</h1>
 <p>Below you can download JASP files with solutions to some of the exercises in this worksheet:</p>
-<p><img src="../..\Materials/pics/JASP_logo.png" height="17"> <a href="../..\Materials/Worksheets/w2_gb-ess11-trust.jasp">Exercise 1</a></p>
+<p><img src="../../Materials/pics/JASP_logo.png" height="17"> <a href="../../Materials/Worksheets/w2_gb-ess11-trust.jasp">Exercise 1</a></p>
 
 
 
