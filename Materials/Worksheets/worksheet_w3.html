@@ -608,7 +608,8 @@ Tip
 </div>
 <div class="callout-body-container callout-body">
 <p><strong>What are homicide rates?</strong></p>
-<p>Homicide rates usually measure the&nbsp;<strong>number of homicides per 100,000 residents</strong>. It is calculated by dividing the number of homicides recorded in a country in a given year by the total population and multiplying the result by 100,000. E.g. if there were 600 homicides in a population of 1,000,000, you would divide 600 by 1,000,000, then multiply the result by 100,000: (600/1,000,000) x 100,000 = 60 per 100,000.</p>
+<p>Homicide rates conventionally measure the&nbsp;<strong>number of homicides per 100,000 residents</strong>. In UK-specific official publications (such as the Office for National Statistics), homicide rates are frequently reported <strong>per million</strong> population. Rates are calculated dividing <em>the number of homicides recorded in a country in a given year</em> by <em>the total population</em> and multiplying the result by either 100,000 or one million. For example, if there were 600 homicides in a population of 10,000,000, you would first divide 600 by 10,000,000, then multiply the result by 100,000: (600/10,000,000) x 100,000 = 6 per 100,000. If using the <em>per million</em> alternative reporting approach, the same calculation would give 60 homicides per million population.</p>
+<p>In the <code>pickett2009</code> dataset, <code>Homicides</code> is measured per <em>million</em> residents, following <span class="citation" data-cites="WilkinsonPickett2010SpiritLevelWhy">Wilkinson and Pickett (<a href="#ref-WilkinsonPickett2010SpiritLevelWhy" role="doc-biblioref">2009</a>)</span>. The UK’s value of 15 is therefore 15 homicides per million people, or 1.5 per 100,000.</p>
 </div>
 </div>
 <p>In our dataset we do have a variable <code>Homicides</code> that measures national-level homicide rates, so we can use it to test the above assumptions. We can simply add that variable to our model as a second <em>explanatory</em> variable, turning our model into a <strong>multiple linear regression</strong> (i.e.&nbsp;a regression model with one outcome (dependent) variable and <em>more than one</em> explanatory (“independent”, “predictor”) variable).</p>
@@ -719,8 +720,8 @@ Important
 <li>Low multicollinearity: avoid including two or more independent variables that are highly correlated with each other.</li>
 </ul>
 <p>Of these, the potential for high levels of “collinearity” or “multicollinearity” (i.e.&nbsp;when the predictors themselves show a high level of dependence on each other) may be something to consider in the case of our data, as the variables we have available in the dataset should - in theory at least - be correlated with each other to some significant degree. This can be an issue because it inflates the variance of the coefficients, making them less reliable.</p>
-<p>To get a sense of how much of an issue this is for our analyses, we can inspect the correlation between the predictor (“independent”, “explanatory”) variables themselves. It is worth noting that <em>multicollinearity</em> emerges as an issue when core explanatory variables of interest are highly correlated with each other <strong><em>after accounting for all the other variables included in the model</em></strong>. In other words, if we have <em>more than two</em> explanatory variables that may be collinear in a model, we must ensure that</p>
-<p>The coefficient of correlation between the predictors will tell us how strongly the predictors are correlated, and if we were to subtract that correlation coefficient from 1 and then divide 1 by the result of that subtraction <span class="math inline">\(\left(1 \over {1 - R^2}\right)\)</span>, we would get a commonly used statistic for assessing multicollinearity called the <strong>Variance Inflation Factor</strong> (<strong>VIF</strong>). In JASP, we can request this statistic directly under the <strong>Statistics</strong> drop-down tab by ticking the <strong>[Tolerance and VIF]</strong> option. <a href="https://statisticalhorizons.com/multicollinearity/">Read more about the VIF and when multicollinearity is (not) a problem in this short blog entry</a></p>
+<p>To get a sense of how much of an issue this is for our analyses, we can inspect the correlation between the predictor (“independent”, “explanatory”) variables themselves. It is worth noting that <em>multicollinearity</em> emerges as an issue when core explanatory variables of interest are highly correlated with each other <strong><em>after accounting for all the other variables included in the model</em></strong>. In other words, if we have <em>more than two</em> explanatory variables that may be collinear in a model, we must check how well each predictor is predicted by <em>all</em> the other predictors together, not just by each of them in turn.</p>
+<p>With two predictors, the correlation between them tells us how strongly they are related. If we <strong>square</strong> that correlation (giving <span class="math inline">\(R^2\)</span>), subtract it from 1, and then divide 1 by the result of that subtraction <span class="math inline">\(\left(1 \over {1 - R^2}\right)\)</span>, we get a commonly used statistic for assessing multicollinearity called the <strong>Variance Inflation Factor</strong> (<strong>VIF</strong>). With more than two predictors, the <span class="math inline">\(R^2\)</span> comes from regressing each predictor on all the others. For <code>Income inequality</code> and <code>Homicides</code>, <span class="math inline">\(r = 0.47\)</span>, so <span class="math inline">\(VIF = 1 / (1 - 0.47^2) \approx 1.28\)</span>: no cause for concern. A common rule of thumb treats VIF values above about 5 (some say 10) as a warning sign. In JASP, we can request this statistic directly under the <strong>Statistics</strong> drop-down tab by ticking the <strong>[Tolerance and VIF]</strong> option. <a href="https://statisticalhorizons.com/multicollinearity/">Read more about the VIF and when multicollinearity is (not) a problem in this short blog entry</a></p>
 </div>
 </div>
 <p>We now have a statistical model which explains variation in <code>Trust</code> as <u>not only</u> dependent on <code>Income inequality</code>, but also on the rate of <code>Homicides</code>. Put differently - if our main aim is to estimate how <code>Income inequality</code> is associated with <code>Trust</code> - we have obtained <strong>a more accurate estimate</strong> of the association between <code>Income inequality</code> and <code>Trust</code>, because we have additionally <em>also <strong>account for</strong> variation due to differences in the homicide rates</em> in each country, which in itself can have an impact on how much trust people have in strangers.</p>
@@ -753,7 +754,8 @@ Important
 <p><strong>What is the coefficient of determination (</strong><span class="math inline">\(R^2\)</span><strong>) telling us now?</strong></p>
 <p>The correlation coefficient loses its original meaning in the context of a multiple regression model in which we have more than one predictor/independent/explanatory variable. It’s meaning becomes “partial” to all the other variables in the model. In this case, its <strong>squared value</strong>, the <strong>R<sup>2</sup></strong> is more meaningful. Looking at the <strong>R<sup>2</sup></strong> value we also find that this has increased slightly to <strong>0.455</strong>, indicating that the <strong><em>combined</em></strong> knowledge of the <code>Homicides</code> rate <em>and</em> the <code>Income inequality</code> score of a country can help explain <span class="math inline">\(45.5\%\)</span> <strong>of the variation in <code>Trust</code></strong>. The remaining ~<span class="math inline">\(55\%\)</span> of the variation is associated with other factors that our model is not (yet) adjusting for. If we have variables measuring factors that can potentially have a good explanatory value, we could consider them as additional Covariates/Factors to include in our models.</p>
 <p><strong>Is our multiple regression model “stronger” or “better” than our earlier simple regression models?</strong></p>
-<p>What is - or should be - interesting is that the multiple regression model appears “stronger” or “better” at explaining the variation in trust compared to the simpler model in which we only had knowledge of <code>Income inequality</code> (<span class="math inline">\(R^2 = 44.1\%\)</span>) despite the fact that the additional <code>Homicides</code> variable itself turned out to be a very weak and unreliable predictor. This is often the case, because in principle <strong>any</strong> additional information that we can build into a statistical model should help reduce the amount of unexplained variance in the dependent variable. This is not always the case in more complex models, but in general it is a reasonable expectation. This is why it is useful to include a number of standard “control” variables - i.e.&nbsp;variables in whose coefficients we are <em>not</em> directly interested in, but we know from theory or previous experience that they can have an influence on sociological outcome/dependent variables. However, if we include many control variables that are weak and unreliable predictors without a good theoretical reason, we risk heightening the potential for multicollinearity in our models, potentially making the core explanatory variables of interest also less reliable.</p>
+<p>What is - or should be - interesting is that the multiple regression model appears “stronger” or “better” at explaining the variation in trust compared to the simpler model in which we only had knowledge of <code>Income inequality</code> (<span class="math inline">\(R^2 = 44.1\%\)</span>) despite the fact that the additional <code>Homicides</code> variable itself turned out to be a very weak and unreliable predictor. In fact, adding a predictor to a linear regression model can <strong>never</strong> lower R²: at worst, the new variable explains nothing extra and R² stays the same. This is exactly why R² on its own can flatter bigger models, and why JASP also reports the <strong>adjusted R²</strong>, which penalises each extra predictor and can fall when the new variable adds less than would be expected by chance. Our models show this neatly: R² rises from 0.441 to 0.455 when <code>Homicides</code> is added, but the adjusted R² <em>falls</em>, from 0.415 to 0.401, because <code>Homicides</code> adds almost nothing. When comparing models with different numbers of predictors, look at the adjusted R² as well.</p>
+<p>This does not mean that extra variables are useless. It is often useful to include a number of standard “control” variables - i.e.&nbsp;variables in whose coefficients we are <em>not</em> directly interested in, but we know from theory or previous experience that they can have an influence on sociological outcome/dependent variables. However, if we include many control variables that are weak and unreliable predictors without a good theoretical reason, we risk heightening the potential for multicollinearity in our models, potentially making the core explanatory variables of interest also less reliable.</p>
 <p>In the case of out current regression model, there is no good reason for keeping <code>Homicides</code> in as a control variable in future models, given that it contributes very little to the explanatory potential of the model</p>
 </div>
 </div>
@@ -806,6 +808,27 @@ Tip
 <li>What scale is “Protestantism” measured on? Can we tell how many categories the variable has?</li>
 </ul>
 </div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>60</strong> countries.</li>
+<li>The grand mean of <code>Social_trust</code> is <strong>28.3%</strong> (SD 14.1), ranging from 2.8% to 65.3%.</li>
+<li><strong>Not from this table</strong>: <code>Region</code> is a text (Nominal) variable, so the descriptive table only reports how many valid values it has, not how many distinct categories. We need a frequency table (Task 2).</li>
+<li><code>Protestantism</code> is stored as a Scale variable with a minimum of 0, a maximum of 1 and a mean of 0.15. The table alone does not prove that 0 and 1 are the only values, but it strongly suggests a 0/1 indicator: its mean is then the share of countries coded 1 (15%, i.e.&nbsp;9 of 60).</li>
+</ul>
+</div>
+</div>
+</div>
 </section>
 <section id="task-2-identify-any-potential-explanatory-variables-that-can-be-treat-as-categorical-variables-and-create-the-most-appropriate-univariate-descriptive-summaries" class="level3">
 <h3 class="anchored" data-anchor-id="task-2-identify-any-potential-explanatory-variables-that-can-be-treat-as-categorical-variables-and-create-the-most-appropriate-univariate-descriptive-summaries">Task 2: Identify any potential explanatory variables that can be treat as <em>categorical</em> variables and create the most appropriate univariate descriptive summaries</h3>
@@ -837,6 +860,26 @@ Tip
 <li>How is “Protestantism” measured? Is it a “scale” variable - as coded in the dataset - or a “Nominal” categorical variable? Does it make a difference?</li>
 </ul>
 </div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Six regions</strong>: Eastern Europe (21 countries), Western Europe (16), the Americas (11), Asia (8), Africa (2) and Oceania (2).</li>
+<li><strong>Protestantism</strong> has only two values: 0 (51 countries) and 1 (9 countries, those with a significant Protestant population: Canada, Denmark, Finland, Germany, Iceland, Norway, Sweden, Switzerland and the United States). It is really a <strong>Nominal</strong> (binary) variable that happens to be stored as numbers.</li>
+<li><strong>Does it make a difference?</strong> For description, yes: as Nominal we get counts and percentages; as Scale we get a mean (0.15) that only makes sense because the variable is coded 0/1. For regression, a 0/1 variable gives the same coefficient whether it is entered as a Covariate (Scale) or a Factor (Nominal), as Task 5 shows.</li>
+</ul>
+</div>
+</div>
+</div>
 </section>
 <section id="task-3-create-bivariate-visualisations-of-the-association-between-region-protestantism-and-social-trust" class="level3">
 <h3 class="anchored" data-anchor-id="task-3-create-bivariate-visualisations-of-the-association-between-region-protestantism-and-social-trust">Task 3: Create bivariate visualisations of the association between “Region”, “Protestantism” and “social trust”</h3>
@@ -860,6 +903,76 @@ Tip
 <li>Which categories of “Region” and “Protestantism” show any outliers?</li>
 <li>Do Protestant or non-Protestant countries have a higher level of “social trust”?</li>
 </ul>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Region</th>
+<th style="text-align: right;">Countries</th>
+<th style="text-align: right;">Mean trust (%)</th>
+<th style="text-align: right;">SD</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Oceania</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">44.6</td>
+<td style="text-align: right;">6.4</td>
+</tr>
+<tr class="even">
+<td>Western Europe</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">40.7</td>
+<td style="text-align: right;">13.4</td>
+</tr>
+<tr class="odd">
+<td>Asia</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">26.7</td>
+<td style="text-align: right;">17.0</td>
+</tr>
+<tr class="even">
+<td>Eastern Europe</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">22.7</td>
+<td style="text-align: right;">5.1</td>
+</tr>
+<tr class="odd">
+<td>Americas</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">21.5</td>
+<td style="text-align: right;">14.4</td>
+</tr>
+<tr class="even">
+<td>Africa</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">16.6</td>
+<td style="text-align: right;">1.0</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Highest and lowest</strong>: Oceania (44.6%) and Africa (16.6%), but each is based on just two countries. Among the larger regions, Western Europe is highest (40.7%) and the Americas lowest (21.5%).</li>
+<li><strong>Most and least variation</strong>: Asia (SD 17.0) and the Americas (14.4) vary most; Africa (1.0) and Eastern Europe (5.1) least. Asia and the Americas combine very different societies (e.g.&nbsp;China and the Philippines; Canada and Brazil); with only two countries, Africa’s small spread tells us very little.</li>
+<li><strong>Western vs Eastern Europe</strong>: Western European countries are far more diverse (SD 13.4, from Portugal to the Nordic countries) than Eastern European ones (SD 5.1), which share uniformly low trust.</li>
+<li><strong>Outliers</strong> (beyond 1.5 × IQR from the box): Canada (53.1%) in the Americas and Macedonia (8.2%) in Eastern Europe. Among non-Protestant countries, China (52.3%), Ireland (47.4%), the Netherlands (53.5%) and New Zealand (49.1%) stand out as high-trust outliers.</li>
+<li><strong>Protestantism</strong>: Protestant countries have much higher trust on average (<strong>48.3%</strong> vs <strong>24.8%</strong>).</li>
+</ul>
+</div>
+</div>
 </div>
 </section>
 <section id="task-4-fit-a-linear-regression-model-to-assess-the-relationship-between-social-trust-and-the-world-region-of-the-country" class="level3">
@@ -889,8 +1002,8 @@ Tip
 <p><a href="images/paste-34.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19"><img src="images/paste-34.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="481"></a></p>
 </figure>
 </div>
-<p>If we look carefully to the list of Regions in the <strong>Coefficients</strong> table, we notice that only 5 categories are listed, whereas we know from the descriptive statistics the there are six Regions in our dataset. What happens here is that JASP <em><strong>automaticallyleaves out the first category</strong> (Task 2 above will tell you which one that is) of “Factors” from the model so that <strong>the left-out category becomes the baseline/reference</strong> to which the coefficients on all the other categories compare</em>. Essentially, the first category is given the value of 0 and each other category receives a value of 1 compared to the “reference category”; so, in the output the entry for “Region (Americas)” is essentially a dichotomous (binary, “dummy) variable in which”Americas” is coded as 1 and “Africa” (the left-out category) as 0; similarly, the entry for “Region (Asia)” compares “Asia” (1) to “Africa” (0) and “Region (Western Europe)” is a variable that compares “Western Europe” (1) to “Africa” (0).</p>
-<p>What happens here is that <strong>the left-out category (here “Africa”) is absorbed into the <code>Intercept</code></strong> (the unknown/unmeasured variation in the dependent variable), just like in the case of a numeric predictor the <code>Intercept</code> represents the predictor at value 0. Therefore, the regression coefficient for the <code>(Intercept)</code> represents the predicted <code>Social_trust</code> value for “Africa” (<strong>28.32%</strong> in M<sub>0</sub> and <strong>16.57%</strong> in M<sub>1</sub> where the influence of other Regions is also accounted for). The intercept for “Region (Americas)” then tells us that compared to a country in “Africa”, a country located in the “Americas” is expected show a <span class="math inline">\(4.9\)</span>-unit higher level of <code>Social_trust</code>. The biggest difference is that between “Oceania” and “Africa”, where countries in the former region are predicted to have a <span class="math inline">\(28\)</span>-point higher <code>Social_trust</code> on average than those in “Africa”. And so on.</p>
+<p>If we look carefully to the list of Regions in the <strong>Coefficients</strong> table, we notice that only 5 categories are listed, whereas we know from the descriptive statistics that there are six Regions in our dataset. What happens here is that JASP <strong>automatically leaves out the first category</strong> (Task 2 above will tell you which one that is) of “Factors” from the model, so that <strong>the left-out category becomes the baseline/reference</strong> to which the coefficients on all the other categories are compared. Essentially, the first category is given the value of 0 and each other category receives a value of 1 compared to the “reference category”; so, in the output the entry for “Region (Americas)” is essentially a dichotomous (binary, “dummy”) variable in which “Americas” is coded as 1 and “Africa” (the left-out category) as 0; similarly, the entry for “Region (Asia)” compares “Asia” (1) to “Africa” (0) and “Region (Western Europe)” is a variable that compares “Western Europe” (1) to “Africa” (0).</p>
+<p>What happens here is that <strong>the left-out category (here “Africa”) is absorbed into the <code>Intercept</code></strong> (the unknown/unmeasured variation in the dependent variable), just like in the case of a numeric predictor the <code>Intercept</code> represents the predictor at value 0. Therefore, the regression coefficient for the <code>(Intercept)</code> in M<sub>1</sub> (<strong>16.57%</strong>) represents the predicted <code>Social_trust</code> value for “Africa”, which is simply the mean of the two African countries. (In the null model M<sub>0</sub>, the intercept, <strong>28.32%</strong>, is the mean of all 60 countries.) The coefficient for “Region (Americas)” then tells us that compared to a country in “Africa”, a country located in the “Americas” is expected to show a <span class="math inline">\(4.9\)</span>-unit higher level of <code>Social_trust</code>. The biggest difference is that between “Oceania” and “Africa”, where countries in the former region are predicted to have a <span class="math inline">\(28\)</span>-point higher <code>Social_trust</code> on average than those in “Africa”. And so on.</p>
 <p>There are obvious problems emerging from the fact that some of the Regions have only few observations (countries), making the mean highly unreliable if not nearly meaningless. This is made even worse by the fact that the “reference” category to which all others compare is “Africa”, which has only 2 observations (countries) in the dataset despite being a continent consisting of 54 countries in reality (this makes it <em>substantively</em> different from “Oceania”, which is also only represented in the dataset with 2 countries - Australia and New Zealand - although these do cover a significant proportion of the population of Oceania in reality, which otherwise consists of 12 further countries that are mostly smaller island nations). A better option would be to choose a more stable/larger category to serve as the “reference”. This is not a difficult thing to achieve - we just need to manually change the order of category codings in JASP.</p>
 <p><strong><em>How to manually recode variables?</em></strong></p>
 <p>To recode variables, we first need to switch to the data editor window by clicking on “Edit Data”:</p>
@@ -917,7 +1030,7 @@ Tip
 <p><a href="images/paste-44.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23"><img src="images/paste-44.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="500"></a></p>
 </figure>
 </div>
-<p>Now all the Regoins listed in the Coefficients list are compared to “Western Europe”. We find that countries in all regions except Oceania are predicted to have smaller levels of <code>Trust</code> compared to Western Europe.</p>
+<p>Now all the Regions listed in the Coefficients list are compared to “Western Europe”. We find that countries in all regions except Oceania are predicted to have smaller levels of <code>Trust</code> compared to Western Europe.</p>
 </div>
 </div>
 </section>
@@ -933,7 +1046,7 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Even through “Protestantism” appears in the dataset as a “Scale” type variable, we can move it to the “Factors” box and it will automatically be treated as a “Nomical” categorical variable; a small black star next to the variable type icon will signal that the variable was “forced” into behaving like a “Factor”:</p>
+<p>Even though “Protestantism” appears in the dataset as a “Scale” type variable, we can move it to the “Factors” box and it will automatically be treated as a “Nominal” categorical variable; a small black star next to the variable type icon will signal that the variable was “forced” into behaving like a “Factor”:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="images/paste-45.png" class="lightbox" data-gallery="quarto-lightbox-gallery-24"><img src="images/paste-45.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="243"></a></p>
@@ -955,6 +1068,26 @@ Tip
 <li>How much higher or lower is the expected <code>Social_trust</code> in a Protestant country compared to a non-protestant one?</li>
 </ul>
 </div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Non-Protestant</strong>: the intercept, <strong>24.81%</strong> (the mean of the 51 non-Protestant countries).</li>
+<li><strong>Protestant</strong>: 24.81 + 23.45 = <strong>48.26%</strong> (the mean of the 9 Protestant countries).</li>
+<li><strong>Difference</strong>: <strong>23.45 percentage points</strong> higher in Protestant countries. With a single binary predictor, the regression coefficient is simply the difference between the two group means. R² = 0.357: the Protestant/non-Protestant distinction alone accounts for about 36% of the cross-national variation in trust.</li>
+</ul>
+</div>
+</div>
+</div>
 <p>The interpretation of the coefficients is exactly the same as in the previous case (Regions), with the exception that now we only have one category to compare against the “reference” because the <code>Protestantism</code> variable is naturally dichotomous/binary one, containing only two categories.</p>
 <p>Because of this, we could treat <code>Protestantism</code> as a “Scale” type variable and enter it into the “Covariates” box instead, and still get the same coefficients because it would be treated as a theoretically infinite scale on which we only observe two data points in practice (0 as non-Protestant and 1 as Protestant), and so we can imagine a <strong>one-unit change</strong> on this scale as being a movement from the first category to the second.</p>
 <p>The only differences in the output would be the naming of the variable and - more importantly - that Standardised coefficients would also be calculated and displayed. Because in this case we have not labelled the values themselves (the two categories of the <code>Protestantism</code> variable have not been given labels, just the values 0 and 1), the naming of the output is actually cleaner when treating <code>Protestantism</code> as a “scale” type variable. This is common practice for dichotomous/binary/“dummy”/indicator variables, where the variable name “indicates” the case coded as 1 (here “Protestantism”; in the case of a variable categorising biological sex, we could name the variable itself as <code>female</code> and code males as 0 and females as 1).</p>
@@ -969,7 +1102,7 @@ Tip
 </section>
 <section id="exercise-3.4-predicting-cross-national-levels-of-social-trust" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3.4-predicting-cross-national-levels-of-social-trust">Exercise 3.4: “Predicting Cross-National Levels of Social Trust”</h2>
-<p>You should now be well-equipped to reproduce and interpret the main regression models reported on in Table 3 in <span class="citation" data-cites="DelheyNewton2005PredictingCrossNationalLevels">Delhey and Newton (<a href="#ref-DelheyNewton2005PredictingCrossNationalLevels" role="doc-biblioref">2005</a>)</span> . The authors were interested in identifying the strongest predictors of national-level social trust and tested the effect of several potential explanatory variable. They found five that proved statistically significant (more on this later in Workshop 5) and robust across different models, and our <code>delhey&amp;newton2005</code> dataset contains all the relevant variables to reproduce these results. We should note that the dataset was compiled from a variety of sources described by the original authors in their article, but it is not the original dataset used by the authors themselves, so we should expect some differences compared to the published results.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Nevertless, the results should be robust enough to withhold some variability in the data.</p>
+<p>You should now be well-equipped to reproduce and interpret the main regression models reported on in Table 3 in <span class="citation" data-cites="DelheyNewton2005PredictingCrossNationalLevels">Delhey and Newton (<a href="#ref-DelheyNewton2005PredictingCrossNationalLevels" role="doc-biblioref">2005</a>)</span> . The authors were interested in identifying the strongest predictors of national-level social trust and tested several potential explanatory variables. They found five that proved statistically significant (more on this later in Workshop 5) and robust across different models, and our <code>delhey&amp;newton2005</code> dataset contains all the relevant variables to reproduce these results. We should note that the dataset was compiled from a variety of sources described by the original authors in their article, but it is not the original dataset used by the authors themselves, so we should expect some differences compared to the published results.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Nevertheless, the main results should be robust to these differences.</p>
 <p>In this exercise, you have free hand to reproduce the four highlighted models from the article’s Table 3:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -988,6 +1121,145 @@ Tip
 <li>How do you interpret the results from these models?</li>
 <li>What limitations in the analysis can you think of? What criticisms can you formulate?</li>
 </ul>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The article reports <strong>standardised</strong> coefficients (with t-values in brackets) and the <strong>corrected</strong> R², so the matching numbers in JASP are in the <strong>Standardized</strong> column of the Coefficients table and the <strong>Adjusted R²</strong> column of the Model Summary (enter all predictors, including <code>Protestantism</code>, as Covariates). Our reconstructed dataset gives the following (n = 60, t-values in brackets), with the published figures for comparison:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 42%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Standardized coefficients</th>
+<th style="text-align: right;">Model 1</th>
+<th style="text-align: right;">Model 3</th>
+<th style="text-align: right;">Model 4</th>
+<th style="text-align: right;">Model 8</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Protestantism</td>
+<td style="text-align: right;">0.56 (5.72)</td>
+<td style="text-align: right;">0.35 (3.29)</td>
+<td style="text-align: right;">0.50 (4.95)</td>
+<td style="text-align: right;">0.37 (3.06)</td>
+</tr>
+<tr class="even">
+<td><em>published</em></td>
+<td style="text-align: right;"><em>0.57 (5.94)</em></td>
+<td style="text-align: right;"><em>0.33 (2.74)</em></td>
+<td style="text-align: right;"><em>0.52 (5.28)</em></td>
+<td style="text-align: right;"><em>0.37 (3.31)</em></td>
+</tr>
+<tr class="odd">
+<td>Ethnic fractionalisation</td>
+<td style="text-align: right;">−0.31 (−3.20)</td>
+<td style="text-align: right;">−0.16 (−1.64)</td>
+<td style="text-align: right;">−0.21 (−2.02)</td>
+<td style="text-align: right;">−0.23 (−2.30)</td>
+</tr>
+<tr class="even">
+<td><em>published</em></td>
+<td style="text-align: right;"><em>−0.40 (−4.14)</em></td>
+<td style="text-align: right;"><em>−0.22 (−2.03)</em></td>
+<td style="text-align: right;"><em>−0.31 (−2.99)</em></td>
+<td style="text-align: right;"><em>−0.26 (−2.56)</em></td>
+</tr>
+<tr class="odd">
+<td>Quality of government</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;">0.42 (3.60)</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td><em>published</em></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"><em>0.41 (3.14)</em></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="odd">
+<td>Income inequality (Gini)</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;">−0.25 (−2.22)</td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td><em>published</em></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"><em>−0.25 (−2.35)</em></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="odd">
+<td>National wealth (GDP per head)</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;">0.32 (2.47)</td>
+</tr>
+<tr class="even">
+<td><em>published</em></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"><em>0.36 (3.00)</em></td>
+</tr>
+<tr class="odd">
+<td>Adjusted R²</td>
+<td style="text-align: right;">0.44</td>
+<td style="text-align: right;">0.53</td>
+<td style="text-align: right;">0.47</td>
+<td style="text-align: right;">0.48</td>
+</tr>
+<tr class="even">
+<td><em>published “R² (corrected)”</em></td>
+<td style="text-align: right;"><em>0.46</em></td>
+<td style="text-align: right;"><em>0.53</em></td>
+<td style="text-align: right;"><em>0.49</em></td>
+<td style="text-align: right;"><em>0.52</em></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>How close are we?</strong> The pattern is the same as in the article: same signs, a similar ranking of the predictors, and adjusted R² values within 0.04 of the published ones. Our ethnic fractionalisation coefficients are a little weaker throughout, and in Model 3 it is not statistically significant (t = −1.64, p = .106), whereas the published one just is (t = −2.03, p &lt; .05). Differences of this size are what a reconstructed dataset can produce.</li>
+<li><strong>Interpretation</strong>:
+<ul>
+<li><strong>Model 1</strong>: Protestant tradition and ethnic fractionalisation alone account for about 44% of the cross-national variation in trust. In the unstandardized column, Protestant countries have about 22 percentage points higher trust than other countries with the same level of ethnic fractionalisation (b = 22.1). A one-SD higher ethnic fractionalisation (about 0.22 on its 0-1 scale) goes with about 0.31 SD (roughly 4.5 percentage points) lower trust, holding Protestantism constant. (A standardized coefficient for a 0/1 variable is harder to read, because one SD of Protestantism, 0.36, is not a meaningful difference between countries: this is why the unstandardized coefficient is often more useful for binary predictors.)</li>
+<li><strong>Models 3, 4 and 8</strong> each add one more country characteristic. Better quality of government (+0.42), lower income inequality (−0.25) and higher national wealth (+0.32) are each associated with higher trust, over and above Protestantism and ethnic fractionalisation. Quality of government gives the biggest improvement (adjusted R² rises from 0.44 to 0.53).</li>
+<li>Protestantism remains the strongest or second-strongest predictor in every model, but its coefficient shrinks when quality of government or national wealth is added (from 0.56 to 0.35 and 0.37). Part of the “Protestant” advantage is shared with good government and wealth: Protestant countries also tend to be richer and better governed.</li>
+<li>Ethnic fractionalisation has a moderate negative association (−0.16 to −0.31) that also weakens once other characteristics are held constant.</li>
+</ul></li>
+<li><strong>Why separate models?</strong> Quality of government and national wealth are very highly correlated (r = 0.90). Entered together, their individual coefficients become unstable (VIFs of about 6) and the model cannot separate the two, which is why the authors add them one at a time.</li>
+<li><strong>Limitations and criticisms</strong>:
+<ul>
+<li>Only 60 countries, chosen because they took part in the World Values Survey, not at random.</li>
+<li>One cross-section: the data cannot establish which comes first (does good government build trust, or does trust make good government possible?).</li>
+<li>Country-level associations cannot be read as individual-level effects (the ecological fallacy).</li>
+<li>Strong correlations among predictors make individual coefficients unstable, and which model one reports changes the story (e.g.&nbsp;how “important” Protestantism looks).</li>
+<li>Measurement: trust is a single forced-choice question, and our dataset is a reconstruction from published sources, not the authors’ own data.</li>
+</ul></li>
+</ul>
+</div>
+</div>
 </div>
 </section>
 <section id="exercise-3.5-which-of-the-assignment-research-questions-could-be-addressed-using-a-linear-regression-model" class="level2">
