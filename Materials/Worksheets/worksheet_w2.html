@@ -451,11 +451,11 @@ window.Quarto = {
 </section>
 <section id="exercise-0-your-module-data-and-analysis-folder" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-0-your-module-data-and-analysis-folder">Exercise 0: Your module data and analysis folder</h2>
-<p>In Workshop 1 you created a folder for this module on your institutional <strong>OneDrive</strong> storage drive (e.g.&nbsp;C:\<strong>OneDrive - Newcastle University</strong>\SOC2069) and within that a sub-folder called “Data”. You used that sub-folder to save the datasets downloaded as part of the exercises in the Workshop 1 Worksheet. If you did not create this folder in Worshop 1, go back to the <em>Workshop 1 Worksheet</em> and follow the guidance there to set up your folder structure for future use.</p>
+<p>In Workshop 1 you created a folder for this module on your institutional <strong>OneDrive</strong> storage drive (e.g.&nbsp;C:\<strong>OneDrive - Newcastle University</strong>\SOC2069) and within that a sub-folder called “Data”. You used that sub-folder to save the datasets downloaded as part of the exercises in the Workshop 1 Worksheet. If you did not create this folder in Workshop 1, go back to the <em>Workshop 1 Worksheet</em> and follow the guidance there to set up your folder structure for future use.</p>
 </section>
 <section id="exercise-1-does-trust-vary-by-sex" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1-does-trust-vary-by-sex">Exercise 1: Does <em>trust</em> vary by <em>sex</em>?</h2>
-<p>In <a href="../../Materials/Worksheets/worksheet_w1.html#exercise-1-univariate-descriptive-statistics-using-jasp" target="_blank"><em>Workshop 1 Worksheet - Exercise 1</em></a> we explored univariate distributions (i.e.&nbsp;single variables). In that exercise, we used data from the UK sample of the <em>European Social Survey</em>, Round 11 (<strong>UK-ESS11</strong>). You may have saved your work (and modified dataset) from Workshop 1 as a <code>.jasp</code> file (e.g.&nbsp;“ess11-example.jasp”) as instructed in <a href="../../Materials/Worksheets/worksheet_w1.html#save-your-analysis" target="_blank"><em>Workshop 1 Worksheet - Exercise 1.4</em></a>. If so, you can open that file for this exercise and continue where you left off. Otherwise, follow the instructions in <a href="../../Materials/Worksheets/worksheet_w1.html#exercise-1-univariate-descriptive-statistics-using-jasp" target="_blank"><em>Workshop 1 Worksheet - Exercise 1</em></a> to download the dataset (if needed) and load it into <strong>JASP</strong>.</p>
+<p>In <a href="../../Materials/Worksheets/worksheet_w1.html#exercise-1-univariate-descriptive-statistics-using-jasp" target="_blank"><em>Workshop 1 Worksheet - Exercise 1</em></a> we explored univariate distributions (i.e.&nbsp;single variables). In that exercise, we used data from the UK sample of the <em>European Social Survey</em>, Round 11 (<strong>UK-ESS11</strong>). You may have saved your work (and modified dataset) from Workshop 1 as a <code>.jasp</code> file (e.g.&nbsp;“ess11-example.jasp”) as instructed in <a href="../../Materials/Worksheets/worksheet_w1.html#task-8.-save-your-analysis" target="_blank"><em>Workshop 1 Worksheet - Exercise 1, Task 8</em></a>. If so, you can open that file for this exercise and continue where you left off. Otherwise, follow the instructions in <a href="../../Materials/Worksheets/worksheet_w1.html#exercise-1-univariate-descriptive-statistics-using-jasp" target="_blank"><em>Workshop 1 Worksheet - Exercise 1</em></a> to download the dataset (if needed) and load it into <strong>JASP</strong>.</p>
 <p>You can also download the <strong>JASP solution</strong> file for <em>Workshop 1 Worksheet - Exercise 1</em> below:</p>
 <p><img src="../../Materials/pics/JASP_logo.png" height="17"> <a href="../../Materials/Worksheets/w1_gb-ess11-trust.jasp">Exercise 1: Descriptive statistics</a></p>
 <p>In <em>Workshop 1 Worksheet - Exercise 1</em> we created <strong>descriptive statistics</strong> summaries, <strong>frequency tables</strong> and some basic <strong>distribution plots</strong> for the “social trust”, “sex” and “age” variables in the UK-ESS11. In this exercise, we will check how “social trust” relates to “sex” and “age” by exploring some <strong>bivariate descriptive statistics</strong>.</p>
@@ -496,18 +496,86 @@ window.Quarto = {
 <li>How many women in your dataset answered “You can’t be too careful”?</li>
 <li>What percentage of the men in your dataset answered that “Most people can be trusted”?</li>
 <li>What percentage of those who answered “Most people can be trusted” are men, and what percentage are women?</li>
-<li>Based on your cross-tabulation, do women or men in your dataset have a higher level of “social trust”</li>
+<li>Based on your cross-tabulation, do women or men in your dataset have a higher level of “social trust”?</li>
 </ul>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The full table has 11 rows. These are the parts you need (n = 822 men and 858 women with a valid answer):</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 29%">
+<col style="width: 10%">
+<col style="width: 13%">
+<col style="width: 12%">
+<col style="width: 15%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><code>ppltrst</code></th>
+<th style="text-align: right;">Men: count</th>
+<th style="text-align: right;">Men: column %</th>
+<th style="text-align: right;">Women: count</th>
+<th style="text-align: right;">Women: column %</th>
+<th style="text-align: right;">Row %: men / women</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0 You can’t be too careful</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">3.4</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">3.6</td>
+<td style="text-align: right;">47.5 / 52.5</td>
+</tr>
+<tr class="even">
+<td>10 Most people can be trusted</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">2.1</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">1.6</td>
+<td style="text-align: right;">54.8 / 45.2</td>
+</tr>
+<tr class="odd">
+<td>Answered 6 to 10 (sum of rows)</td>
+<td style="text-align: right;">455</td>
+<td style="text-align: right;">55.4</td>
+<td style="text-align: right;">414</td>
+<td style="text-align: right;">48.3</td>
+<td style="text-align: right;"></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>31 women</strong> answered “You can’t be too careful” (0).</li>
+<li><strong>2.1% of men</strong> answered “Most people can be trusted” (10).</li>
+<li>Of the 31 people who answered 10, <strong>54.8% are men and 45.2% are women</strong> (row percentages).</li>
+<li><strong>Men are somewhat more trusting</strong>: 55.4% of men but 48.3% of women answered 6 or higher. With 11 answer categories the table is hard to read; a single summary such as this, or the box plot in the next task, makes the comparison clearer.</li>
+</ul>
+</div>
+</div>
 </div>
 </section>
 <section id="box-plots" class="level3">
 <h3 class="anchored" data-anchor-id="box-plots">1.2. Box plots</h3>
-<p>We have seen last week that the “social trust” variable measured on a 0-10 eleven-point scale is best treated as a “Scale” (i.e.&nbsp;numeric) variable instead of treating it as a “Nominal”/“Ordinal” categorical variable as we have done above; and we know from the lecture that if we want to visualise the relationship between a categorical Nominal variable (like “sex”) and a numeric Scale variable (as the eleven-point social trust measure), the best approach is through a <strong>box plot</strong>, which would tel us the average measured level of trust across the different categories of the categorical variable (i.e.&nbsp;for “men” and “women” in this case).</p>
+<p>We have seen last week that the “social trust” variable measured on a 0-10 eleven-point scale is best treated as a “Scale” (i.e.&nbsp;numeric) variable instead of treating it as a “Nominal”/“Ordinal” categorical variable as we have done above; and we know from the lecture that if we want to visualise the relationship between a categorical Nominal variable (like “sex”) and a numeric Scale variable (as the eleven-point social trust measure), the best approach is through a <strong>box plot</strong>, which shows the median, the middle 50% and the spread of trust in each category of the categorical variable (i.e.&nbsp;for “men” and “women” in this case).</p>
 <p>To generate a box plot, we return to the descriptive analysis tabs that we are already familiar with:</p>
 <ol type="1">
 <li><p>Create another new descriptive analysis in your JASP session (<strong><em>Descriptives</em></strong> &gt; <strong><em>Descriptive Statistics</em></strong> menu option), to keep your previous analysis above intact on the output page;</p></li>
 <li><p>We will now check the distribution of “social trust” across the two sexes measured in our data. Move the “social trust” variable to the <strong><em>Variables</em></strong> box and the “sex” variable to the <strong><em>Split</em></strong> field.</p></li>
-<li><p>You may remember from <em>Workshop 1 Worksheet - Exercise 1</em> that we can manually change the measurement type of our variables for a specific analysis without altering the underlying data more permanently. In this case, we will need to change the type of the “social trust” variable to “Scale”. Click on the measurement type <strong>icon</strong> (not the text bale, but the icon), which will bring up the options we see in the image below:</p></li>
+<li><p>You may remember from <em>Workshop 1 Worksheet - Exercise 1</em> that we can manually change the measurement type of our variables for a specific analysis without altering the underlying data more permanently. In this case, we will need to change the type of the “social trust” variable to “Scale”. Click on the measurement type <strong>icon</strong> (not the text label, but the icon), which will bring up the options we see in the image below:</p></li>
 </ol>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -516,7 +584,7 @@ window.Quarto = {
 </div>
 <p>Then, we can change the type.</p>
 <ol start="4" type="1">
-<li>After we make the change to the variable type, we can click on the “<strong>Customizable Plots</strong>” option set in the left panel and tick the “<strong>Boxplots</strong>” option. You should bee seeing something like this:</li>
+<li>After we make the change to the variable type, we can click on the “<strong>Customizable Plots</strong>” option set in the left panel and tick the “<strong>Boxplots</strong>” option. You should be seeing something like this:</li>
 </ol>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -524,7 +592,7 @@ window.Quarto = {
 </figure>
 </div>
 <ol start="5" type="1">
-<li>If weeded, we can <strong>resize the output graph by hovering over the plot and dragging out the bottom-right corner</strong>.</li>
+<li>If needed, we can <strong>resize the output graph by hovering over the plot and dragging out the bottom-right corner</strong>.</li>
 </ol>
 <div class="questionblock">
 <p><strong>Questions</strong></p>
@@ -532,11 +600,78 @@ window.Quarto = {
 <li>What is the box plot telling us? Note down everything that comes to your mind. How does the boxplot visualise the information displayed in the “Descriptive statistics” table above? You can use the lecture slides to remind yourself of the information contained in box plots.</li>
 </ul>
 </div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><code>ppltrst</code> (Scale)</th>
+<th style="text-align: right;">Men</th>
+<th style="text-align: right;">Women</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Valid</td>
+<td style="text-align: right;">822</td>
+<td style="text-align: right;">858</td>
+</tr>
+<tr class="even">
+<td>Mean</td>
+<td style="text-align: right;">5.54</td>
+<td style="text-align: right;">5.27</td>
+</tr>
+<tr class="odd">
+<td>Median</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td>Standard deviation</td>
+<td style="text-align: right;">2.24</td>
+<td style="text-align: right;">2.34</td>
+</tr>
+<tr class="odd">
+<td>25th percentile</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td>75th percentile</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="odd">
+<td>Minimum, maximum</td>
+<td style="text-align: right;">0, 10</td>
+<td style="text-align: right;">0, 10</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>The line inside each box is the median</strong>: 6 for men, 5 for women.</li>
+<li><strong>The box covers the middle 50%</strong> of respondents (the interquartile range): from 4 to 7 for both sexes, so the boxes overlap completely.</li>
+<li><strong>The whiskers</strong> reach the most extreme answers within 1.5 × IQR of the box. Here that covers the whole 0-10 scale, so there are no outliers.</li>
+<li><strong>Reading it together with the table</strong>: men score slightly higher on average (a gap of 0.27 points in the means, one point in the medians), but the two distributions are very similar. The gap between the groups is small compared with the spread within each group (an SD of about 2.3).</li>
+</ul>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="exercise-2-is-age-associated-with-social-trust" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2-is-age-associated-with-social-trust">Exercise 2: Is <em>age</em> associated with <em>social trust</em>?</h2>
-<p>In this exercise we will be using the same dataset as in the previous exercise, but we will explore the association between “age” and “social trust”. If we treat out measurement of “social trust” as a Scale measurement, then this means that we are exploring the relationship between two Scale-type variables; you may remember from the lecture slides that the appropriate visual analysis tool in this case is a <strong>scatterplot</strong>.</p>
+<p>In this exercise we will be using the same dataset as in the previous exercise, but we will explore the association between “age” and “social trust”. If we treat our measurement of “social trust” as a Scale measurement, then this means that we are exploring the relationship between two Scale-type variables; you may remember from the lecture slides that the appropriate visual analysis tool in this case is a <strong>scatterplot</strong>.</p>
 <section id="scatterplots" class="level3">
 <h3 class="anchored" data-anchor-id="scatterplots">2.1. Scatterplots</h3>
 <p>In JASP, we can generate basic scatterplots using the already familiar descriptive analysis menu options:</p>
@@ -557,7 +692,7 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The order in which you list the variables in the “Variables” field matters: the variable listed fist will appear on the X axis, and the variable listed second will appear on the Y axis. You can manually reorder the variables in the list by dragging them. Try changing the order of the two variables.</p>
+<p>The order in which you list the variables in the “Variables” field matters: the variable listed first will appear on the X axis, and the variable listed second will appear on the Y axis. You can manually reorder the variables in the list by dragging them. Try changing the order of the two variables.</p>
 </div>
 </div>
 <p>You should be seeing something like this:</p>
@@ -575,6 +710,27 @@ window.Quarto = {
 <li>Try to interpret what this tri-variate relationship is telling us (the <em>Descriptive Statistics</em> table is probably more useful here)</li>
 </ul></li>
 </ul>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Overplotting</strong>: because trust takes only 11 values and age only whole years, many respondents sit on exactly the same point, so the scatter plot looks like rows of dots. The density plots on the margins (or histograms) help show where most respondents are.</li>
+<li><strong>Almost no linear association</strong>: the regression line rises only very slightly. The correlation between age and trust is <strong>r = 0.05</strong> (n = 1,643 with valid answers on both), and the slope is about 0.006 points of trust per year of age: 0.06 points per decade, or about a third of a point between age 20 and age 75.</li>
+<li><strong>Split by <code>gndr</code></strong>: the pattern is equally flat for men (r = 0.04) and women (r = 0.06). The <em>Descriptive Statistics</em> table shows the more useful information: men and women in the sample have a similar average age (53.7 and 53.4), but men report slightly higher average trust (5.54 against 5.27). Both associations are small: about a third of a point between age 20 and age 75, and about a quarter of a point between men and women, on a scale whose standard deviation is 2.3.</li>
+<li><strong>Compare with other surveys</strong>: in the much larger Community Life Survey and Citizenship Survey (Workshop 4), trust does rise with age. A weak association in one sample of 1,600 people is not proof that there is none.</li>
+</ul>
+</div>
+</div>
 </div>
 </section>
 </section>
@@ -605,6 +761,39 @@ Tip
 </ol>
 <p><img src="../../Materials/pics/JASP_logo.png" height="17"> <a href="../../Materials/Worksheets/w2_pickett2009.jasp">Exercise 3a: Reproducing Figure 4.1 in Wilkinson &amp; Pickett (2009)</a></p>
 <p><img src="../../Materials/pics/JASP_logo.png" height="17"> <a href="../../Materials/Worksheets/w2_pickett&amp;al2024.jasp">Exercise 3b: Reproducing Figure 7 in Pickett &amp; al.&nbsp;(2024)</a></p>
+<ol start="5" type="1">
+<li>Finally, request the <strong>correlation</strong> between income inequality and trust in both datasets (<strong><em>Regression</em></strong> &gt; <strong><em>Correlation</em></strong>). In the 2024 dataset there are two measures of inequality: try both.</li>
+</ol>
+<div class="questionblock">
+<p><strong>Questions</strong></p>
+<ul>
+<li>How many countries are in each dataset? Which countries have the lowest and the highest trust and inequality in the 2009 data?</li>
+<li>Describe the association in the 2009 data in one sentence: direction, strength, and any countries that don’t fit the pattern.</li>
+<li>How strong is the association in the 2024 data, with each measure of inequality? Look at the scatter plot: can you see why the two measures give such different correlations?</li>
+<li>What can, and can’t, these country-level data tell us about whether <em>individuals</em> with lower incomes trust less?</li>
+</ul>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>2009 data</strong> (<code>pickett2009</code>): <strong>23</strong> rich countries. Trust ranges from <strong>10.0%</strong> (Portugal) to <strong>66.5%</strong> (Denmark); income inequality (the ratio of the income of the richest fifth to that of the poorest fifth) from <strong>3.4</strong> (Japan) to <strong>9.7</strong> (Singapore).</li>
+<li><strong>The association</strong>: more unequal countries tend to have lower trust, and the association is strong (<strong>r = −0.66</strong>). There are clear exceptions: France (with middling inequality, 5.6) and Belgium (with low inequality, 4.6) have much lower trust (22% and 31%) than countries with similar inequality, while the USA and New Zealand trust more than their high inequality would suggest.</li>
+<li><strong>2024 data</strong> (<code>pickett&amp;al2024</code>): <strong>43</strong> countries, now including several middle-income countries. The correlation is <strong>r = −0.43</strong> with the Gini coefficient but only <strong>r = −0.15</strong> with the quintile ratio. The scatter plot shows why: China combines by far the highest measured quintile ratio (28) with high measured trust (65%). That single case flattens the line. Without China, both correlations are about <strong>−0.6</strong>. One unusual case can change a correlation a lot, so always look at the plot before you trust the number.</li>
+<li><strong>Country level vs individual level</strong>: these data describe countries, not people. They show that unequal <em>countries</em> tend to be less trusting, but they cannot tell us whether poorer <em>individuals</em> within those countries trust less. Drawing individual-level conclusions from group-level data is the <em>ecological fallacy</em>. To study individuals we need individual-level survey data, as in Exercises 1 and 2.</li>
+</ul>
+</div>
+</div>
+</div>
 </section>
 <section id="exercise-4-continue-your-analysis-for-assignment-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-4-continue-your-analysis-for-assignment-1">Exercise 4: Continue your analysis for Assignment 1</h2>

@@ -421,6 +421,7 @@ window.Quarto = {
   <li><a href="#exercise-4.2.1.-community-life-survey-2023-2024" id="toc-exercise-4.2.1.-community-life-survey-2023-2024" class="nav-link" data-scroll-target="#exercise-4.2.1.-community-life-survey-2023-2024">Exercise 4.2.1. Community Life Survey, 2023-2024</a></li>
   <li><a href="#exercise-4.2.2.-british-social-attitudes-survey-2023" id="toc-exercise-4.2.2.-british-social-attitudes-survey-2023" class="nav-link" data-scroll-target="#exercise-4.2.2.-british-social-attitudes-survey-2023">Exercise 4.2.2. British Social Attitudes Survey, 2023</a></li>
   <li><a href="#exercise-4.2.3.-british-social-attitudes-survey-2024" id="toc-exercise-4.2.3.-british-social-attitudes-survey-2024" class="nav-link" data-scroll-target="#exercise-4.2.3.-british-social-attitudes-survey-2024">Exercise 4.2.3. British Social Attitudes Survey, 2024</a></li>
+  <li><a href="#bringing-the-three-surveys-together" id="toc-bringing-the-three-surveys-together" class="nav-link" data-scroll-target="#bringing-the-three-surveys-together">Bringing the three surveys together</a></li>
   </ul></li>
   <li><a href="#exercise-4.3-which-of-the-assignment-research-questions-could-be-addressed-using-a-logistic-regression-model" id="toc-exercise-4.3-which-of-the-assignment-research-questions-could-be-addressed-using-a-logistic-regression-model" class="nav-link" data-scroll-target="#exercise-4.3-which-of-the-assignment-research-questions-could-be-addressed-using-a-logistic-regression-model">Exercise 4.3: Which of the assignment research questions could be addressed using a logistic regression model?</a></li>
   <li><a href="#exercise-4.4-advanced-take-home-practice-what-factors-can-help-explain-social-trust-in-high--and-low-trust-societies-at-the-turn-of-the-21st-century" id="toc-exercise-4.4-advanced-take-home-practice-what-factors-can-help-explain-social-trust-in-high--and-low-trust-societies-at-the-turn-of-the-21st-century" class="nav-link" data-scroll-target="#exercise-4.4-advanced-take-home-practice-what-factors-can-help-explain-social-trust-in-high--and-low-trust-societies-at-the-turn-of-the-21st-century">Exercise 4.4 (advanced take-home practice): What factors can help explain social trust in high- and low-trust societies at the turn of the 21<sup>st</sup> century?</a></li>
@@ -449,13 +450,13 @@ window.Quarto = {
 </section>
 <section id="sec-intro" class="level2">
 <h2 class="anchored" data-anchor-id="sec-intro">Intro</h2>
-<p>This workshop introduces another type of regression analysis: <strong>binary/binomial</strong> “<strong>logistic”</strong> <strong>or</strong> <strong>”logit” regression</strong>. Binary logistic regression allows us to model dependent (”response”, “outcome”) <span class="math inline">\(y\)</span> variables that are <u>not</u> measured on a continuous numeric scale, but instead on a <em>simple dichotomous</em> scale that allows only two values (e.g.&nbsp;“<strong>1</strong>”/“0”; “<strong>Yes</strong>”/“No”; “<strong>True</strong>”/“False”; “<strong>Present</strong>”/“Abstent”; “<strong>Success</strong>”/“Failure”; “<strong>Agree</strong>”/“Disagree”; “<strong>Trusts</strong>”/“Doesn’t trust”; “<strong>Survived</strong>”/“Didn’t survive”, etc.). Such a variable is called <em>dichotomous</em> because its two value options present a “dichotomy”, but it is also often referred to by other names: <strong><em>binary</em></strong> or <strong><em>binomial</em></strong> (because it can take only <em>two</em> mutually exclusive values), <strong><em>indicator</em></strong> (because it “indicates” membership in a category - usually the category with the “positive” logical connotation (i.e.&nbsp;“yes”, “true”, “survived”, “trusts”, etc.), coded as <strong>1</strong>) or “<strong>dummy</strong>” (from the word’s meaning of a&nbsp;<strong>substitute</strong> or a <strong>proxy</strong> - as in “crash-test dummy” as a substitute for a human) - to signal the variable’s role as a placeholder that indicates the presence (typically coded as 1) or absence (coded as 0) of a specific qualitative characteristic. I will be using these terms interchangeably, depending of the context, just to confuse you (and because these terms are all used in the published literature, which can be confusing).</p>
+<p>This workshop introduces another type of regression analysis: <strong>binary/binomial</strong> “<strong>logistic”</strong> <strong>or</strong> <strong>”logit” regression</strong>. Binary logistic regression allows us to model dependent (”response”, “outcome”) <span class="math inline">\(y\)</span> variables that are <u>not</u> measured on a continuous numeric scale, but instead on a <em>simple dichotomous</em> scale that allows only two values (e.g.&nbsp;“<strong>1</strong>”/“0”; “<strong>Yes</strong>”/“No”; “<strong>True</strong>”/“False”; “<strong>Present</strong>”/“Absent”; “<strong>Success</strong>”/“Failure”; “<strong>Agree</strong>”/“Disagree”; “<strong>Trusts</strong>”/“Doesn’t trust”; “<strong>Survived</strong>”/“Didn’t survive”, etc.). Such a variable is called <em>dichotomous</em> because its two value options present a “dichotomy”, but it is also often referred to by other names: <strong><em>binary</em></strong> or <strong><em>binomial</em></strong> (because it can take only <em>two</em> mutually exclusive values), <strong><em>indicator</em></strong> (because it “indicates” membership in a category - usually the category with the “positive” logical connotation (i.e.&nbsp;“yes”, “true”, “survived”, “trusts”, etc.), coded as <strong>1</strong>) or “<strong>dummy</strong>” (from the word’s meaning of a&nbsp;<strong>substitute</strong> or a <strong>proxy</strong> - as in “crash-test dummy” as a substitute for a human) - to signal the variable’s role as a placeholder that indicates the presence (typically coded as 1) or absence (coded as 0) of a specific qualitative characteristic. I will be using these terms interchangeably, depending of the context, just to confuse you (and because these terms are all used in the published literature, which can be confusing).</p>
 <p>Modelling such a variable using the <em>linear regression</em> approach from Workshop 3 is likely to result in inaccurate coefficients, because linear regression assumes a theoretically unbounded continuous numeric scale of measurement; when it encounters a <strong><em>binary</em></strong> outcome variable, it assumes that we only observed two values (0 and 1) on this unbound scale, but that the scale nevertheless exists in theory and other values could have been observed if we collected more data. But, in fact, we know that no other values are theoretically possible.</p>
 <p>Nevertheless, we can <strong><em>generalise</em></strong> the logic of linear regression to make it applicable to <em>dichotomous</em> dependent variables. In fact, the method we learn about today - <strong><em>binary/binomial logistic regression</em></strong> - is an elementary case of a broader category of statistical models called <strong><em>generalised linear models (GLMs)</em></strong>. GLMs can be thought of as a two-stage modelling approach, in which we first model the response variable using a <em><strong>probability</strong> distribution</em> - such as the <em>binomial</em> distribution in our case -, and then we model the <em>parameter of the distribution</em> using a collection of predictors and a special form of multiple regression. In essence, with <em>binary logistic regression</em> we will attempt to <strong>predict the <em>probability</em> that an observation falls into one of the two categories of a dichotomous dependent (outcome) variable</strong> based on one or more independent (<em>predictor</em>, <em>explanatory</em>) variables. Observations are predicted to fall into whichever one of the two outcome categories is most probable for them <em>given the values</em> they have on the <em>independent</em> variable(s). Logistic modelling is thus often considered a <em>classification</em> method, especially in <em>machine learning</em> parlance.</p>
 <p>This all sounds very technical and it does involve some complex mathematics, but <strong>applying</strong> <strong><em>logistic regression</em></strong> <strong>in practice</strong> will feel very similar to what we have done with <em>linear regression</em> before. The challenge will be in finding the simplest way to interpret the statistical results accurately and <em>meaningfully</em> given that the resulting regression coefficients refer to estimates on a mathematically <strong>transformed scale</strong> rather than the original scale of measurement of the variables as it was the case in linear regression.</p>
 <p>The <strong>Advanced topics</strong> readings assigned for this week outline these challenges for those who would like to gain a deeper understanding of the mathematics and mechanics of <em>logistic regression</em>; for the rest of us, <span class="citation" data-cites="ConnellyEtAl2016ModellingKeyVariables">Connelly, Gayle, and Lambert (<a href="#ref-ConnellyEtAl2016ModellingKeyVariables" role="doc-biblioref">2016</a>)</span> (on the reading list) provides a very approachable introduction to the major challenges, specifically for sociological analyses (see, specifically, the sections between <em>Parameter estimates in logistic regression models</em> and <em>The presentation of logistic regression results</em>).</p>
 <p>In the exercises below, we return to some of the small individual-level datasets we used in Workshop 1 and 2, which contain selected variables from the <em>British Social Attitudes</em> Survey, the <em>Citizenship Survey</em> and the <em>Community Life Survey</em> (find them under the <em>Questions of Trust</em> tab on the <a href="../../Data/index.html" target="_blank">Data page</a>).</p>
-<p>The exercises will also allow us (require?) to practice some basic data transformation techniques in JASP that may come useful for the assignment work too (such as <em>renaming</em>, <em>filtering</em>, <em>reordering</em>, <em>recoding</em>/<em>computing</em> variables, and setting custom <em>missing</em> values). This will take us an important step closer to being able to follow the ten <strong>basic</strong> steps of the data analysis cycle, <u>which are also the ones that will structure your assignment reports</u>:</p>
+<p>The exercises will also allow us (require?) to practice some basic data transformation techniques in JASP that may come useful for the assignment work too (such as <em>renaming</em>, <em>filtering</em>, <em>reordering</em>, <em>recoding</em>/<em>computing</em> variables, and setting custom <em>missing</em> values). This will take us an important step closer to being able to follow the nine <strong>basic</strong> steps of the data analysis cycle, <u>which are also the ones that will structure your assignment reports</u>:</p>
 <ol type="1">
 <li><p><strong>Identify the variables</strong> you want to use and provide some <strong>summary descriptive statistics</strong> for them;</p></li>
 <li><p>Check some more detailed <strong><em>univariate</em></strong> <strong>descriptive tabulations and/or visualisations</strong> of the core variables (at least the <strong>outcome</strong> <strong>variable</strong> and the <strong>main explanatory variable</strong>);</p></li>
@@ -576,7 +577,7 @@ Figure&nbsp;2: “Social trust” variables in different versions of the 2010 BS
 </figcaption>
 </figure>
 </div>
-<p>We can also see from the output that those answering version B of the questionnaire (n = 1,095) were not asked either of the “social trust” questions, so we should expect a high level of <em>missingness</em> by design in the dataset, which is not a problem because such missing values have happened “at random”, due to randomised allocation of respondents to one of the questionnaire versions. The real issue with high levels of missing data is when they are “missing not at random” (MNAR), but due to some underlying cause that can invalidate our measurement (e.g.&nbsp;very rich or very poor people may not be comfortable answering questions about their income, so they are more likely to choose a “prefer not to say” answer option).</p>
+<p>We can also see from the output that those answering version B of the questionnaire (n = 1,095) were not asked either of the “social trust” questions, so we should expect a high level of <em>missingness</em> by design in the dataset, which is not a problem because such missing values have happened <em>completely</em> at random (statisticians call this “missing completely at random”, MCAR), due to randomised allocation of respondents to one of the questionnaire versions. The real issue with high levels of missing data is when they are “missing not at random” (MNAR), but due to some underlying cause that can invalidate our measurement (e.g.&nbsp;very rich or very poor people may not be comfortable answering questions about their income, so they are more likely to choose a “prefer not to say” answer option).</p>
 <section id="modelling-soctrust" class="level4">
 <h4 class="anchored" data-anchor-id="modelling-soctrust">Modelling <code>SocTrust</code></h4>
 <p>We will first explore the variable <code>SocTrust</code> resulting from the Main Questionnaire version. As we can see from the questionnaire item in <a href="#fig-bsa2010-main" class="quarto-xref">Figure&nbsp;1 (a)</a>, this is the standard dichotomous “social/generalised trust” question which is also used in the WVS/EVS (the one from which the national-level “social trust” variables we focused on in the last two workshops were calculated as a national-level aggregate proportion of the number of those who had <em>indicated</em> that for them “most people can be trusted”). We are therefore expecting <code>SocTrust</code> to be a dichotomous variable in the dataset, although the “Don’t know” (8) and “Refusal” (9) answer options may not be coded as “missing” values, so we may need to perform some manual cleansing of the variable before we can use it in a regression.</p>
@@ -621,7 +622,7 @@ Figure&nbsp;2: “Social trust” variables in different versions of the 2010 BS
 </div>
 </div>
 </div>
-<p>As we can see from the frequency distribution of the <code>SocTrust</code> variable, there is a very small number of responses in the “Don’t know” and “Refusal” categories, but these are treated as valid responses and not part of the “Missing” cases. The same is true for the <code>RAgeCat</code> variable - which is a version of the <code>RAge</code> variable with the ages collapsed into seven age-group “bins” - where the “DK/Refused/Not answered” category codes invalid answer options that are not considered as “Missing”. The <code>RSex</code> variable does not contain any such values.</p>
+<p>As we can see from the frequency distribution of the <code>SocTrust</code> variable, there is a very small number of responses in the “Don’t know” and “Refusal” categories, but these are treated as valid responses and not part of the “Missing” cases. The same is true for the <code>RAgeCat</code> variable - which is a version of the <code>RAge</code> variable with the ages collapsed into seven age-group “bins” - where the “DK/Refused/Not answered” category codes invalid answer options that are not considered as “Missing”. The <code>RSex</code> variable does not contain any such values. The numeric <code>RAge</code> variable, however, does: the 7 respondents who refused to give their age are coded 99, which JASP would read as an age of 99. They are the same 7 respondents who make up the “DK/Refused/Not answered” category of <code>RAgeCat</code>.</p>
 </div>
 </div>
 </section>
@@ -687,7 +688,7 @@ Figure&nbsp;3: Logistic regression menu
 <p><a href="images/paste-65.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="images/paste-65.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="JASP Label editor view (`SocTrust`)" width="249"></a></p>
 </figure>
 </div>
-<p>In the <strong><em>Label editor</em></strong> we have two main options for removing categories from the list of valid factor levels: (1) is to <em>filter them out</em> by un-ticking the appropriate tick-marks in the <strong><em>Filter</em></strong> column (see <a href="#fig-filtering" class="quarto-xref">Figure&nbsp;4 (a)</a>) , or (2) by switching to the <strong><em>Missing values</em></strong> tab and entering the Values that we want to add to the list of <em>custom missing values</em> (see <a href="#fig-custom-missing" class="quarto-xref">Figure&nbsp;4 (b)</a>). The result of option (1) is that the rows (cases/respondents) containing values on the <code>SocTrsut</code> variable that were filtered out will now be shown in light grey and will be excluded from statistical analyses (see <a href="#fig-filtering" class="quarto-xref">Figure&nbsp;4 (a)</a>). This can be <strong>useful if we want to filter (or subset) the dataset for any reason</strong>, not just for the purpose of hiding invalid categories. We can easily un-filter the excluded values by ticking them again. The result of option (2) is that the additionally set custom missing values will be removed from the list of valid <strong>Values</strong> altogether. <strong>This is the technically correct solution</strong> for setting values as “Missing”. We can easily remove values from the custom missing list (see <a href="#fig-custom-missing-remove" class="quarto-xref">Figure&nbsp;4 (d)</a>).</p>
+<p>In the <strong><em>Label editor</em></strong> we have two main options for removing categories from the list of valid factor levels: (1) is to <em>filter them out</em> by un-ticking the appropriate tick-marks in the <strong><em>Filter</em></strong> column (see <a href="#fig-filtering" class="quarto-xref">Figure&nbsp;4 (a)</a>) , or (2) by switching to the <strong><em>Missing values</em></strong> tab and entering the Values that we want to add to the list of <em>custom missing values</em> (see <a href="#fig-custom-missing" class="quarto-xref">Figure&nbsp;4 (b)</a>). The result of option (1) is that the rows (cases/respondents) containing values on the <code>SocTrust</code> variable that were filtered out will now be shown in light grey and will be excluded from <strong>all</strong> statistical analyses, including those that do not use <code>SocTrust</code> (see <a href="#fig-filtering" class="quarto-xref">Figure&nbsp;4 (a)</a>). This can be <strong>useful if we want to filter (or subset) the dataset for any reason</strong>, not just for the purpose of hiding invalid categories. We can easily un-filter the excluded values by ticking them again. The result of option (2) is that the additionally set custom missing values will be removed from the list of valid <strong>Values</strong> altogether. <strong>This is the technically correct solution</strong> for setting values as “Missing”. We can easily remove values from the custom missing list (see <a href="#fig-custom-missing-remove" class="quarto-xref">Figure&nbsp;4 (d)</a>).</p>
 <div id="fig-filtering-and-missing" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-filtering-and-missing-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -759,7 +760,7 @@ Figure&nbsp;4: Filtering data and setting custom missing values
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Now do the same for the <code>RAgeCat</code> variable.</p>
+<p>Now deal with the <code>RAgeCat</code> variable. Here, use option (1): un-tick the “DK/Refused/Not answered” category in the <strong><em>Filter</em></strong> column, so that the 7 respondents of unknown age are excluded from <strong>all</strong> analyses, including those that use the numeric <code>RAge</code> variable, in which they would otherwise count as 99-year-olds. (Setting the category as a custom missing value would remove it from <code>RAgeCat</code> only.) All the results below are based on this filtered dataset.</p>
 </div>
 </div>
 <p>Having removed the invalid category levels from our dependent variable, we can check again the <em>logistic regression model</em> output. We should get the outputs shown in <a href="#fig-logit-m0-v1" class="quarto-xref">Figure&nbsp;5</a>. We see that now <code>SocTrust</code> is recognised as a dichotomous variable with only two valid categories, but the output <em>Note</em> highlighted in red is worth thinking about a little. It says that the “Can t be too careful in dealing with people” category, which we know from <a href="#fig-filtering-and-missing" class="quarto-xref">Figure&nbsp;4</a> that it has the associated value “2” in the dataset, has now been automatically re-coded “as class 1”. What does this mean?</p>
@@ -800,7 +801,7 @@ Figure&nbsp;5: Logistic regression output: M<sub>0</sub> with no predictors, ori
 <div aria-describedby="fig-reordering-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-reordering" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-labels-auto-order" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="143">
+<div id="fig-labels-auto-order" class="quarto-float quarto-figure quarto-figure-center anchored" width="143" data-fig-align="center">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-labels-auto-order-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="images/Screenshot 2025-11-30 204018.png" class="lightbox" data-gallery="fig-reordering" title="Figure&nbsp;6&nbsp;(a): "><img src="images/Screenshot 2025-11-30 204018.png" id="fig-labels-auto-order" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" data-ref-parent="fig-reordering" width="143"></a>
@@ -812,7 +813,7 @@ Figure&nbsp;5: Logistic regression output: M<sub>0</sub> with no predictors, ori
 </div>
 </div>
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-reordering" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-labels-reverse" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="143">
+<div id="fig-labels-reverse" class="quarto-float quarto-figure quarto-figure-center anchored" width="143" data-fig-align="center">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-labels-reverse-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="images/Screenshot 2025-11-30 204255.png" class="lightbox" data-gallery="fig-reordering" title="Figure&nbsp;6&nbsp;(b): "><img src="images/Screenshot 2025-11-30 204255.png" id="fig-labels-reverse" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" data-ref-parent="fig-reordering" width="143"></a>
@@ -925,7 +926,7 @@ Figure&nbsp;8: Comparing linear regression outputs <em>before</em> and <em>after
 </section>
 <section id="manually-editing-labels" class="level6">
 <h6 class="anchored" data-anchor-id="manually-editing-labels">Manually editing labels</h6>
-<p>Before we continue with the data analysis - because we are in the <strong><em>Label editor</em></strong> anyway - we may want to perform a few additional “cosmetic” changes. All the fields in the <strong><em>Label editor</em></strong> can be manually modified, so we could change the variable names, value labels, long names, column types for any variable (just click on the header showing the variable/column name in the data spreadsheet below the <strong><em>Label editor</em></strong>. For example, we can prettify the names of the variables will will use for the analysis so that the labels in the outputs are clearer. In the examples below, I have changed the variable names of <code>RSex</code>, <code>RAge</code>, <code>RAgeCat</code> and <code>PeopTrs3</code>, and I corrected the missing apostrophe in the “Can t be too careful in dealing with people” label in <code>SocTrust</code>:</p>
+<p>Before we continue with the data analysis - because we are in the <strong><em>Label editor</em></strong> anyway - we may want to perform a few additional “cosmetic” changes. All the fields in the <strong><em>Label editor</em></strong> can be manually modified, so we could change the variable names, value labels, long names, column types for any variable (just click on the header showing the variable/column name in the data spreadsheet below the <strong><em>Label editor</em></strong>. For example, we can prettify the names of the variables we will use for the analysis so that the labels in the outputs are clearer. In the examples below, I have changed the variable names of <code>RSex</code>, <code>RAge</code>, <code>RAgeCat</code> and <code>PeopTrs3</code> (to <code>Sex</code>, <code>Age</code>, <code>AgeCat</code> and <code>PeopTrust</code>), and I corrected the missing apostrophe in the “Can t be too careful in dealing with people” label in <code>SocTrust</code>. The rest of this worksheet uses the new names for the first three, but keeps referring to the self-completion trust question as <code>PeopTrs3</code> so that you can find it in the original questionnaire:</p>
 <div id="fig-var-rename" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-var-rename-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -966,7 +967,7 @@ Figure&nbsp;9: Changing variable names and value labels
 </section>
 <section id="task-4-bivariate-descriptive-analysis" class="level5">
 <h5 class="anchored" data-anchor-id="task-4-bivariate-descriptive-analysis">Task 4: Bivariate descriptive analysis</h5>
-<div class="callout callout-style-simple callout-warning callout-empty-content callout-titled">
+<div class="callout callout-style-simple callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -976,13 +977,90 @@ Figure&nbsp;9: Changing variable names and value labels
 </div>
 </div>
 <div class="callout-body-container callout-body">
-
+<p>Before fitting any model, look at how <code>SocTrust</code> relates to each predictor on its own. You already know the tools from Workshop 2:</p>
+<ol type="1">
+<li><code>SocTrust</code> by <code>Sex</code>: two categorical variables, so a <strong>contingency table</strong> (<strong><em>Frequencies &gt; Contingency Tables</em></strong>). Put <code>SocTrust</code> in <strong>Rows</strong> and <code>Sex</code> in <strong>Columns</strong>, and under <strong>Cells</strong> show <strong>Column</strong> percentages only.</li>
+<li><code>SocTrust</code> by <code>AgeCat</code>: the same, with <code>AgeCat</code> in <strong>Columns</strong>.</li>
+<li><code>SocTrust</code> by <code>Age</code>: a categorical outcome and a numeric predictor. One quick option is a box plot of <code>Age</code> split by <code>SocTrust</code> (<strong><em>Descriptives &gt; Descriptive Statistics</em></strong>, <code>Age</code> in <strong>Variables</strong>, <code>SocTrust</code> in <strong>Split</strong>).</li>
+</ol>
+</div>
+</div>
+<div class="questionblock">
+<p><strong>Questions</strong></p>
+<ul>
+<li>What percentage of men, and what percentage of women, say “Most people can be trusted”?</li>
+<li>Does the percentage who trust rise steadily with age, or is the pattern less tidy?</li>
+<li>Based only on these tables, which predictor do you expect to show the clearer association in the regression model?</li>
+</ul>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><code>SocTrust</code> by <code>Sex</code> (column percentages, n = 1,060):</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: right;">Men (n = 461)</th>
+<th style="text-align: right;">Women (n = 599)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Most people can be trusted</td>
+<td style="text-align: right;">51.4%</td>
+<td style="text-align: right;">40.7%</td>
+</tr>
+<tr class="even">
+<td>Can’t be too careful</td>
+<td style="text-align: right;">48.6%</td>
+<td style="text-align: right;">59.3%</td>
+</tr>
+</tbody>
+</table>
+<p>Men are about 11 percentage points more likely than women to say most people can be trusted.</p>
+<p><code>SocTrust</code> by <code>AgeCat</code> (% saying “Most people can be trusted”):</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">18-24</th>
+<th style="text-align: right;">25-34</th>
+<th style="text-align: right;">35-44</th>
+<th style="text-align: right;">45-54</th>
+<th style="text-align: right;">55-59</th>
+<th style="text-align: right;">60-64</th>
+<th style="text-align: right;">65+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">37.8%</td>
+<td style="text-align: right;">43.0%</td>
+<td style="text-align: right;">43.0%</td>
+<td style="text-align: right;">47.2%</td>
+<td style="text-align: right;">50.7%</td>
+<td style="text-align: right;">49.0%</td>
+<td style="text-align: right;">46.6%</td>
+</tr>
+</tbody>
+</table>
+<p>Trust rises from the youngest group to the late 50s, then levels off or dips slightly. The age pattern is weaker and less regular than the sex difference, so we should expect sex to show the clearer association in the model. Notice also how few 18-24-year-olds answered this question (n = 74): estimates for that group will be imprecise.</p>
+</div>
 </div>
 </div>
 </section>
 <section id="task-5-simple-regression-model" class="level5">
 <h5 class="anchored" data-anchor-id="task-5-simple-regression-model">Task 5: Simple regression model</h5>
-<p>We have already seem in <a href="#fig-logistic-menu" class="quarto-xref">Figure&nbsp;3</a> how to start a <em>binary</em> <em>logistic regression</em> analysis, and if you have followed along, then you should already have an output for a null model (M<sub>0</sub>), now updated with all the changes you have done to the data. You should be seeing something like in <a href="#fig-logit-m0-v2" class="quarto-xref">Figure&nbsp;10</a> :</p>
+<p>We have already seen in <a href="#fig-logistic-menu" class="quarto-xref">Figure&nbsp;3</a> how to start a <em>binary</em> <em>logistic regression</em> analysis, and if you have followed along, then you should already have an output for a null model (M<sub>0</sub>), now updated with all the changes you have done to the data. You should be seeing something like in <a href="#fig-logit-m0-v2" class="quarto-xref">Figure&nbsp;10</a> :</p>
 <div id="fig-logit-m0-v2" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-logit-m0-v2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1018,7 +1096,7 @@ Figure&nbsp;10: Logistic regression output: M<sub>0</sub> with no predictors, re
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Currently the output only shows the “null model” that contains no explanatory variables. As in the case of the M<sub>0</sub> in <em>linear regression models</em>, it only tells us the <code>Intercept</code> value. However, <u><strong>unlike in linear regression</strong></u>, the <code>(Intercept)</code> coefficient cannot be directly interpreted as the grand <em>mean</em> value on the original scale of the dependent variable, because because a dichotomous “scale” cannot really have an “average” value: one <u>either is</u> included in a category <u>or not</u>. How then do we interpret the <code>Intercept</code> coefficient (and more generally logistic regression coefficients)?</p>
+<p>Currently the output only shows the “null model” that contains no explanatory variables. As in the case of the M<sub>0</sub> in <em>linear regression models</em>, it only tells us the <code>Intercept</code> value. However, <u><strong>unlike in linear regression</strong></u>, the <code>(Intercept)</code> coefficient cannot be directly interpreted as the grand <em>mean</em> value on the original scale of the dependent variable, because a dichotomous “scale” cannot really have an “average” value: one <u>either is</u> included in a category <u>or not</u>. How then do we interpret the <code>Intercept</code> coefficient (and more generally logistic regression coefficients)?</p>
 <section id="proportions-probabilities-odds-and-logits" class="level6">
 <h6 class="anchored" data-anchor-id="proportions-probabilities-odds-and-logits"><strong>Proportions, probabilities, odds and logits</strong></h6>
 <p>It may be useful to recall the Descriptive statistics at this point, particularly the Frequency distribution of <code>SocTrust</code>:</p>
@@ -1028,7 +1106,7 @@ Figure&nbsp;10: Logistic regression output: M<sub>0</sub> with no predictors, re
 </figure>
 </div>
 <p>We know from the frequency distribution that there are fewer respondents in the sample who “trust” compared to those who “distrust”, by around 9 percentage points. So the M<sub>0</sub> coefficient we see in the logistic regression output seems to quantify this difference in a different way. But how?</p>
-<p>The frequency distribution also tells us that the proportion of “trust” in the sample is <span class="math inline">\(0.454\)</span> <span class="math inline">\(\left(45.4\% = \frac{45.4}{100}\right)\)</span> and that of “mistrust” is <span class="math inline">\(0.546\)</span>. Proportions are by nature measured on a <span class="math inline">\(0-1\)</span> scale, where <span class="math inline">\(0\)</span> is <span class="math inline">\(0\%\)</span>, <span class="math inline">\(0.5\)</span> is <span class="math inline">\(50\%\)</span> and <span class="math inline">\(1\)</span> is <span class="math inline">\(100\%\)</span>, so any numeric value between the two extremes has a meaning. Proportions can thus also be thought of as “probabilities”, as “probability” is another statistical concept that is measured on the <span class="math inline">\(0-1\)</span> scale. We could say, for example, that if we were to randomly draw individual rows (respondents) from our total sample of 1,060 respondents who had valid answers on <code>SocTrust</code>, we have a <span class="math inline">\(0.454\)</span> probability of drawing someone who answered that “Most people can be trusted”. This is our best estimate given that we don’t yet know anything else about the characteristics of the sample other than the overall frequency distribution of <code>SocTrust</code>. Now this description is very similar to the one we gave to the <code>Intercept</code> in a linear regression “null model”: the mean value (average) of <code>SocTrust</code> is our best and safest prediction for the value of any individual observation of <code>SocTrust</code> given that we don’t (yet) know anything else about the data (i.e.&nbsp;other variables).</p>
+<p>The frequency distribution also tells us that the proportion of “trust” in the sample is <span class="math inline">\(0.454\)</span> <span class="math inline">\(\left(45.4\% = \frac{45.4}{100}\right)\)</span> and that of “mistrust” is <span class="math inline">\(0.546\)</span>. Proportions are by nature measured on a <span class="math inline">\(0-1\)</span> scale, where <span class="math inline">\(0\)</span> is <span class="math inline">\(0\%\)</span>, <span class="math inline">\(0.5\)</span> is <span class="math inline">\(50\%\)</span> and <span class="math inline">\(1\)</span> is <span class="math inline">\(100\%\)</span>, so any numeric value between the two extremes has a meaning. Proportions can thus also be thought of as “probabilities”, as “probability” is another statistical concept that is measured on the <span class="math inline">\(0-1\)</span> scale. We could say, for example, that if we were to randomly draw individual rows (respondents) from our total sample of 1,060 respondents who had valid answers on <code>SocTrust</code> and a known age, we have a <span class="math inline">\(0.454\)</span> probability of drawing someone who answered that “Most people can be trusted”. This is our best estimate given that we don’t yet know anything else about the characteristics of the sample other than the overall frequency distribution of <code>SocTrust</code>. Now this description is very similar to the one we gave to the <code>Intercept</code> in a linear regression “null model”: the mean value (average) of <code>SocTrust</code> is our best and safest prediction for the value of any individual observation of <code>SocTrust</code> given that we don’t (yet) know anything else about the data (i.e.&nbsp;other variables).</p>
 <p>In fact, remember the output from the linear regression of <code>SocTrust</code> from earlier in <a href="#fig-linreg-SocTrust" class="quarto-xref">Figure&nbsp;8</a> ?</p>
 <p>Indeed, when entering the <code>SocTrust</code> into a linear regression model after re-coding its values to <span class="math inline">\(0/1\)</span> , the linear regression coefficient on the <code>Intercept</code> tell us precisely that the expected “mean” value of the <code>SocTrust</code> “scale”, which the model must assume to be an unbounded numeric scale on which we just happened to only observe two values (0 and 1), but where other values should be theoretically possible. If the size of two categories is not extremely “unbalanced” (e.g.&nbsp;a poll asking you whether you are enjoying statistics right now would likely result in a highly unbalanced response, with almost all the responses concentrated in the “No” (0) category), then even with this obviously mistaken assumption linear regression can give us acceptable estimates, as in this case. In fact, linear regression is so often used as an easy shorthand method for modelling dichotomous outcomes that it has a fancy name: <em>linear probability model.</em></p>
 <p>As mentioned in the <a href="#sec-intro" class="quarto-xref">Section&nbsp;1.2</a>, <em>logistic regression</em> attempts to overcome the limitations of the mistaken assumptions made by linear regression whilst retaining its logic of linearity. It does so by transforming the binary/dichotomous scale to an artificial one that resembles a continuous numeric scale, with countable values in between the 0 and the 1. As we saw earlier, the <em>probability</em> scale is such a scale and it is inherently related to <em>proportions</em> which can be used to characterise the relationship between the two categories of a dichotomy. So, logistic regression wants to relate predictors (like age or sex) to a <em>probability</em>, but ordinary straight-line (linear) maths can give numbers below 0 or above 1 — which don’t make sense as probabilities. One artificial scale that we can use to overcome this issue is the “logistic” or “logit” scale - that’s where the name of the regression method comes from. The <em>logit</em> is a clever re‑coding that turns a probability (0–1) into a number that can be any real value (−∞ to +∞). That lets us use a straight line on that transformed scale, then turn it back into a probability.</p>
@@ -1036,16 +1114,16 @@ Figure&nbsp;10: Logistic regression output: M<sub>0</sub> with no predictors, re
 <ol type="1">
 <li>For example, we have a <em>probability</em> <em>p</em> = 0.4537736, which is a very precise version of the proportion of “trusting” in our dataset <span class="math inline">\(\left(\frac{481}{1060}=0.4537736\right)\)</span>.</li>
 <li>Convert probability to <em>odds</em>: <span class="math display">\[\mathrm{odds} = \dfrac{p}{1-p}\]</span> For <span class="math inline">\(p = 0.45\ldots\)</span> this is: <span class="math display">\[\dfrac{0.45\ldots}{0.54\ldots} \approx 0.8307427\]</span></li>
-<li>Take <strong>the natural logarithm of the odds</strong> (this is the <strong>logit</strong>): <span class="math display">\[\operatorname{logit}(p) = \ln\!\left(\dfrac{p}{1-p}\right)\]</span> For odds <span class="math inline">\(\approx 0.8307427\)</span>, this is: <span class="math display">\[\operatorname{logit}(p) = \ln(0.8307427) \approx -0.1854346.\]</span></li>
+<li>Take <strong>the natural logarithm of the odds</strong> (this is the <strong>logit</strong>): <span class="math display">\[\operatorname{logit}(p) = \ln\!\left(\dfrac{p}{1-p}\right)\]</span> For odds <span class="math inline">\(\approx 0.8307427\)</span>, this is: <span class="math display">\[\operatorname{logit}(p) = \ln(0.8307427) \approx -0.1854352.\]</span></li>
 </ol>
-<p>Now if we compare the result from the manual calculation above to the <code>(Intercept)</code> coefficient estimate in M<sub>0</sub>, we find that these values coincide. In other words, the <em>logistic regression</em> is telling us exactly the same thing as the <em>linear regression</em> model, just on a strange artificial scale: the <span class="math inline">\(-0.185\)</span> <em>logit</em> value is a slightly more accurate equivalent of the <span class="math inline">\(0.455\)</span> <em>probability</em> value given by the linear regression model.</p>
-<p>From the above equations we can also see that if the proportion/probability that we are modelling would be precisely <span class="math inline">\(0.5\)</span> (i.e.&nbsp;<span class="math inline">\(50\%\)</span>, “trust” and “distrust” would have exactly the same number of responses), then the <span class="math inline">\(odds\)</span> would be equal to <span class="math inline">\(\frac{0.5}{0.5}=1\)</span> , and <span class="math inline">\(logit(p)=ln(1)=0\)</span> . In other words, a <em>logit</em> value of <span class="math inline">\(0\)</span> equals a probability value of <span class="math inline">\(0.5\)</span>, meaning equal probability. So, a negative “Estimate” coefficient in <em>logistic regression</em> has the same interpretation as a negative “Unstandardized” coefficient had in linear regression: a one-unit <em>increase</em> in the value of the predictor variable is associated with a <em>decrease</em> in the expected value of the dependent variable. It’s only the scale of measurement that is different to interpret.</p>
+<p>Now if we compare the result from the manual calculation above to the <code>(Intercept)</code> coefficient estimate in M<sub>0</sub>, we find that these values coincide. In other words, the <em>logistic regression</em> is telling us exactly the same thing as the <em>linear regression</em> model, just on a strange artificial scale: the <span class="math inline">\(-0.185\)</span> <em>logit</em> value is simply the <span class="math inline">\(0.454\)</span> <em>probability</em> value given by the linear regression model, transformed onto the logit scale (the transformation is exact, so nothing is gained or lost).</p>
+<p>From the above equations we can also see that if the proportion/probability that we are modelling would be precisely <span class="math inline">\(0.5\)</span> (i.e.&nbsp;<span class="math inline">\(50\%\)</span>, “trust” and “distrust” would have exactly the same number of responses), then the <span class="math inline">\(odds\)</span> would be equal to <span class="math inline">\(\frac{0.5}{0.5}=1\)</span> , and <span class="math inline">\(logit(p)=ln(1)=0\)</span> . In other words, a <em>logit</em> value of <span class="math inline">\(0\)</span> equals a probability value of <span class="math inline">\(0.5\)</span>, meaning equal probability. So, a negative <em>logit</em> means a probability below 0.5, as our intercept of <span class="math inline">\(-0.185\)</span> shows (45.4% “trusting”), and a positive <em>logit</em> a probability above 0.5. For the coefficients of the predictors that we add below, the sign works just as it did in linear regression: a negative “Estimate” means that a one-unit <em>higher</em> value of the predictor is associated with <em>lower</em> log-odds, and therefore a <em>lower</em> probability, of the outcome. It’s only the scale of measurement that is different to interpret.</p>
 <p><strong>The “Odds Ratio”</strong></p>
 <p>Since the <em>logit</em> scale is very abstract and difficult to decode, the most that we can get out from it directly is the sign (does it show an estimated increase or a decrease?). To be able to interpret the substantive meaning of the model in more detail, it is worth transforming the coefficients back into more easily understandable scales of measurement. One such re-conversion is to <em>odds</em>, which is also displayed in the logistic regression output table as the “Odds Ratio”.</p>
 <p>In the manual calculations above, this was an intermediate value: <span class="math inline">\(\mathrm{odds}_{trust} \;=\; \frac{0.45\ldots}{0.54\ldots} \;\approx\; 0.830\ldots\)</span></p>
-<p>The odds “scale” is one that is more familiar to the gamblers among us, but it’s often used in the interpretation of logistic regression results because it can be interpreted in percentage terms (although it is more involved when interpreting negative coefficients, as in this case). It is worth noting that the value <strong>1</strong> on the odds scale is equal to the <strong>0.5</strong> of the probability scale and the <strong>0</strong> of the logit scale: it signifies complete equality (no difference or change between the two values). Anything lower than 1, then, represents a decrease, and anything higher than 1 an increase. As expected, our value of <span class="math inline">\(0.831\)</span> (rounded up) is lower than <strong>1</strong>, so it shows a decrease. But by how much?</p>
-<p>If the <em>odds</em> of our outcome are <span class="math inline">\(0.831\)</span>, that means that the odds are about <span class="math inline">\(16.9\%\)</span> lower than “even odds” (<span class="math inline">\(1.00\)</span>): <span class="math inline">\((0.831 − 1) × 100\% = −16.9\%\)</span> (i.e.&nbsp;odds decrease by <span class="math inline">\(16.9\%\)</span> per unit).</p>
-<p>We can therefore say that a randomly selected observation (respondent) from our dataset has <span class="math inline">\(16.9\%\)</span> lower <em>odds</em> to be in the “trusting” category.</p>
+<p>The odds “scale” is one that is more familiar to the gamblers among us, but it’s often used in the interpretation of logistic regression results because it can be interpreted in percentage terms (although it is more involved when interpreting negative coefficients, as in this case). It is worth noting that the value <strong>1</strong> on the odds scale is equal to the <strong>0.5</strong> of the probability scale and the <strong>0</strong> of the logit scale: it signifies complete equality (the two outcomes are equally likely). Odds lower than 1 mean that the outcome is less likely than its alternative, and odds higher than 1 that it is more likely. As expected, our value of <span class="math inline">\(0.831\)</span> (rounded up) is lower than <strong>1</strong>: in this sample, “trusting” is somewhat less common than “careful”. But by how much?</p>
+<p>If the <em>odds</em> of our outcome are <span class="math inline">\(0.831\)</span>, that means that the odds are about <span class="math inline">\(16.9\%\)</span> lower than “even odds” (<span class="math inline">\(1.00\)</span>): <span class="math inline">\((0.831 − 1) × 100\% = −16.9\%\)</span>. (This is a comparison with even odds, not a change “per unit”: the null model has no predictor, so there is no unit to change.)</p>
+<p>We can therefore say that the odds of a randomly selected respondent from our dataset being in the “trusting” category are <span class="math inline">\(0.83\)</span>: about <span class="math inline">\(17\%\)</span> lower than even odds, or roughly 5 “trusting” respondents for every 6 who say “you can’t be too careful”.</p>
 <p>This is a common way of interpreting coefficients from the logistic regression model, but it also has the drawback that when we report our results we may forget that the percentages of change we report are on the <em>odds ratio</em> scale, which is itself not a very self-evident one to most normal people. It is therefore better to re-convert the <em>logit</em> or <em>odds</em> value to the <em>probability</em> scale, which is simpler to understand because it runs from <span class="math inline">\(0-1\)</span> and has that connection with <em>proportions</em> and percentage distributions that most of us are more familiar with. Even better, in JASP we can very easily request a visualisation of the coefficients in terms of probability. That will make more of a sense once we start adding explanatory variables to our model.</p>
 </section>
 </div>
@@ -1100,9 +1178,9 @@ Figure&nbsp;10: Logistic regression output: M<sub>0</sub> with no predictors, re
 <div class="callout-body-container callout-body">
 <p>We should be able to interpret the results as saying:</p>
 <ul>
-<li>the effect of <code>Age</code> is positive but small, each additional year of age being associated with a <span class="math inline">\(0.006\)</span> higher expected <code>SocTrust</code> score on the “log-odds” scale, or equivalently, with a <span class="math inline">\(0.6\%\)</span> higher <em>odds</em> of being “trusting”. In other words, older people may be ever so slightly more “trusting” than younger people, but if so, only by a tiny amount (and furthermore, our estimates may not even be all that reliable - but more on this in Workshop 5 on <em>Uncertainty and Inference</em>).</li>
-<li>Just as in liner regression, the <code>(Intercept)</code> is now telling us the predicted <code>SocTrust</code> value of someone aged “0”. As we know, this <code>Intercept</code> is now losing it’s substantive meaning, so unless we centre or standardise our numeric/“Scale” predictor variables, we should not worry about attempting to interpret the <code>Intercept</code> - it’s in the model only to provide a mathematical baseline for the other coefficients.</li>
-<li>We won’t focus on the statistics shown in the <em><strong>Model Summary</strong>,</em> but it’s enough to know that the columns shown (“McFadden R<sup>2</sup>”, “Nagelkerke R<sup>2</sup>”, etc.) are all different attempts to provide a simple estimate of the strength of the model as a whole, as the R<sup>2</sup> value did in the case of linear regression, and they are interpreted roughly in the same way, telling us how much of the unexplained variance in <code>SocialTrust</code> the model (with all the explanatory variables taken together) helps explain. Each of the statistics has been highly debated in the statistical literature because the mechanics of logistic regression make it more difficult to calculate accurately such a generic value, but all of them taken together can give us an inkling of the explanatory strength of the model. In our case, since we only have a single predictor, these values are close to the actual coefficient value for <code>Age</code>, and tell us that the model is indeed not very strong.</li>
+<li>the association between <code>Age</code> and <code>SocTrust</code> is positive but small, each additional year of age being associated with a <span class="math inline">\(0.006\)</span> higher expected <code>SocTrust</code> score on the “log-odds” scale, or equivalently, with a <span class="math inline">\(0.6\%\)</span> higher <em>odds</em> of being “trusting”. In other words, older people may be ever so slightly more “trusting” than younger people, but if so, only by a tiny amount (and furthermore, our estimates may not even be all that reliable - but more on this in Workshop 5 on <em>Uncertainty and Inference</em>).</li>
+<li>Just as in linear regression, the <code>(Intercept)</code> is now telling us the predicted <code>SocTrust</code> value of someone aged “0”. As we know, this <code>Intercept</code> is now losing its substantive meaning, so unless we centre or standardise our numeric/“Scale” predictor variables, we should not worry about attempting to interpret the <code>Intercept</code> - it’s in the model only to provide a mathematical baseline for the other coefficients.</li>
+<li>We won’t focus on the statistics shown in the <em><strong>Model Summary</strong>,</em> but it’s enough to know that the columns shown (“McFadden R<sup>2</sup>”, “Nagelkerke R<sup>2</sup>”, etc.) are all different attempts to provide a simple estimate of the strength of the model as a whole, as the R<sup>2</sup> value did in the case of linear regression. They are read in roughly the same way (higher values mean that the model, with all the explanatory variables taken together, accounts better for <code>SocTrust</code>), but they are not shares of explained variance, because they are calculated from the likelihood of the model. Each of the statistics has been highly debated in the statistical literature because the mechanics of logistic regression make it more difficult to calculate accurately such a generic value, but all of them taken together can give us an inkling of the explanatory strength of the model. In our case all of these values are tiny (below 0.01), telling us that <code>Age</code> on its own explains very little of the variation in <code>SocTrust</code>.</li>
 </ul>
 </div>
 </div>
@@ -1120,6 +1198,68 @@ Figure&nbsp;10: Logistic regression output: M<sub>0</sub> with no predictors, re
 </div>
 <div class="callout-body-container callout-body">
 <p>You should now have all the information needed to fit and interpret a multiple logistic regression model that can give us an estimate of how “age” is associated with “social trust” in a British population in 2010-2011, when adjusting for “sex”.</p>
+<p>Keep <code>SocTrust</code> as the <strong>Dependent Variable</strong> and <code>Age</code> in <strong>Covariates</strong>, and add <code>Sex</code> to <strong>Factors</strong> (it is categorical, so JASP will create the indicator variable for you, with the first category, “Male”, as the reference). Under <strong>Statistics</strong>, check that <strong>Odds ratios</strong> is ticked (it is by default) so that JASP shows them next to the estimates.</p>
+</div>
+</div>
+<div class="questionblock">
+<p><strong>Questions</strong></p>
+<ul>
+<li>Has the coefficient on <code>Age</code> changed much now that <code>Sex</code> is in the model? What does that suggest about the relationship between age and sex in this sample?</li>
+<li>Interpret the odds ratio for <code>Sex (Female)</code> in a full sentence.</li>
+<li>Translate the result into probabilities: what is the predicted probability of trusting for a man and for a woman aged 40? (The conditional estimates plot in the tip below will help.)</li>
+<li>Has the model’s explanatory power (Nagelkerke R<sup>2</sup>) improved compared to the age-only model?</li>
+</ul>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>(n = 1,060)</th>
+<th style="text-align: right;">Estimate</th>
+<th style="text-align: right;">Odds ratio</th>
+<th style="text-align: right;">p</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>(Intercept)</td>
+<td style="text-align: right;">−0.257</td>
+<td style="text-align: right;">0.773</td>
+<td style="text-align: right;">.190</td>
+</tr>
+<tr class="even">
+<td>Age</td>
+<td style="text-align: right;">0.006</td>
+<td style="text-align: right;">1.006</td>
+<td style="text-align: right;">.069</td>
+</tr>
+<tr class="odd">
+<td>Sex (Female)</td>
+<td style="text-align: right;">−0.437</td>
+<td style="text-align: right;">0.646</td>
+<td style="text-align: right;">&lt; .001</td>
+</tr>
+</tbody>
+</table>
+<p>Nagelkerke R<sup>2</sup> = 0.019 (age-only model: 0.004).</p>
+<ul>
+<li><strong>Age</strong> barely changes (0.0059 → 0.0062), so adding sex hardly alters what we learn about age. That is what we would expect if age and sex are only weakly related to each other in the sample.</li>
+<li><strong>Sex</strong>: among respondents of the same age, women’s odds of saying “most people can be trusted” are about 35% lower than men’s (OR = 0.646, because <span class="math inline">\((0.646 - 1) \times 100 = -35.4\%\)</span>).</li>
+<li><strong>In probabilities</strong>: the model predicts that a man aged 40 has a 49.8% probability of trusting, and a woman aged 40 has 39.1%: a gap of about 11 percentage points. Notice that “35% lower odds” and “11 points lower probability” describe the same result; only the second is easy for a general reader to picture.</li>
+<li><strong>Fit</strong> improves from 0.004 to 0.019, but remains very small: age and sex together explain only a sliver of the variation in social trust.</li>
+</ul>
+</div>
 </div>
 </div>
 <div class="callout callout-style-simple callout-tip callout-titled">
@@ -1128,7 +1268,20 @@ Figure&nbsp;10: Logistic regression output: M<sub>0</sub> with no predictors, re
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Tip: plot re logistic coefficients on a probability scale
+<span class="screen-reader-only">Tip</span>Tip: odds ratios in JASP
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <strong>Odds Ratio</strong> column comes from <strong><em>Statistics &gt; Odds ratios</em></strong>, which is ticked by default: you never need to exponentiate by hand. If you also tick <strong><em>Confidence intervals</em></strong>, JASP shows them for the log-odds estimates; tick its sub-option <strong><em>Odds ratio scale</em></strong> to get them for the odds ratios (we will use these in Workshop 5).</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Tip: plot logistic coefficients on a probability scale
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1193,24 +1346,176 @@ Important
 </div>
 <section id="task-1-summarise-the-variables-1" class="level5">
 <h5 class="anchored" data-anchor-id="task-1-summarise-the-variables-1">Task 1: Summarise the variables</h5>
+<p>Continue in the same JASP file. <code>PeopTrs3</code> was only asked of respondents to questionnaire <strong>version A</strong>, in the self-completion booklet, so start by checking how many valid answers it has compared with <code>SocTrust</code> (asked in version C).</p>
 </section>
 <section id="task-2-univariate-descriptive-analysis-1" class="level5">
 <h5 class="anchored" data-anchor-id="task-2-univariate-descriptive-analysis-1">Task 2: Univariate descriptive analysis</h5>
+<p>Request a frequency table for <code>PeopTrs3</code> (remember to raise the <strong><em>Maximum distinct values</em></strong> if needed).</p>
+<div class="questionblock">
+<p><strong>Questions</strong></p>
+<ul>
+<li>Which values are substantive answers, and which should be treated as missing?</li>
+<li>Where is the most common answer on the 1-5 scale?</li>
+<li>Look back at <a href="#fig-bsa2010-self" class="quarto-xref">Figure&nbsp;1 (b)</a>: only the two ends of the scale have word labels. What might a “3” mean to a respondent?</li>
+</ul>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Values 1 (“You can’t be too careful”) to 5 (“Most people can be trusted”) are substantive; 8 (“Can’t choose”, n = 20) and 9 (“Not answered”, n = 15) should be set as missing. The codes −2 and −1 (versions B and C, and respondents who did not return the self-completion booklet) are already defined as missing in the file. That leaves <strong>892</strong> valid answers:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 35%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">1 Can’t be too careful</th>
+<th style="text-align: right;">2</th>
+<th style="text-align: right;">3</th>
+<th style="text-align: right;">4</th>
+<th style="text-align: right;">5 Most can be trusted</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">20.1%</td>
+<td style="text-align: right;">12.1%</td>
+<td style="text-align: right;">28.3%</td>
+<td style="text-align: right;">24.1%</td>
+<td style="text-align: right;">15.5%</td>
+</tr>
+</tbody>
+</table>
+<p>The middle value, 3, is the most common answer. Because the middle has no label, a “3” could mean genuine ambivalence, “it depends on who”, or simply a cautious non-committal answer.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="task-3-data-transformations-1" class="level5">
 <h5 class="anchored" data-anchor-id="task-3-data-transformations-1">Task 3: Data transformations</h5>
+<ol type="1">
+<li>Set 8 and 9 as missing values (the same way you did for <code>SocTrust</code>).</li>
+<li>Create a dichotomous version of the variable with 1 = trusting and 0 = not trusting. You will need to decide <strong>where the middle value 3 belongs</strong>: with the trusting answers (3-5 = 1) or with the distrusting ones (4-5 = 1, 1-3 = 0)? Use the two videos above to recode the values.</li>
+<li>Check the result with a new frequency table: you should have only two categories, with “trusting” coded as 1.</li>
+</ol>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>There is no single right answer to where the cut goes, but there <em>are</em> better and worse justifications. Write down your reason before you look at any regression results, so that the results can’t influence the choice.</p>
+</div>
+</div>
 </section>
 <section id="task-4-bivariate-descriptive-analysis-1" class="level5">
 <h5 class="anchored" data-anchor-id="task-4-bivariate-descriptive-analysis-1">Task 4: Bivariate descriptive analysis</h5>
+<p>Create contingency tables of your new dichotomous variable by <code>Sex</code> and by <code>AgeCat</code> (column percentages), as you did for <code>SocTrust</code>.</p>
 </section>
 <section id="task-5-simple-regression-model-1" class="level5">
 <h5 class="anchored" data-anchor-id="task-5-simple-regression-model-1">Task 5: Simple regression model</h5>
+<p>Fit a logistic regression of your dichotomous <code>PeopTrs3</code> variable on <code>Age</code> alone, then interpret the odds ratio for <code>Age</code>.</p>
 </section>
 <section id="task-6-multiple-regression-model-1" class="level5">
 <h5 class="anchored" data-anchor-id="task-6-multiple-regression-model-1">Task 6: Multiple regression model</h5>
+<p>Add <code>Sex</code> to the model (as a <strong>Factor</strong>). Then <strong>repeat Tasks 3-6 with the other cut-point</strong>, so that you have two versions of the same model.</p>
 </section>
 <section id="task-7-interpretation" class="level5">
 <h5 class="anchored" data-anchor-id="task-7-interpretation">Task 7: Interpretation</h5>
+<div class="questionblock">
+<p><strong>Questions</strong></p>
+<ul>
+<li>With your preferred cut-point, how are age and sex associated with trust?</li>
+<li>Do your conclusions change when you use the other cut-point? Which coefficients change, and how much?</li>
+<li>Compare the proportion “trusting” from <code>PeopTrs3</code> with the 45.4% from <code>SocTrust</code>. Respondents were randomly allocated to questionnaire versions, so the two groups should be broadly comparable (although about one in six of those given the self-completion question did not answer it, and the two questions were asked in different ways: face to face and in a self-completion questionnaire). What does the comparison tell you about measuring social trust?</li>
+</ul>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The proportion “trusting” depends heavily on the cut: <strong>39.6%</strong> with 4-5 = 1, and <strong>67.8%</strong> with 3-5 = 1.</p>
+<p>Model results (n = 892, <code>Sex</code> reference = Male):</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 30%">
+<col style="width: 8%">
+<col style="width: 30%">
+<col style="width: 8%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: right;"><strong>Option A: 4-5 = trusts</strong></th>
+<th style="text-align: right;"></th>
+<th style="text-align: right;"><strong>Option B: 3-5 = trusts</strong></th>
+<th style="text-align: right;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td style="text-align: right;">Odds ratio</td>
+<td style="text-align: right;">p</td>
+<td style="text-align: right;">Odds ratio</td>
+<td style="text-align: right;">p</td>
+</tr>
+<tr class="even">
+<td>Age (per year)</td>
+<td style="text-align: right;">1.011</td>
+<td style="text-align: right;">.008</td>
+<td style="text-align: right;">0.995</td>
+<td style="text-align: right;">.242</td>
+</tr>
+<tr class="odd">
+<td>Sex (Female)</td>
+<td style="text-align: right;">0.797</td>
+<td style="text-align: right;">.101</td>
+<td style="text-align: right;">0.738</td>
+<td style="text-align: right;">.038</td>
+</tr>
+<tr class="even">
+<td>Nagelkerke R<sup>2</sup></td>
+<td style="text-align: right;">0.015</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;">0.009</td>
+<td style="text-align: right;"></td>
+</tr>
+</tbody>
+</table>
+<p><strong>The age conclusion flips.</strong> With option A, older respondents have higher odds of trusting (about 1.1% higher odds per year, or 11% per decade) and the sex difference is not statistically significant. With option B, age shows no clear association, while women have about 26% lower odds of trusting than men of the same age.</p>
+<p>Why? Moving the “3”s changes <em>who counts as trusting</em>. Under option A, the 3s are grouped with distrust, so the model contrasts confident trusters (4-5) with everyone else; under option B, it contrasts confident distrusters (1-2) with everyone else. The sex difference, by contrast, points the same way under both cuts (odds ratios of 0.80 and 0.74) and is of similar size; it only crosses the 5% threshold under option B. Women are more likely than men to choose the most distrustful answers (35.0% vs 28.6% chose 1 or 2, and 23.7% vs 15.4% chose “1”), and a little less likely to choose the most trusting ones (37.0% vs 42.8% chose 4 or 5).</p>
+<p><strong>What to do in practice:</strong> choose the cut that best matches your concept and research question, say so explicitly, and report how sensitive your results are to a reasonable alternative. If the substantive conclusion changes, that is itself a finding worth reporting.</p>
+<p><strong>Measurement:</strong> the binary <code>SocTrust</code> question (45.4% trusting) sits between the two dichotomised versions of the five-point question (39.6% and 67.8%). The same concept, asked of randomly allocated subsamples of the same survey (in one case face to face, in the other in a self-completion questionnaire), produces quite different “levels” of trust depending on the question format. Comparisons of trust <em>levels</em> across surveys that use different question formats should therefore be treated with great caution.</p>
+</div>
+</div>
+</div>
 </section>
 </section>
 </section>
@@ -1239,26 +1544,147 @@ Figure&nbsp;11: Social Trust operationalised in the 2010-2011 Citizenship Survey
 </figcaption>
 </figure>
 </div>
+<p>The Citizenship Survey measured social trust in a slightly different way, and with a much larger sample. Two things to know about the data before you start:</p>
+<ul>
+<li><strong>Coverage</strong>: the 2010-11 survey sampled adults aged 16 and over in <strong>England and Wales</strong> (not Scotland), so strictly it can speak to “Britain” only partially.</li>
+<li><strong>Design</strong>: alongside the main sample, it included an <em>ethnic minority boost</em> of 4,721 interviews (and a smaller Muslim boost of 842). Our reduced dataset has no survey weights, so ethnic minority respondents are over-represented in unweighted analyses. Keep this in mind as a limitation.</li>
+</ul>
 <section id="task-1-summarise-the-variables-2" class="level5">
 <h5 class="anchored" data-anchor-id="task-1-summarise-the-variables-2">Task 1: Summarise the variables</h5>
+<p>Identify the trust, age and sex variables (<code>PTrust</code>, <code>xRage</code> or <code>Ragecat</code>, <code>rsex</code>) and summarise them. Check that <code>xRage</code> is set to <strong>Scale</strong>.</p>
 </section>
 <section id="task-2-univariate-descriptive-analysis-2" class="level5">
 <h5 class="anchored" data-anchor-id="task-2-univariate-descriptive-analysis-2">Task 2: Univariate descriptive analysis</h5>
+<div class="questionblock">
+<p><strong>Questions</strong></p>
+<ul>
+<li>How many answer categories does <code>PTrust</code> have? Which one did interviewers not read out?</li>
+<li>What share of respondents gave that answer?</li>
+</ul>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><code>PTrust</code> has three substantive categories (percentages of the 16,926 valid answers): “People can be trusted” (36.9%), “You can’t be too careful” (50.6%), and a <strong>volunteered</strong> “Depends” (12.6%), which interviewers recorded when respondents refused the either/or choice. “Don’t know” (40 cases) is already defined as missing.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="task-3-data-transformations-2" class="level5">
 <h5 class="anchored" data-anchor-id="task-3-data-transformations-2">Task 3: Data transformations</h5>
+<p>The key decision is what to do with “Depends”. Two defensible options:</p>
+<ul>
+<li><strong>Option 1</strong>: set “Depends” as <strong>missing</strong>, keeping the same either/or contrast as the BSA question.</li>
+<li><strong>Option 2</strong>: code “Depends” as <strong>0</strong> (not trusting), on the logic that someone who will not say “most people can be trusted” does not hold generalised trust.</li>
+</ul>
+<p>Then make sure “People can be trusted” is the category coded 1 (reverse the label order or recode, as you did for <code>SocTrust</code>).</p>
 </section>
 <section id="task-4-bivariate-descriptive-analysis-2" class="level5">
 <h5 class="anchored" data-anchor-id="task-4-bivariate-descriptive-analysis-2">Task 4: Bivariate descriptive analysis</h5>
+<p>Cross-tabulate your outcome by <code>rsex</code> and by <code>Ragecat</code> (column percentages).</p>
 </section>
 <section id="task-5-simple-regression-model-2" class="level5">
 <h5 class="anchored" data-anchor-id="task-5-simple-regression-model-2">Task 5: Simple regression model</h5>
+<p>Fit a logistic regression of the outcome on <code>xRage</code>.</p>
 </section>
 <section id="task-6-multiple-regression-model-2" class="level5">
 <h5 class="anchored" data-anchor-id="task-6-multiple-regression-model-2">Task 6: Multiple regression model</h5>
+<p>Add <code>rsex</code> as a <strong>Factor</strong>. Fit the model once for each way of handling “Depends”.</p>
 </section>
 <section id="task-7-interpretation-1" class="level5">
 <h5 class="anchored" data-anchor-id="task-7-interpretation-1">Task 7: Interpretation</h5>
+<div class="questionblock">
+<p><strong>Questions</strong></p>
+<ul>
+<li>How are age and sex associated with trust in 2010-11? Does the handling of “Depends” change the conclusions?</li>
+<li>Compare these results with the 2010 BSA (<code>SocTrust</code>) model. What is similar, and what is different? Why might the age coefficient be statistically significant here but not in the BSA?</li>
+</ul>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 33%">
+<col style="width: 10%">
+<col style="width: 27%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: right;"><strong>Option 1: Depends = missing</strong></th>
+<th style="text-align: right;"></th>
+<th style="text-align: right;"><strong>Option 2: Depends = 0</strong></th>
+<th style="text-align: right;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td style="text-align: right;">Odds ratio</td>
+<td style="text-align: right;">p</td>
+<td style="text-align: right;">Odds ratio</td>
+<td style="text-align: right;">p</td>
+</tr>
+<tr class="even">
+<td>Age (per year)</td>
+<td style="text-align: right;">1.011</td>
+<td style="text-align: right;">&lt; .001</td>
+<td style="text-align: right;">1.012</td>
+<td style="text-align: right;">&lt; .001</td>
+</tr>
+<tr class="odd">
+<td>rsex (Female)</td>
+<td style="text-align: right;">0.819</td>
+<td style="text-align: right;">&lt; .001</td>
+<td style="text-align: right;">0.837</td>
+<td style="text-align: right;">&lt; .001</td>
+</tr>
+<tr class="even">
+<td>n</td>
+<td style="text-align: right;">14,797</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;">16,926</td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="odd">
+<td>Nagelkerke R<sup>2</sup></td>
+<td style="text-align: right;">0.016</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;">0.018</td>
+<td style="text-align: right;"></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Age</strong>: each additional year is associated with about 1.1% higher odds of trusting (around 12% per decade), holding sex constant. With “Depends” set as missing, the share trusting rises from about a third of 16-24-year-olds (34%) to almost half of those aged 75+ (49%).</li>
+<li><strong>Sex</strong>: women’s odds of trusting are about 18% lower than men’s of the same age.</li>
+<li><strong>“Depends”</strong> barely matters here: both coefficients move only slightly. That robustness is worth reporting.</li>
+<li><strong>Compared with the BSA 2010</strong>: the direction of both associations is the same (older people more trusting; women less trusting). The sex difference is smaller in the Citizenship Survey (OR 0.82 vs 0.65). The age coefficient is larger (1.011 vs 1.006) and, with 14 times as many respondents, it is estimated far more precisely, which is why it is clearly statistically significant here. Remember also that the samples differ in coverage (England and Wales vs Britain), age range (16+ vs mainly 18+) and design (ethnic minority boost, no weights).</li>
+</ul>
+</div>
+</div>
+</div>
 </section>
 </section>
 </section>
@@ -1267,9 +1693,26 @@ Figure&nbsp;11: Social Trust operationalised in the 2010-2011 Citizenship Survey
 <p>You will use the following three datasets, in turn, to model social phenomena in “post-pandemic” Britain:</p>
 <ul>
 <li>Community Life Survey 2023-24 (<code>gb-cls23-trust_nm.sav</code>)</li>
-<li>British Social Attitudes Survey 2024 (<code>gb-bsa24-trust.sav</code>)</li>
 <li>British Social Attitudes Survey 2023 (<code>gb-bsa23-trust.sav</code>)</li>
+<li>British Social Attitudes Survey 2024 (<code>gb-bsa24-trust.sav</code>)</li>
 </ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Read the question closely
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>“Young people (under-24s)”</strong>: none of the datasets lets us isolate exactly the under-24s. The youngest age group available is <strong>16-24</strong> (CLS and BSA 2024) or <strong>18-24</strong> (BSA 2023). Use that group, and say so explicitly in your write-up.</li>
+<li><strong>“Lower social trust”</strong>: lower than whom? The natural comparison is everyone aged 25 and over. You will therefore need to collapse the age groups into a two-category variable (young vs older).</li>
+<li><strong>“Post-pandemic Britain”</strong>: the CLS covers <strong>England only</strong>, while the BSA 2023 covers Great Britain and the BSA 2024 the whole UK (it added Northern Ireland in 2024). And a single post-pandemic survey cannot tell us whether young people’s trust is <em>lower than it used to be</em>: for that we would need a pre-pandemic comparison (you have one in Exercise 4.1.2!).</li>
+</ul>
+</div>
+</div>
 <section id="exercise-4.2.1.-community-life-survey-2023-2024" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-4.2.1.-community-life-survey-2023-2024">Exercise 4.2.1. Community Life Survey, 2023-2024</h3>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
@@ -1305,24 +1748,114 @@ Figure&nbsp;12: “Social trust” operationalised in the 2023-2024 Community Li
 </ul>
 <section id="task-1-summarise-the-variables-3" class="level5">
 <h5 class="anchored" data-anchor-id="task-1-summarise-the-variables-3">Task 1: Summarise the variables</h5>
+<p>The dataset has three variables of interest: <code>STrustGen2B</code> (trust in most people), <code>Ragecat</code> (age in seven groups) and <code>Sex</code>. There is no numeric age variable, so the age groups are all we have.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Check the codes, not just the labels
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The 0-10 trust answers are stored as the <strong>values 1 to 11</strong> (the value 1 carries the label “0. Not at all”, the value 11 the label “10. Completely”). If you treat the variable as <strong>Scale</strong>, JASP uses the stored values, so every mean and intercept will be <strong>one point higher</strong> than on the 0-10 scale respondents saw. Differences between groups, and therefore regression coefficients, are not affected.</p>
+</div>
+</div>
 </section>
 <section id="task-2-univariate-descriptive-analysis-3" class="level5">
 <h5 class="anchored" data-anchor-id="task-2-univariate-descriptive-analysis-3">Task 2: Univariate descriptive analysis</h5>
+<p>Request frequency tables for all three variables, and descriptive statistics for <code>STrustGen2B</code> treated as Scale.</p>
+<div class="questionblock">
+<p><strong>Questions</strong></p>
+<ul>
+<li>Which values of <code>Sex</code> and <code>Ragecat</code> should not count as valid answers? Are they already set as missing?</li>
+<li>What is the most common answer on the trust scale, and what is the mean (on the 0-10 scale)?</li>
+</ul>
+</div>
 </section>
 <section id="task-3-data-transformations-3" class="level5">
 <h5 class="anchored" data-anchor-id="task-3-data-transformations-3">Task 3: Data transformations</h5>
+<ol type="1">
+<li><code>Sex</code>: set “Prefer not to say” (−9) as missing. (It is <em>not</em> one of the missing values defined in the file.)</li>
+<li><code>Ragecat</code>: check that “Item not applicable” (−1) is missing, then create a two-category version: <strong>16-24</strong> (16-19 and 20-24) vs <strong>25+</strong> (all other groups). Code 25+ as the first category, so that it becomes the reference group in regression models.</li>
+<li><code>STrustGen2B</code>: you have two options, and this exercise asks you to try both:
+<ul>
+<li>keep it as an 11-point <strong>Scale</strong> variable and use <strong>linear regression</strong>; or</li>
+<li>dichotomise it for <strong>logistic regression</strong>. A natural cut is above the scale’s midpoint: <strong>6-10 = 1</strong> (trusting) and <strong>0-5 = 0</strong>. (Remember: in the stored values that is 7-11 vs 1-6.)</li>
+</ul></li>
+</ol>
 </section>
 <section id="task-4-bivariate-descriptive-analysis-3" class="level5">
 <h5 class="anchored" data-anchor-id="task-4-bivariate-descriptive-analysis-3">Task 4: Bivariate descriptive analysis</h5>
+<p>Use <strong><em>Descriptives &gt; Descriptive Statistics</em></strong> with trust in <strong>Variables</strong> (as Scale) and the <strong>seven</strong> age groups in <strong>Split</strong>, and add box plots. Then do the same with your two-group age variable.</p>
 </section>
 <section id="task-5-simple-regression-model-3" class="level5">
 <h5 class="anchored" data-anchor-id="task-5-simple-regression-model-3">Task 5: Simple regression model</h5>
+<p>Fit (a) a linear regression of the 0-10 trust scale on the young/older variable, and (b) a logistic regression of the dichotomised trust variable on the same predictor.</p>
 </section>
 <section id="task-6-multiple-regression-model-3" class="level5">
 <h5 class="anchored" data-anchor-id="task-6-multiple-regression-model-3">Task 6: Multiple regression model</h5>
+<p>Add <code>Sex</code> (as a <strong>Factor</strong>) to both models.</p>
 </section>
 <section id="task-7-interpretation-2" class="level5">
 <h5 class="anchored" data-anchor-id="task-7-interpretation-2">Task 7: Interpretation</h5>
+<div class="questionblock">
+<p><strong>Questions</strong></p>
+<ul>
+<li>By how much does trust differ between 16-24-year-olds and those aged 25+, on the 0-10 scale and in terms of odds?</li>
+<li>Does adjusting for sex change the answer?</li>
+<li>Look back at the seven age groups: are 16-24-year-olds distinctive, or part of a wider age pattern?</li>
+</ul>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-25" class="callout-25-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>After setting the missing values, <strong>50,706</strong> respondents have valid answers on all three variables (5,040 aged 16-24).</p>
+<ul>
+<li><strong>Descriptives</strong>: the mean trust score is 6.05 on the 0-10 scale (7.05 in the stored values) and the most common answer is 7. Mean trust is <strong>5.53</strong> among 16-24-year-olds and <strong>6.12</strong> among those aged 25+. (The descriptives use every respondent with a valid trust answer; the models below use the 50,706 with valid answers on all three variables.)</li>
+<li><strong>Linear model</strong> (young + sex): 16-24-year-olds score <strong>0.59 points lower</strong> on the 0-10 scale than those aged 25+ (95% CI −0.65 to −0.53, p &lt; .001). <code>Sex (Male)</code>: −0.01, p = .46. R<sup>2</sup> = 0.007.</li>
+<li><strong>Logistic model</strong> (6-10 = trusting): 54.5% of 16-24-year-olds vs 66.4% of those aged 25+ are “trusting”. The odds ratio for the young group is <strong>0.60</strong> (95% CI 0.57 to 0.64, p &lt; .001): their odds of trusting are about 40% lower. <code>Sex (Male)</code>: OR 0.99, p = .75.</li>
+<li><strong>Adjusting for sex</strong> changes nothing, because trust barely differs by sex in this survey.</li>
+<li><strong>The wider age pattern</strong> matters for interpretation. Mean trust by age group:</li>
+</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">16-19</th>
+<th style="text-align: right;">20-24</th>
+<th style="text-align: right;">25-34</th>
+<th style="text-align: right;">35-49</th>
+<th style="text-align: right;">50-64</th>
+<th style="text-align: right;">65-74</th>
+<th style="text-align: right;">75+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">5.64</td>
+<td style="text-align: right;">5.43</td>
+<td style="text-align: right;">5.52</td>
+<td style="text-align: right;">5.93</td>
+<td style="text-align: right;">6.21</td>
+<td style="text-align: right;">6.57</td>
+<td style="text-align: right;">6.99</td>
+</tr>
+</tbody>
+</table>
+<p>25-34-year-olds trust as little as 16-24-year-olds; after that, trust rises steadily with age. So the answer is “yes, young adults report lower trust”, but the young are not uniquely low: the comparison with <em>all</em> those aged 25+ mixes in a long age gradient. A single cross-section also cannot tell us whether this is an <em>age</em> effect (people become more trusting as they get older), a <em>cohort</em> effect (younger generations are less trusting), or an effect of the pandemic that hit young people harder than older ones. (A <em>period</em> effect on its own would shift everyone surveyed at the same time, so it could not create an age gap within a single survey.)</p>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="exercise-4.2.2.-british-social-attitudes-survey-2023" class="level3">
@@ -1353,24 +1886,76 @@ Figure&nbsp;13: “Social trust” operationalised in the 2023 BSA
 </div>
 <section id="task-1-summarise-the-variables-4" class="level5">
 <h5 class="anchored" data-anchor-id="task-1-summarise-the-variables-4">Task 1: Summarise the variables</h5>
+<p>The variables of interest are <code>ISSP_Q36</code> (trust), <code>Ragecat</code> (age in eight groups), <code>RespAge_Archive</code> (age in years) and <code>DVsex23</code> (sex). Note that <code>ISSP_Q36</code> was only asked in some questionnaire versions, so most rows are “Not applicable” by design.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Two age variables
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>RespAge_Archive</code> is <strong>bottom-coded</strong> at 22 (everyone aged 18 to 22 is stored as 22) and <strong>top-coded</strong> at 80 (anyone aged 80 or older is stored as 80), a common disclosure-control step in archived survey data. Its codes 998 and 999 (31 respondents who preferred not to give their age) are not set as missing in the file. You can still identify the 18-24 group with it (values 22, 23 and 24, which pick out all but one of them), but <code>Ragecat</code> (value 1 = “18-24” for the BSA sample) is the more transparent choice.</p>
+</div>
+</div>
 </section>
 <section id="task-2-univariate-descriptive-analysis-4" class="level5">
 <h5 class="anchored" data-anchor-id="task-2-univariate-descriptive-analysis-4">Task 2: Univariate descriptive analysis</h5>
+<p>Request frequency tables for <code>ISSP_Q36</code>, <code>Ragecat</code> and <code>DVsex23</code>, and identify the answers that are not substantive.</p>
 </section>
 <section id="task-3-data-transformations-4" class="level5">
 <h5 class="anchored" data-anchor-id="task-3-data-transformations-4">Task 3: Data transformations</h5>
+<ol type="1">
+<li><code>ISSP_Q36</code>: set “Can’t choose” (5) and “Prefer not to answer” (9) as missing. Recode “almost always” and “usually” trusted (1, 2) as <strong>1</strong>, and the two “can’t be too careful” answers (3, 4) as <strong>0</strong>.</li>
+<li><code>Ragecat</code>: set “Don’t know/Refused/Not answered” (9) as missing; recode 18-24 (1) vs 25+ (2-8), with 25+ as the reference category.</li>
+<li><code>DVsex23</code>: set “Prefer not to answer” (9) as missing.</li>
+</ol>
 </section>
 <section id="task-4-bivariate-descriptive-analysis-4" class="level5">
 <h5 class="anchored" data-anchor-id="task-4-bivariate-descriptive-analysis-4">Task 4: Bivariate descriptive analysis</h5>
+<p>Cross-tabulate the dichotomised trust variable by your two-group age variable (column percentages).</p>
 </section>
 <section id="task-5-simple-regression-model-4" class="level5">
 <h5 class="anchored" data-anchor-id="task-5-simple-regression-model-4">Task 5: Simple regression model</h5>
+<p>Fit a logistic regression of trust on the young/older variable.</p>
 </section>
 <section id="task-6-multiple-regression-model-4" class="level5">
 <h5 class="anchored" data-anchor-id="task-6-multiple-regression-model-4">Task 6: Multiple regression model</h5>
+<p>Add <code>DVsex23</code> as a <strong>Factor</strong>. Note that in this survey <strong>Female</strong> is the first category, so JASP will report a coefficient for <code>DVsex23 (Male)</code>.</p>
 </section>
 <section id="task-7-interpretation-3" class="level5">
 <h5 class="anchored" data-anchor-id="task-7-interpretation-3">Task 7: Interpretation</h5>
+<div class="questionblock">
+<p><strong>Questions</strong></p>
+<ul>
+<li>What are the odds ratio and the predicted proportions trusting for 18-24-year-olds compared with those aged 25+?</li>
+<li>How many 18-24-year-olds is this estimate based on? What does that suggest about its precision?</li>
+</ul>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-28-contents" aria-controls="callout-28" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-28" class="callout-28-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>After the transformations, <strong>1,504</strong> respondents have valid answers on all three variables, but only <strong>80</strong> of them are aged 18-24.</p>
+<ul>
+<li>33.8% of 18-24-year-olds say people can almost always or usually be trusted, compared with 48.6% of those aged 25+.</li>
+<li>Simple model: young OR = <strong>0.54</strong> (95% CI 0.34 to 0.87, p = .011).</li>
+<li>Adjusting for sex: young OR = <strong>0.56</strong> (95% CI 0.35 to 0.91, p = .018): the odds of trusting are about 44% lower for 18-24-year-olds than for older respondents of the same sex. <code>DVsex23 (Male)</code>: OR = 1.43 (p &lt; .001), so men have about 43% higher odds of trusting than women.</li>
+<li>The direction and size of the age difference are similar to the CLS, but with only 80 young respondents the interval is very wide: the true odds ratio could plausibly be anywhere from about 10% lower to about 65% lower.</li>
+</ul>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="exercise-4.2.3.-british-social-attitudes-survey-2024" class="level3">
@@ -1401,31 +1986,102 @@ Figure&nbsp;14: “Social trust” operationalised in the 2024 BSA
 </div>
 <section id="task-1-summarise-the-variables-5" class="level5">
 <h5 class="anchored" data-anchor-id="task-1-summarise-the-variables-5">Task 1: Summarise the variables</h5>
+<p>The variables of interest are <code>ISSP_Q25</code> (trust, 0-10), <code>Ragecat</code> (age in eight groups) and <code>DVsex24</code> (sex). As in the CLS, the 0-10 answers are stored as the values 1 to 11.</p>
 </section>
 <section id="task-2-univariate-descriptive-analysis-5" class="level5">
 <h5 class="anchored" data-anchor-id="task-2-univariate-descriptive-analysis-5">Task 2: Univariate descriptive analysis</h5>
+<p>Request frequency tables and identify the non-substantive answers.</p>
 </section>
 <section id="task-3-data-transformations-5" class="level5">
 <h5 class="anchored" data-anchor-id="task-3-data-transformations-5">Task 3: Data transformations</h5>
+<ol type="1">
+<li><code>ISSP_Q25</code>: set “Can’t choose” (12) and “Prefer not to answer” (99) as missing. Keep a Scale version for linear regression and create a dichotomous version (6-10 = 1, 0-5 = 0) for logistic regression, exactly as for the CLS.</li>
+<li><code>Ragecat</code>: set code 9 as missing and recode 16-24 (1) vs 25+ (2-8).</li>
+<li><code>DVsex24</code>: set “Prefer not to answer” (9) as missing.</li>
+</ol>
 </section>
 <section id="task-4-bivariate-descriptive-analysis-5" class="level5">
 <h5 class="anchored" data-anchor-id="task-4-bivariate-descriptive-analysis-5">Task 4: Bivariate descriptive analysis</h5>
+<p>Compare mean trust (as Scale) between the two age groups, and cross-tabulate the dichotomised version by age group.</p>
 </section>
 <section id="task-5-simple-regression-model-5" class="level5">
 <h5 class="anchored" data-anchor-id="task-5-simple-regression-model-5">Task 5: Simple regression model</h5>
+<p>Fit a linear model (0-10 scale) and a logistic model (dichotomised) with the young/older variable as the only predictor.</p>
 </section>
 <section id="task-6-multiple-regression-model-5" class="level5">
 <h5 class="anchored" data-anchor-id="task-6-multiple-regression-model-5">Task 6: Multiple regression model</h5>
+<p>Fit both the linear and the logistic model with the young/older variable and <code>DVsex24</code>.</p>
 </section>
 <section id="task-7-interpretation-4" class="level5">
 <h5 class="anchored" data-anchor-id="task-7-interpretation-4">Task 7: Interpretation</h5>
+<div class="questionblock">
+<p><strong>Questions</strong></p>
+<ul>
+<li>Is there a statistically significant difference in trust between 16-24-year-olds and those aged 25+ in the BSA 2024?</li>
+<li>Does that mean the BSA 2024 <em>contradicts</em> the CLS 2023-24?</li>
+<li>Compare the average trust score in the BSA 2024 with the CLS. Both use a 0-10 scale: why might the averages be so different?</li>
+</ul>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-30-contents" aria-controls="callout-30" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-30" class="callout-30-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>1,453</strong> respondents have valid answers on all three variables, of whom only <strong>78</strong> are aged 16-24.</p>
+<ul>
+<li>Mean trust: <strong>4.14</strong> (16-24) vs <strong>4.33</strong> (25+) on the 0-10 scale.</li>
+<li><strong>Linear model</strong>: young −0.16 points (95% CI −0.71 to 0.40, p = .58). <code>DVsex24 (Male)</code>: +0.29 (p = .026).</li>
+<li><strong>Logistic model</strong> (6-10 = trusting): 28.2% vs 31.6% trusting; young OR = 0.87 (95% CI 0.52 to 1.44, p = .58).</li>
+</ul>
+<p>The difference is in the same direction as in the CLS but small and not statistically significant. That does <strong>not</strong> contradict the CLS: the BSA’s confidence interval (−0.71 to 0.40) includes the CLS estimate of −0.59. With 78 young respondents the BSA 2024 simply cannot estimate the age difference precisely: “no statistically significant difference” is not the same as “no difference” (more on this in Workshop 5).</p>
+<p>The averages differ a lot (about 4.3 in the BSA vs 6.1 in the CLS) because the questions differ. The BSA scale runs from “You can’t be too careful” to “Most people can be trusted”; the CLS asks how much you trust most people, from “Not at all” to “Completely”. Different wording, anchors and survey designs put respondents’ answers in different places on the scale, so <em>levels</em> of trust should not be compared across surveys, even when both use 0-10.</p>
+</div>
+</div>
+</div>
 </section>
+</section>
+<section id="bringing-the-three-surveys-together" class="level3">
+<h3 class="anchored" data-anchor-id="bringing-the-three-surveys-together">Bringing the three surveys together</h3>
+<div class="questionblock">
+<p><strong>Questions</strong></p>
+<ul>
+<li>Write a three-sentence answer to the research question “Do young people (under-24s) have lower social trust in post-pandemic Britain?”, using all three surveys.</li>
+<li>Look back at Exercise 4.1.2: were young people also the least trusting group in 2010-11? What does that suggest about the “post-pandemic” part of the question?</li>
+</ul>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-31-contents" aria-controls="callout-31" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-31" class="callout-31-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>One possible answer:</p>
+<blockquote class="blockquote">
+<p>Across three recent surveys, young adults (16/18-24) report lower generalised trust than those aged 25 and over: 0.6 points lower on a 0-10 scale in the large Community Life Survey (England, 2023-24), with 40% lower odds of trusting, and 44% lower odds in the British Social Attitudes 2023. The British Social Attitudes 2024 shows a smaller difference that is not statistically significant, but its sample contains only 78 young respondents and its estimate is consistent with the other two. Trust rises steadily with age from the mid-30s, and the same pattern was already visible in the 2010-11 Citizenship Survey, so the evidence does not show that low trust among the young is a specifically post-pandemic phenomenon.</p>
+</blockquote>
+<p>In the 2010-11 Citizenship Survey, about 34% of the 16-24-year-olds who gave one of the two main answers (leaving aside “Depends”) said most people can be trusted, compared with almost half of those aged 75+. Young people were already the least trusting group a decade before the pandemic: to claim that the pandemic <em>changed</em> young people’s trust, we would need comparable measurements of the same population before and after it.</p>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="exercise-4.3-which-of-the-assignment-research-questions-could-be-addressed-using-a-logistic-regression-model" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-4.3-which-of-the-assignment-research-questions-could-be-addressed-using-a-logistic-regression-model">Exercise 4.3: Which of the assignment research questions could be addressed using a logistic regression model?</h2>
 <p>Let’s look again at the assignment research questions. Some of these questions imply a <em>dependent</em> variable which is measured as a <em>numeric scale</em> or at least a long-ish (e.g.&nbsp;7-point +) <em>ordinal scale</em> in one of the surveys we will use for the assignment (ESS10, WVS7, EVS2017). Other questions imply <em>dependent</em> variables that are more strictly <em>categorical</em>, and as such, we cannot model them using linear regression. For those, we may be able to apply a logistic regression model.</p>
-<p>If your chosen outcome variable is categorical with more than two categories but fewer than at least seven, you will have to dichotomise it in order to use it as a dependent variable in a logistic regression. While there are specific modelling methods for “multinomial” type outcome variables, we are not covering them on this module.</p>
+<p>If your chosen outcome variable is categorical with more than two categories but too few (fewer than about seven) to treat as a scale, you will have to dichotomise it in order to use it as a dependent variable in a logistic regression. While there are specific modelling methods for “multinomial” type outcome variables, we are not covering them on this module.</p>
 <p>In this exercise, explore the assignment dataset using the Variable search function on the website to identify any available variables for answering one/some of the questions below, and check how the implied dependent variable was measured:</p>
 <ol type="A">
 <li>Are religious people more satisfied with life?</li>
